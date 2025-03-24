@@ -114,6 +114,3 @@ The website is compatible with all modern browsers, including:
 
 Distributed under the MIT License. See `LICENSE` file for more information.
 
-## Contact Information
-
-For any questions or suggestions, please contact: theiconsofchange@gmail.com 
