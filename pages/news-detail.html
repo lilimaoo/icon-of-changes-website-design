@@ -1,0 +1,542 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Leadership Summit 2023 - Icons of Change</title>
+    <link rel="stylesheet" href="../css/style.css">
+    <link rel="stylesheet" href="../css/news-detail.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <style>
+        /* Enhanced styles */
+        .container {
+            max-width: 960px;
+            margin: 0 auto;
+            padding: 60px 20px;
+        }
+        
+        .article-header {
+            text-align: center;
+            margin-bottom: 40px;
+            position: relative;
+        }
+        
+        .article-header h1 {
+            font-size: 2.5rem;
+            line-height: 1.3;
+            margin-bottom: 25px;
+        }
+        
+        .article-meta {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-wrap: wrap;
+            gap: 30px;
+            margin: 20px 0;
+            color: #aaa;
+            font-size: 0.9rem;
+        }
+        
+        .article-category {
+            background-color: var(--primary-color);
+            color: #000;
+            font-size: 0.8rem;
+            font-weight: 600;
+            padding: 5px 15px;
+            border-radius: 50px;
+            position: relative;
+            margin-bottom: 15px;
+            display: inline-block;
+        }
+        
+        .article-actions {
+            display: flex;
+            justify-content: center;
+            gap: 15px;
+            margin: 40px 0;
+        }
+        
+        .like-button, .share-button {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 10px;
+            padding: 12px 25px;
+            border-radius: 50px;
+            background-color: transparent;
+            border: 2px solid var(--primary-color);
+            color: var(--primary-color);
+            font-weight: 600;
+            font-size: 1rem;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+        
+        .like-button:hover, .share-button:hover,
+        .like-button.liked {
+            background-color: var(--primary-color);
+            color: #000;
+        }
+        
+        .comments-section {
+            margin-top: 60px;
+            background-color: var(--card-bg);
+            padding: 40px;
+            border-radius: var(--border-radius);
+            border: 1px solid var(--primary-color);
+        }
+        
+        .comment-form {
+            padding: 30px;
+            border-radius: var(--border-radius);
+            margin-bottom: 30px;
+            background-color: rgba(255, 255, 255, 0.05);
+        }
+        
+        .related-posts {
+            margin: 60px 0;
+        }
+        
+        .related-posts h3 {
+            font-size: 1.8rem;
+            margin-bottom: 30px;
+            text-align: center;
+        }
+        
+        .related-posts-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+            gap: 30px;
+        }
+        
+        /* Golden heading styles */
+        .article-content h2 {
+            color: var(--primary-color);
+            font-size: 1.8rem;
+            margin: 40px 0 20px;
+            border-bottom: 2px solid var(--primary-color);
+            padding-bottom: 10px;
+        }
+        
+        /* Comments load more button styles */
+        .load-more-comments {
+            display: block;
+            margin: 20px auto;
+            padding: 10px 25px;
+            background-color: transparent;
+            border: 2px solid var(--primary-color);
+            color: var(--primary-color);
+            border-radius: 50px;
+            cursor: pointer;
+            font-weight: 600;
+            transition: all 0.3s ease;
+        }
+        
+        .load-more-comments:hover {
+            background-color: var(--primary-color);
+            color: #000;
+        }
+        
+        @media (max-width: 768px) {
+            .container {
+                padding: 40px 20px;
+            }
+            
+            .article-header h1 {
+                font-size: 2rem;
+            }
+            
+            .comments-section {
+                padding: 30px 20px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <nav class="navbar">
+            <div class="logo-container">
+                <a href="../index.html" class="logo">
+                    <img src="../images/logo.png" alt="Icons of Change Logo" class="logo-img">
+                    <span class="logo-text">Icons of <span class="highlight">Change</span></span>
+                </a>
+            </div>
+            <div class="nav-links">
+                <a href="../index.html">Home</a>
+                <a href="about.html">About Us</a>
+                <a href="programs.html">Programs</a>
+                <a href="volunteer.html">Volunteer</a>
+                <a href="news.html" class="active">News & Impact</a>
+                <a href="contact.html">Contact</a>
+            </div>
+            <div class="social-icons">
+                <a href="https://www.facebook.com/@IconsOfChangePhilippines" target="_blank" class="social-icon">
+                    <i class="fab fa-facebook-f"></i>
+                </a>
+            </div>
+            <a href="volunteer.html" class="cta-button">Become a Volunteer</a>
+        </nav>
+    </header>
+
+    <div class="container">
+        <article data-article-id="1">
+            <div class="article-header">
+                <span class="article-category">News</span>
+                <h1>Leadership Summit 2023: Transforming Communities Through Collaborative Action</h1>
+                <div class="article-meta">
+                    <span class="article-date"><i class="far fa-calendar-alt"></i> May 15, 2023</span>
+                    <span class="article-views"><i class="far fa-eye"></i> <span class="article-views-count">0</span> views</span>
+                    <span class="article-likes"><i class="far fa-heart"></i> <span class="article-likes-count">0</span> likes</span>
+                    <span class="article-comments"><i class="far fa-comment"></i> <span class="article-comments-count">0</span> comments</span>
+                </div>
+            </div>
+            
+            <div class="article-featured-image">
+                <img src="../images/event-placeholder.jpg" alt="Leadership Summit 2023">
+            </div>
+            
+            <div class="article-content">
+                <p>
+                    The 2023 Leadership Summit, organized by Icons of Change, successfully brought together over 200 community leaders, experts, and changemakers from across the Philippines to discuss innovative approaches to sustainable development and community transformation. Held on May 10-12 at the Manila Convention Center, the three-day event featured keynote speeches, interactive workshops, panel discussions, and networking opportunities.
+                </p>
+                
+                <h2>Building Bridges for Collective Impact</h2>
+                <p>
+                    Under the theme "Building Bridges for Collective Impact," the summit emphasized the importance of collaborative action between different sectors - government agencies, non-profit organizations, businesses, educational institutions, and community groups - to address complex social and environmental challenges.
+                </p>
+                
+                <p>
+                    "The problems we face today are too complex for any single organization or sector to solve alone," said Maria Santos, Executive Director of Icons of Change, in her opening remarks. "This summit is about bringing diverse perspectives together to create holistic solutions that can truly transform communities."
+                </p>
+                
+                <blockquote>
+                    "True leadership isn't about having all the answers, but about bringing the right people together and creating the conditions for collaborative problem-solving."
+                    <footer>— Dr. James Chen, Keynote Speaker</footer>
+                </blockquote>
+                
+                <h2>Highlights of the Summit</h2>
+                <p>
+                    The summit featured several notable highlights:
+                </p>
+                
+                <ul>
+                    <li>
+                        <strong>Keynote Address:</strong> Internationally renowned community development expert Dr. James Chen delivered a powerful keynote address on "Adaptive Leadership in Times of Change," emphasizing the need for leaders to be flexible, inclusive, and forward-thinking.
+                    </li>
+                    <li>
+                        <strong>Case Study Presentations:</strong> Fifteen successful community initiatives from different regions presented their work, sharing insights, challenges, and lessons learned.
+                    </li>
+                    <li>
+                        <strong>Skills Development Workshops:</strong> Participants engaged in hands-on workshops covering topics such as strategic planning, resource mobilization, conflict resolution, digital tools for community engagement, and measuring social impact.
+                    </li>
+                    <li>
+                        <strong>Cross-Sector Dialogues:</strong> Facilitated discussions brought together representatives from different sectors to identify opportunities for collaboration and develop action plans.
+                    </li>
+                </ul>
+                
+                <h2>Innovative Solutions Showcased</h2>
+                <p>
+                    A highlight of the summit was the Innovation Showcase, where organizations presented creative solutions to pressing community challenges. Among the noteworthy initiatives were:
+                </p>
+                
+                <ul>
+                    <li>A mobile education program bringing quality learning resources to remote villages</li>
+                    <li>A community-based waste management system that creates livelihood opportunities</li>
+                    <li>A digital platform connecting small-scale farmers directly with urban consumers</li>
+                    <li>A youth-led mental health support program using peer counseling and creative arts</li>
+                </ul>
+                
+                <h2>Looking Forward: Commitments and Next Steps</h2>
+                <p>
+                    The summit concluded with participants making concrete commitments to collaborative action. Ten new cross-sector partnerships were formed during the event, with formal agreements to work together on specific initiatives.
+                </p>
+                
+                <p>
+                    Icons of Change announced the establishment of a Leadership Innovation Fund that will provide seed grants to support collaborative projects initiated at the summit. The organization also committed to creating an online platform where participants can continue sharing resources, updates, and opportunities beyond the event.
+                </p>
+                
+                <p>
+                    "This summit is not just an event, but the beginning of a movement," said Santos. "The connections made and commitments established here will continue to grow and generate positive impact in communities across the country."
+                </p>
+                
+                <p>
+                    A follow-up regional mini-summit is planned for October 2023, where participants will reconvene to share progress on their collaborative initiatives and expand the network of changemakers.
+                </p>
+            </div>
+            
+            <div class="article-actions">
+                <button class="like-button">
+                    <i class="far fa-heart"></i> Like
+                </button>
+                <button class="share-button">
+                    <i class="fas fa-share-alt"></i> Share
+                </button>
+            </div>
+        </article>
+        
+        <section class="related-posts">
+            <h3>Related Articles</h3>
+            <div class="related-posts-grid">
+                <div class="news-card">
+                    <div class="news-image">
+                        <img src="../images/event-placeholder.jpg" alt="Related Article 1">
+                    </div>
+                    <div class="news-details">
+                        <div class="news-meta">
+                            <span class="news-category">News</span>
+                            <span class="news-date"><i class="far fa-calendar-alt"></i> April 10, 2023</span>
+                        </div>
+                        <h3>Youth Leaders Conference Announces 2023 Speakers</h3>
+                        <p>This year's conference will feature internationally recognized youth activists and social entrepreneurs who have created significant impact in their communities.</p>
+                        <a href="news-detail.html" class="text-link">Read More</a>
+                    </div>
+                </div>
+                
+                <div class="news-card">
+                    <div class="news-image">
+                        <img src="../images/event-placeholder.jpg" alt="Related Article 2">
+                    </div>
+                    <div class="news-details">
+                        <div class="news-meta">
+                            <span class="news-category">News</span>
+                            <span class="news-date"><i class="far fa-calendar-alt"></i> May 20, 2023</span>
+                        </div>
+                        <h3>Community Workshop Series Launches in 5 New Locations</h3>
+                        <p>Our popular workshop series on sustainable community development is expanding to five new provinces, reaching over 500 additional local leaders.</p>
+                        <a href="news-detail.html" class="text-link">Read More</a>
+                    </div>
+                </div>
+                
+                <div class="news-card">
+                    <div class="news-image">
+                        <img src="../images/event-placeholder.jpg" alt="Related Article 3">
+                    </div>
+                    <div class="news-details">
+                        <div class="news-meta">
+                            <span class="news-category">Impact</span>
+                            <span class="news-date"><i class="far fa-calendar-alt"></i> March 30, 2023</span>
+                        </div>
+                        <h3>5 Years of Impact: Our Journey So Far</h3>
+                        <p>As Icons of Change celebrates its fifth anniversary, we reflect on the milestones, challenges, and growing community of changemakers that define our journey.</p>
+                        <a href="news-detail.html" class="text-link">Read More</a>
+                    </div>
+                </div>
+            </div>
+        </section>
+        
+        <section class="comments-section">
+            <div class="comments-header">
+                <h3>Comments</h3>
+                <span class="comments-count"><span class="article-comments-count">0</span> Comments</span>
+            </div>
+            
+            <div class="comments-list">
+                <!-- Comments will be loaded dynamically -->
+            </div>
+            
+            <button class="load-more-comments" style="display: none;">Show More Comments</button>
+            
+            <div class="comment-form">
+                <h4>Leave a Comment</h4>
+                <form id="commentForm">
+                    <div class="form-group">
+                        <label for="commentName">Name</label>
+                        <input type="text" id="commentName" class="form-control" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="commentEmail">Email</label>
+                        <input type="email" id="commentEmail" class="form-control" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="commentContent">Comment</label>
+                        <textarea id="commentContent" class="form-control" required></textarea>
+                    </div>
+                    <button type="submit" class="cta-button">Post Comment</button>
+                </form>
+            </div>
+        </section>
+    </div>
+
+    <footer>
+        <div class="footer-content">
+            <div class="footer-logo">
+                <a href="../index.html">
+                    <img src="../images/logo.png" alt="Icons of Change Logo" class="footer-logo-img">
+                    <span class="logo-text">Icons of <span class="highlight">Change</span></span>
+                </a>
+            </div>
+            <div class="footer-links">
+                <a href="../index.html">Home</a>
+                <a href="about.html">About Us</a>
+                <a href="programs.html">Programs</a>
+                <a href="volunteer.html">Volunteer</a>
+                <a href="news.html">News & Impact</a>
+                <a href="contact.html">Contact</a>
+            </div>
+            <div class="footer-cta">
+                <a href="volunteer.html" class="cta-button">Become a Volunteer</a>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>© Icons of Change All Rights Reserved | <a href="privacy.html">Privacy Policy</a> | <a href="terms.html">Terms</a> | <a href="sitemap.html">Sitemap</a></p>
+        </div>
+    </footer>
+    
+    <script src="../js/main.js"></script>
+    <script src="../js/news-detail.js"></script>
+    <script>
+        // Modify comment display logic
+        document.addEventListener('DOMContentLoaded', function() {
+            // Override the original initCommentSystem function
+            window.originalInitCommentSystem = window.initCommentSystem;
+            
+            // Redefine initCommentSystem function
+            window.initCommentSystem = function() {
+                const commentForm = document.getElementById('commentForm');
+                const commentsContainer = document.querySelector('.comments-list');
+                const commentCount = document.querySelector('.article-comments-count');
+                const loadMoreBtn = document.querySelector('.load-more-comments');
+                
+                if (!commentForm || !commentsContainer || !commentCount) return;
+                
+                const articleId = getArticleId();
+                
+                // Get comments from localStorage
+                let comments = JSON.parse(localStorage.getItem(`article_${articleId}_comments`)) || [];
+                
+                // If no comments, generate some dummy comments
+                if (comments.length === 0) {
+                    comments = generateDummyComments();
+                    localStorage.setItem(`article_${articleId}_comments`, JSON.stringify(comments));
+                }
+                
+                // Sort by likes count
+                comments.sort((a, b) => b.likes - a.likes);
+                
+                // Update total comment count
+                updateCommentCount(comments.length);
+                
+                // Initially show only top 3 comments
+                displayComments(comments.slice(0, 3));
+                
+                // Handle "Load More" button visibility
+                if (comments.length > 3) {
+                    loadMoreBtn.style.display = 'block';
+                    loadMoreBtn.textContent = `Show More Comments (${comments.length - 3})`;
+                } else {
+                    loadMoreBtn.style.display = 'none';
+                }
+                
+                // Handle comment form submission
+                commentForm.addEventListener('submit', function(e) {
+                    e.preventDefault();
+                    
+                    const nameInput = document.getElementById('commentName');
+                    const emailInput = document.getElementById('commentEmail');
+                    const contentInput = document.getElementById('commentContent');
+                    
+                    if (!nameInput.value || !emailInput.value || !contentInput.value) {
+                        showFormMessage(commentForm, 'Please fill in all fields', 'error');
+                        return;
+                    }
+                    
+                    // Create new comment object
+                    const newComment = {
+                        id: Date.now(),
+                        name: nameInput.value,
+                        email: emailInput.value,
+                        content: contentInput.value,
+                        date: new Date().toISOString(),
+                        likes: 0,
+                        replies: []
+                    };
+                    
+                    // Add to comments array and save to localStorage
+                    comments.unshift(newComment);
+                    localStorage.setItem(`article_${articleId}_comments`, JSON.stringify(comments));
+                    
+                    // Resort by likes count
+                    comments.sort((a, b) => b.likes - a.likes);
+                    
+                    // Clear form
+                    commentForm.reset();
+                    
+                    // Show updated comments
+                    displayComments(comments.slice(0, 3));
+                    
+                    // Update comment count
+                    updateCommentCount(comments.length);
+                    
+                    // Show success message
+                    showFormMessage(commentForm, 'Comment posted successfully!', 'success');
+                    
+                    // If more than 3 comments, show load more button
+                    if (comments.length > 3) {
+                        loadMoreBtn.style.display = 'block';
+                        loadMoreBtn.textContent = `Show More Comments (${comments.length - 3})`;
+                    } else {
+                        loadMoreBtn.style.display = 'none';
+                    }
+                });
+                
+                // Load more button click handler
+                if (loadMoreBtn) {
+                    loadMoreBtn.addEventListener('click', function() {
+                        const visibleComments = document.querySelectorAll('.comment-item').length;
+                        const nextBatch = Math.min(visibleComments + 3, comments.length);
+                        
+                        // Show next 3 comments
+                        displayComments(comments.slice(0, nextBatch));
+                        
+                        // If all comments are visible, hide button
+                        if (nextBatch >= comments.length) {
+                            loadMoreBtn.style.display = 'none';
+                        } else {
+                            loadMoreBtn.textContent = `Show More Comments (${comments.length - nextBatch})`;
+                        }
+                    });
+                }
+                
+                // Use event delegation to handle comment replies and likes
+                commentsContainer.addEventListener('click', function(e) {
+                    // Handle reply button click
+                    if (e.target.classList.contains('reply-button')) {
+                        // Original reply logic stays unchanged
+                    }
+                    
+                    // Handle like button click
+                    if (e.target.classList.contains('like-comment') || e.target.parentElement.classList.contains('like-comment')) {
+                        const commentElement = e.target.closest('.comment-item');
+                        const commentId = parseInt(commentElement.dataset.commentId);
+                        
+                        // Update likes count in comments array
+                        const comment = comments.find(c => c.id === commentId);
+                        if (comment) {
+                            comment.likes++;
+                            
+                            // Update like count in DOM
+                            const likeCount = commentElement.querySelector('.like-count');
+                            if (likeCount) {
+                                likeCount.textContent = comment.likes;
+                            }
+                            
+                            // Save to localStorage
+                            localStorage.setItem(`article_${articleId}_comments`, JSON.stringify(comments));
+                            
+                            // Resort and refresh display
+                            comments.sort((a, b) => b.likes - a.likes);
+                            displayComments(comments.slice(0, Math.max(3, visibleComments)));
+                        }
+                    }
+                });
+            };
+            
+            // Replace original function with new version
+            if (window.originalInitCommentSystem) {
+                window.initCommentSystem();
+            }
+        });
+    </script>
+</body>
+</html> 

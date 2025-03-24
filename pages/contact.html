@@ -1,0 +1,627 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>Contact Us - Icons of Change</title>
+    <link rel="stylesheet" href="../css/style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <style>
+        /* Contact page specific styles */
+        .contact-hero {
+            background-color: var(--dark-bg);
+            padding: 150px 0 100px;
+            text-align: center;
+            position: relative;
+            background-image: url('../images/contact-bg.jpg');
+            background-size: cover;
+            background-position: center;
+            color: #fff;
+            width: 100%;
+        }
+        
+        .contact-hero::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.7);
+        }
+        
+        .contact-hero-content {
+            max-width: 1200px;
+            margin: 0 auto;
+            position: relative;
+            z-index: 1;
+            padding: 0 20px;
+        }
+        
+        .contact-hero-content h1 {
+            font-size: 3.5rem;
+            margin-bottom: 20px;
+            color: var(--primary-color);
+        }
+        
+        .contact-hero-content p {
+            font-size: 1.2rem;
+            margin-bottom: 30px;
+            line-height: 1.8;
+            color: #fff;
+            max-width: 800px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+        
+        .contact-section {
+            padding: 100px 0;
+            background-color: var(--dark-bg);
+            width: 100%;
+        }
+        
+        .contact-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: flex;
+            flex-wrap: wrap;
+            gap: 40px;
+            padding: 0 20px;
+        }
+        
+        .contact-info {
+            flex: 1;
+            min-width: 300px;
+        }
+        
+        .contact-info h2 {
+            font-size: 2rem;
+            margin-bottom: 30px;
+            color: var(--primary-color);
+        }
+        
+        .contact-info p {
+            margin-bottom: 30px;
+            color: #aaa;
+            line-height: 1.6;
+        }
+        
+        .contact-card {
+            background-color: var(--card-bg);
+            border-radius: var(--border-radius);
+            padding: 30px;
+            margin-bottom: 30px;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            transition: all 0.3s ease;
+        }
+        
+        .contact-card:hover {
+            transform: translateY(-5px);
+            border-color: var(--primary-color);
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+        }
+        
+        .contact-item {
+            display: flex;
+            align-items: flex-start;
+            margin-bottom: 20px;
+        }
+        
+        .contact-item:last-child {
+            margin-bottom: 0;
+        }
+        
+        .contact-icon {
+            color: var(--primary-color);
+            font-size: 1.5rem;
+            margin-right: 15px;
+            min-width: 30px;
+        }
+        
+        .contact-text h3 {
+            font-size: 1.2rem;
+            margin-bottom: 5px;
+            color: #fff;
+        }
+        
+        .contact-text p {
+            color: #aaa;
+            margin-bottom: 0;
+        }
+        
+        .contact-form {
+            flex: 1;
+            min-width: 300px;
+        }
+        
+        .contact-form h2 {
+            font-size: 2rem;
+            margin-bottom: 30px;
+            color: var(--primary-color);
+        }
+        
+        .form-group {
+            margin-bottom: 20px;
+        }
+        
+        .form-label {
+            display: block;
+            margin-bottom: 8px;
+            color: #fff;
+        }
+        
+        .form-control {
+            width: 100%;
+            padding: 15px;
+            border-radius: var(--border-radius);
+            background-color: var(--card-bg);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            color: #fff;
+            font-size: 1rem;
+            transition: all 0.3s ease;
+        }
+        
+        .form-control:focus {
+            outline: none;
+            border-color: var(--primary-color);
+        }
+        
+        textarea.form-control {
+            min-height: 150px;
+            resize: vertical;
+        }
+        
+        .map-section {
+            padding: 0 0 100px;
+            background-color: var(--dark-bg);
+            width: 100%;
+        }
+        
+        .map-wrapper {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+        
+        .map-container {
+            width: 100%;
+            height: 500px;
+            border-radius: var(--border-radius);
+            overflow: hidden;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+        }
+        
+        .map-container iframe {
+            width: 100%;
+            height: 100%;
+            border: 0;
+        }
+        
+        .faq-section {
+            padding: 100px 0;
+            background-color: var(--light-bg);
+            width: 100%;
+        }
+        
+        .faq-header {
+            text-align: center;
+            margin-bottom: 60px;
+            max-width: 1200px;
+            margin-left: auto;
+            margin-right: auto;
+            padding: 0 20px;
+        }
+        
+        .faq-header h2 {
+            font-size: 2.5rem;
+            margin-bottom: 20px;
+            color: var(--primary-color);
+        }
+        
+        .faq-header p {
+            color: #aaa;
+            max-width: 700px;
+            margin: 0 auto;
+            line-height: 1.6;
+        }
+        
+        .faq-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+        
+        .faq-content {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+        
+        .faq-item {
+            background-color: var(--card-bg);
+            border-radius: var(--border-radius);
+            margin-bottom: 20px;
+            overflow: hidden;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+        }
+        
+        .faq-question {
+            padding: 20px;
+            cursor: pointer;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            font-weight: 600;
+            color: #fff;
+        }
+        
+        .faq-question:hover {
+            color: var(--primary-color);
+        }
+        
+        .faq-answer {
+            padding: 0 20px 20px;
+            color: #aaa;
+            line-height: 1.6;
+            display: none;
+        }
+        
+        .faq-toggle {
+            color: var(--primary-color);
+            font-size: 1.2rem;
+        }
+        
+        @media (max-width: 768px) {
+            .contact-hero-content h1 {
+                font-size: 2.5rem;
+            }
+            
+            .contact-card {
+                padding: 20px;
+            }
+            
+            .map-container {
+                height: 350px;
+            }
+            
+            .faq-header h2 {
+                font-size: 2rem;
+            }
+        }
+        
+        /* Fix for Edge Browser */
+        @supports (-ms-ime-align:auto) {
+            .contact-container,
+            .map-wrapper,
+            .faq-container {
+                display: block;
+                width: 100%;
+            }
+            
+            .contact-info,
+            .contact-form {
+                display: inline-block;
+                vertical-align: top;
+                width: 48%;
+            }
+            
+            .faq-content {
+                width: 100%;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <nav class="navbar">
+            <div class="logo-container">
+                <a href="../index.html" class="logo">
+                    <img src="../images/logo.png" alt="Icons of Change Logo" class="logo-img">
+                    <span class="logo-text">Icons of <span class="highlight">Change</span></span>
+                </a>
+            </div>
+            <div class="nav-links">
+                <a href="../index.html">Home</a>
+                <a href="about.html">About Us</a>
+                <a href="programs.html">Programs</a>
+                <a href="volunteer.html">Volunteer</a>
+                <a href="news.html">News & Impact</a>
+                <a href="contact.html" class="active">Contact</a>
+            </div>
+            <div class="social-icons">
+                <a href="https://www.facebook.com/@IconsOfChangePhilippines" target="_blank" class="social-icon">
+                    <i class="fab fa-facebook-f"></i>
+                </a>
+            </div>
+            <a href="volunteer.html" class="cta-button">Become a Volunteer</a>
+        </nav>
+    </header>
+
+    <section class="contact-hero">
+        <div class="contact-hero-content">
+            <h1>Contact Us</h1>
+            <p>Have a question or want to get involved? We'd love to hear from you. Reach out to our team using any of the methods below.</p>
+        </div>
+    </section>
+
+    <section class="contact-section">
+        <div class="contact-container">
+            <div class="contact-info">
+                <h2>Get in Touch</h2>
+                <p>At Icons of Change, we're always looking to connect with changemakers, partners, and supporters. Whether you have a question about our programs, want to volunteer, or have a collaboration idea, we're here to help.</p>
+                
+                <div class="contact-card">
+                    <div class="contact-item">
+                        <div class="contact-icon">
+                            <i class="fas fa-map-marker-alt"></i>
+                        </div>
+                        <div class="contact-text">
+                            <h3>Address</h3>
+                            <p>Las Piñas, Philippines</p>
+                        </div>
+                    </div>
+                    
+                    <div class="contact-item">
+                        <div class="contact-icon">
+                            <i class="fas fa-envelope"></i>
+                        </div>
+                        <div class="contact-text">
+                            <h3>Email</h3>
+                            <p>theiconsofchange@gmail.com</p>
+                        </div>
+                    </div>
+                    
+                    <div class="contact-item">
+                        <div class="contact-icon">
+                            <i class="fas fa-phone"></i>
+                        </div>
+                        <div class="contact-text">
+                            <h3>Phone</h3>
+                            <p>(872) 254-6373</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="contact-card">
+                    <div class="contact-item">
+                        <div class="contact-icon">
+                            <i class="fas fa-clock"></i>
+                        </div>
+                        <div class="contact-text">
+                            <h3>Office Hours</h3>
+                            <p>Monday - Friday: 9:00 AM - 5:00 PM</p>
+                            <p>Saturday: 10:00 AM - 2:00 PM</p>
+                            <p>Sunday: Closed</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="contact-card">
+                    <div class="contact-item">
+                        <div class="contact-icon">
+                            <i class="fas fa-share-alt"></i>
+                        </div>
+                        <div class="contact-text">
+                            <h3>Social Media</h3>
+                            <p>Follow us for updates and news</p>
+                        </div>
+                    </div>
+                    <div style="display: flex; gap: 15px; padding-left: 45px;">
+                        <a href="https://www.facebook.com/@IconsOfChangePhilippines" target="_blank" style="color: var(--primary-color); font-size: 1.5rem;">
+                            <i class="fab fa-facebook-f"></i>
+                        </a>
+                        <a href="https://www.instagram.com/iconsofchange" target="_blank" style="color: var(--primary-color); font-size: 1.5rem;">
+                            <i class="fab fa-instagram"></i>
+                        </a>
+                        <a href="https://www.twitter.com/iconsofchange" target="_blank" style="color: var(--primary-color); font-size: 1.5rem;">
+                            <i class="fab fa-twitter"></i>
+                        </a>
+                        <a href="https://www.linkedin.com/company/icons-of-change" target="_blank" style="color: var(--primary-color); font-size: 1.5rem;">
+                            <i class="fab fa-linkedin-in"></i>
+                        </a>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="contact-form">
+                <h2>Send Us a Message</h2>
+                <form id="contactForm">
+                    <div class="form-group">
+                        <label for="name" class="form-label">Your Name</label>
+                        <input type="text" id="name" class="form-control" required>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="email" class="form-label">Email Address</label>
+                        <input type="email" id="email" class="form-control" required>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="subject" class="form-label">Subject</label>
+                        <input type="text" id="subject" class="form-control" required>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="message" class="form-label">Your Message</label>
+                        <textarea id="message" class="form-control" required></textarea>
+                    </div>
+                    
+                    <button type="submit" class="cta-button" style="width: 100%;">Send Message</button>
+                </form>
+            </div>
+        </div>
+    </section>
+
+    <section class="map-section">
+        <div class="map-wrapper">
+            <div class="map-container">
+                <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d123668.39142239083!2d120.93863489761462!3d14.447229043128177!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3397ce472582cc2b%3A0xe1ef7f8e3a0cf190!2sLas%20Pi%C3%B1as%2C%20Metro%20Manila%2C%20Philippines!5e0!3m2!1sen!2s!4v1710570876321!5m2!1sen!2s" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+            </div>
+        </div>
+    </section>
+
+    <section class="faq-section">
+        <div class="faq-header">
+            <h2>Frequently Asked <span class="highlight">Questions</span></h2>
+            <p>Find answers to common questions about Icons of Change, our programs, and how you can get involved.</p>
+        </div>
+        
+        <div class="faq-container">
+            <div class="faq-content">
+                <div class="faq-item">
+                    <div class="faq-question">
+                        How can I become a volunteer with Icons of Change?
+                        <div class="faq-toggle">
+                            <i class="fas fa-plus"></i>
+                        </div>
+                    </div>
+                    <div class="faq-answer">
+                        To volunteer with Icons of Change, visit our Volunteer Opportunities page and fill out the application form. Once submitted, our team will review your details and invite you to an orientation session. Depending on your role, training may be provided before you start assisting in events, mentorship, or community projects. For more details, contact us at theiconsofchange@gmail.com.
+                    </div>
+                </div>
+                
+                <div class="faq-item">
+                    <div class="faq-question">
+                        How can I nominate someone for an Icons of Change award?
+                        <div class="faq-toggle">
+                            <i class="fas fa-plus"></i>
+                        </div>
+                    </div>
+                    <div class="faq-answer">
+                        To nominate someone for an Icons of Change award, visit our Nominations page and complete the nomination form with details about the nominee and their contributions to community development. Our selection committee reviews all nominations quarterly. Nominees should demonstrate leadership, innovation, and measurable impact in their communities.
+                    </div>
+                </div>
+                
+                <div class="faq-item">
+                    <div class="faq-question">
+                        What types of programs does Icons of Change offer?
+                        <div class="faq-toggle">
+                            <i class="fas fa-plus"></i>
+                        </div>
+                    </div>
+                    <div class="faq-answer">
+                        Icons of Change offers various programs including leadership development workshops, community project funding, social entrepreneurship training, environmental sustainability initiatives, and youth empowerment programs. We also provide networking opportunities through our annual summit and regular community gatherings. Check our Programs page for current offerings and upcoming schedules.
+                    </div>
+                </div>
+                
+                <div class="faq-item">
+                    <div class="faq-question">
+                        How can I support Icons of Change?
+                        <div class="faq-toggle">
+                            <i class="fas fa-plus"></i>
+                        </div>
+                    </div>
+                    <div class="faq-answer">
+                        You can support Icons of Change in multiple ways: volunteer your time and skills, become a financial contributor, partner with us as an organization, donate resources or equipment, provide mentorship to our community members, or help spread awareness about our mission. Visit our Support page to learn more about how you can make a difference.
+                    </div>
+                </div>
+                
+                <div class="faq-item">
+                    <div class="faq-question">
+                        Where can I find updates on upcoming events?
+                        <div class="faq-toggle">
+                            <i class="fas fa-plus"></i>
+                        </div>
+                    </div>
+                    <div class="faq-answer">
+                        For the latest updates on our upcoming events, you can follow us on social media platforms, subscribe to our monthly newsletter, or regularly check the Events section on our website. We also send email notifications to our community members about important events and opportunities to participate.
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <div class="footer-content">
+            <div class="footer-logo">
+                <a href="../index.html">
+                    <img src="../images/logo.png" alt="Icons of Change Logo" class="footer-logo-img">
+                    <span class="logo-text">Icons of <span class="highlight">Change</span></span>
+                </a>
+            </div>
+            <div class="footer-links">
+                <a href="../index.html">Home</a>
+                <a href="about.html">About Us</a>
+                <a href="programs.html">Programs</a>
+                <a href="volunteer.html">Volunteer</a>
+                <a href="news.html">News & Impact</a>
+                <a href="contact.html">Contact Us</a>
+            </div>
+            <div class="footer-cta">
+                <a href="volunteer.html" class="cta-button">Become a Volunteer</a>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>© Icons of Change All Rights Reserved | <a href="privacy.html">Privacy Policy</a> | <a href="terms.html">Terms</a> | <a href="sitemap.html">Sitemap</a></p>
+        </div>
+    </footer>
+
+    <script>
+        // FAQ Toggle
+        document.querySelectorAll('.faq-question').forEach(question => {
+            question.addEventListener('click', () => {
+                const answer = question.nextElementSibling;
+                const icon = question.querySelector('.faq-toggle i');
+                
+                if (answer.style.display === 'block') {
+                    answer.style.display = 'none';
+                    icon.classList.remove('fa-minus');
+                    icon.classList.add('fa-plus');
+                } else {
+                    answer.style.display = 'block';
+                    icon.classList.remove('fa-plus');
+                    icon.classList.add('fa-minus');
+                }
+            });
+        });
+        
+        document.addEventListener('DOMContentLoaded', function() {
+            const contactForm = document.getElementById('contactForm');
+            
+            contactForm.addEventListener('submit', function(e) {
+                e.preventDefault();
+                
+                // Simple form validation
+                const name = document.getElementById('name').value;
+                const email = document.getElementById('email').value;
+                const subject = document.getElementById('subject').value;
+                const message = document.getElementById('message').value;
+                
+                if (name && email && subject && message) {
+                    // Here you would typically send the form data to a server
+                    // For this example, we'll just show a success message
+                    
+                    // Success message
+                    const successMessage = document.createElement('div');
+                    successMessage.className = 'alert alert-success';
+                    successMessage.textContent = 'Your message has been sent successfully. We will get back to you soon!';
+                    
+                    // Insert the success message before the form
+                    contactForm.parentNode.insertBefore(successMessage, contactForm);
+                    
+                    // Reset the form
+                    contactForm.reset();
+                    
+                    // Remove the success message after 5 seconds
+                    setTimeout(function() {
+                        successMessage.remove();
+                    }, 5000);
+                } else {
+                    // Error message
+                    const errorMessage = document.createElement('div');
+                    errorMessage.className = 'alert alert-error';
+                    errorMessage.textContent = 'Please fill in all required fields.';
+                    
+                    // Insert the error message before the form
+                    contactForm.parentNode.insertBefore(errorMessage, contactForm);
+                    
+                    // Remove the error message after 5 seconds
+                    setTimeout(function() {
+                        errorMessage.remove();
+                    }, 5000);
+                }
+            });
+        });
+    </script>
+</body>
+</html> 

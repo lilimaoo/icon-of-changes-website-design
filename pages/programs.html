@@ -1,0 +1,793 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Programs - Icons of Change</title>
+    <link rel="stylesheet" href="../css/style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <style>
+        /* Programs page specific styles */
+        .programs-hero {
+            background-image: url('../images/programs-bg.jpg');
+            background-size: cover;
+            background-position: center;
+            color: #fff;
+            position: relative;
+            text-align: center;
+            padding: 100px 20px;
+        }
+        
+        .programs-hero::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.7);
+        }
+        
+        .programs-hero-content {
+            position: relative;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+        
+        .programs-hero h1 {
+            font-size: 3rem;
+            margin-bottom: 20px;
+        }
+        
+        .programs-intro {
+            background-color: var(--light-bg);
+            padding: 80px 20px;
+            text-align: center;
+        }
+        
+        .programs-intro-content {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+        
+        .programs-intro h2 {
+            font-size: 2rem;
+            margin-bottom: 30px;
+        }
+        
+        .programs-intro p {
+            margin-bottom: 30px;
+            line-height: 1.8;
+        }
+        
+        .program-categories {
+            padding: 80px 20px;
+        }
+        
+        .category-container {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+        
+        .category-heading {
+            text-align: center;
+            margin-bottom: 50px;
+        }
+        
+        .category-heading h2 {
+            font-size: 2rem;
+            margin-bottom: 15px;
+        }
+        
+        .program-grid-container {
+            margin-bottom: 60px;
+        }
+        
+        .program-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
+            gap: 30px;
+            margin-bottom: 30px;
+        }
+        
+        .program-card {
+            background-color: var(--card-bg);
+            border-radius: var(--border-radius);
+            overflow: hidden;
+            box-shadow: var(--shadow);
+            transition: var(--transition);
+            border: 1px solid var(--primary-color);
+        }
+        
+        .program-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.2);
+        }
+        
+        .program-image {
+            height: 200px;
+            overflow: hidden;
+        }
+        
+        .program-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: var(--transition);
+        }
+        
+        .program-card:hover .program-image img {
+            transform: scale(1.05);
+        }
+        
+        .program-details {
+            padding: 25px;
+        }
+        
+        .program-details h3 {
+            font-size: 1.4rem;
+            margin-bottom: 15px;
+        }
+        
+        .program-details p {
+            margin-bottom: 20px;
+            line-height: 1.6;
+        }
+        
+        .program-meta {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding-top: 20px;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+        }
+        
+        .program-date {
+            display: flex;
+            align-items: center;
+            color: var(--primary-color);
+            font-weight: 600;
+        }
+        
+        .program-date i {
+            margin-right: 8px;
+        }
+        
+        .apply-now {
+            font-weight: 600;
+            color: var(--primary-color);
+            transition: var(--transition);
+        }
+        
+        .apply-now:hover {
+            text-decoration: underline;
+        }
+        
+        .category-cta {
+            text-align: center;
+            margin-top: 20px;
+            margin-bottom: 60px;
+        }
+        
+        .timeline-section {
+            display: none;
+        }
+        
+        .timeline-container {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+        
+        .timeline-header {
+            text-align: center;
+            margin-bottom: 50px;
+        }
+        
+        .timeline-header h2 {
+            font-size: 2rem;
+            margin-bottom: 15px;
+        }
+        
+        .timeline {
+            position: relative;
+            padding: 20px 0;
+        }
+        
+        .timeline::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 2px;
+            height: 100%;
+            background-color: var(--primary-color);
+        }
+        
+        .timeline-item {
+            position: relative;
+            margin-bottom: 50px;
+            width: 50%;
+            padding: 0 40px;
+        }
+        
+        .timeline-item:nth-child(odd) {
+            left: 0;
+            text-align: right;
+        }
+        
+        .timeline-item:nth-child(even) {
+            left: 50%;
+            text-align: left;
+        }
+        
+        .timeline-item::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            width: 20px;
+            height: 20px;
+            background-color: var(--primary-color);
+            border-radius: 50%;
+        }
+        
+        .timeline-item:nth-child(odd)::before {
+            right: -10px;
+        }
+        
+        .timeline-item:nth-child(even)::before {
+            left: -10px;
+        }
+        
+        .timeline-content {
+            background-color: var(--card-bg);
+            padding: 20px;
+            border-radius: var(--border-radius);
+            box-shadow: var(--shadow);
+            border: 1px solid var(--primary-color);
+        }
+        
+        .timeline-content h3 {
+            margin-bottom: 10px;
+            color: var(--primary-color);
+        }
+        
+        @media (max-width: 768px) {
+            .timeline::before {
+                left: 30px;
+            }
+            
+            .timeline-item {
+                width: 100%;
+                padding-left: 70px;
+                padding-right: 20px;
+                text-align: left;
+            }
+            
+            .timeline-item:nth-child(odd) {
+                left: 0;
+                text-align: left;
+            }
+            
+            .timeline-item:nth-child(even) {
+                left: 0;
+            }
+            
+            .timeline-item::before {
+                left: 20px;
+            }
+            
+            .timeline-item:nth-child(odd)::before {
+                right: auto;
+                left: 20px;
+            }
+        }
+        
+        /* Search box styles */
+        .search-container {
+            margin: 30px auto 0;
+            display: flex;
+            max-width: 500px;
+        }
+        
+        .search-input {
+            flex: 1;
+            padding: 12px 15px;
+            border: 2px solid var(--primary-color);
+            border-radius: var(--border-radius) 0 0 var(--border-radius);
+            background-color: rgba(0, 0, 0, 0.2);
+            color: #fff;
+            font-size: 1rem;
+        }
+        
+        .search-button {
+            background-color: var(--primary-color);
+            color: #000;
+            border: none;
+            padding: 0 20px;
+            border-radius: 0 var(--border-radius) var(--border-radius) 0;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+        
+        .search-button:hover {
+            background-color: #ffcc00;
+        }
+        
+        .program-card.hidden {
+            display: none;
+        }
+        
+        .no-results {
+            text-align: center;
+            padding: 40px;
+            background-color: var(--card-bg);
+            border-radius: var(--border-radius);
+            margin: 20px auto;
+            max-width: 800px;
+            border: 1px solid var(--primary-color);
+        }
+        
+        .highlight-text {
+            background-color: yellow;
+            color: black;
+            padding: 0 2px;
+        }
+        
+        /* Show/hide program styles */
+        .program-grid-container {
+            margin-bottom: 60px;
+        }
+        
+        .program-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
+            gap: 30px;
+            margin-bottom: 30px;
+        }
+        
+        .program-card.hidden {
+            display: none;
+        }
+        
+        .show-more-button {
+            display: block;
+            margin: 0 auto;
+            padding: 12px 30px;
+            background-color: transparent;
+            border: 2px solid var(--primary-color);
+            color: var(--primary-color);
+            font-size: 1rem;
+            font-weight: 600;
+            border-radius: 50px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+        
+        .show-more-button:hover {
+            background-color: var(--primary-color);
+            color: #000;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <nav class="navbar">
+            <div class="logo-container">
+                <a href="../index.html" class="logo">
+                    <img src="../images/logo.png" alt="Icons of Change Logo" class="logo-img">
+                    <span class="logo-text">Icons of <span class="highlight">Change</span></span>
+                </a>
+            </div>
+            <div class="nav-links">
+                <a href="../index.html">Home</a>
+                <a href="about.html">About Us</a>
+                <a href="programs.html" class="active">Programs</a>
+                <a href="volunteer.html">Volunteer</a>
+                <a href="news.html">News & Impact</a>
+                <a href="contact.html">Contact</a>
+            </div>
+            <div class="social-icons">
+                <a href="https://www.facebook.com/@IconsOfChangePhilippines" target="_blank" class="social-icon">
+                    <i class="fab fa-facebook-f"></i>
+                </a>
+            </div>
+            <a href="volunteer.html" class="cta-button">Become a Volunteer</a>
+        </nav>
+    </header>
+
+    <section class="programs-hero">
+        <div class="programs-hero-content">
+            <h1>Our Programs</h1>
+        </div>
+    </section>
+
+    <section class="programs-intro">
+        <div class="programs-intro-content">
+            <h2>Empowering Through Action</h2>
+            <p>At Icons of Change, we develop and implement a variety of programs designed to empower individuals, build community capacity, and create sustainable impact. Our initiatives focus on leadership development, community engagement, environmental stewardship, and cross-sector collaboration.</p>
+            <p>Every program is crafted with careful attention to community needs, sustainability, and measurable outcomes. We believe in the power of local knowledge combined with global best practices.</p>
+            
+            <!-- Add search box -->
+            <div class="search-container">
+                <input type="text" id="programSearch" class="search-input" placeholder="Search programs...">
+                <button class="search-button" onclick="searchPrograms()">
+                    <i class="fas fa-search"></i>
+                </button>
+            </div>
+        </div>
+    </section>
+
+    <section class="program-categories">
+        <div class="category-container">
+            <div class="category-heading">
+                <h2>Leadership Development</h2>
+                <p>Cultivating the next generation of community changemakers</p>
+            </div>
+            
+            <div class="program-grid-container">
+                <div class="program-grid leadership-programs">
+                    <div class="program-card">
+                        <div class="program-image">
+                            <img src="../images/program-placeholder.jpg" alt="Youth Leadership Academy">
+                        </div>
+                        <div class="program-details">
+                            <h3>Youth Leadership Academy</h3>
+                            <p>A comprehensive 12-week program developing leadership skills, community awareness, and project management capabilities in young leaders aged 16-24.</p>
+                            <div class="program-meta">
+                                <div class="program-date">
+                                    <i class="far fa-calendar-alt"></i> Quarterly Intakes
+                                </div>
+                                <a href="program-details.html" class="apply-now">Learn More</a>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="program-card">
+                        <div class="program-image">
+                            <img src="../images/program-placeholder.jpg" alt="Women in Leadership">
+                        </div>
+                        <div class="program-details">
+                            <h3>Women in Leadership</h3>
+                            <p>Empowering women to take on leadership roles in their communities through mentorship, skill development, and networking opportunities.</p>
+                            <div class="program-meta">
+                                <div class="program-date">
+                                    <i class="far fa-calendar-alt"></i> Ongoing
+                                </div>
+                                <a href="program-details.html" class="apply-now">Learn More</a>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="program-card">
+                        <div class="program-image">
+                            <img src="../images/program-placeholder.jpg" alt="Community Leadership Certification">
+                        </div>
+                        <div class="program-details">
+                            <h3>Community Leadership Certification</h3>
+                            <p>A comprehensive certification program equipping community leaders with the tools, knowledge, and networks to create lasting change.</p>
+                            <div class="program-meta">
+                                <div class="program-date">
+                                    <i class="far fa-calendar-alt"></i> Biannual
+                                </div>
+                                <a href="program-details.html" class="apply-now">Learn More</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="category-cta">
+                <a href="program-application.html" class="cta-button">Apply for Leadership Programs</a>
+            </div>
+            
+            <div class="category-heading">
+                <h2>Community Development</h2>
+                <p>Building stronger, more resilient communities</p>
+            </div>
+            
+            <div class="program-grid-container">
+                <div class="program-grid community-programs">
+                    <div class="program-card">
+                        <div class="program-image">
+                            <img src="../images/program-placeholder.jpg" alt="Sustainable Communities Initiative">
+                        </div>
+                        <div class="program-details">
+                            <h3>Sustainable Communities Initiative</h3>
+                            <p>A holistic approach to community development focusing on economic resilience, environmental sustainability, and social cohesion.</p>
+                            <div class="program-meta">
+                                <div class="program-date">
+                                    <i class="far fa-calendar-alt"></i> Year-round
+                                </div>
+                                <a href="program-details.html" class="apply-now">Learn More</a>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="program-card">
+                        <div class="program-image">
+                            <img src="../images/program-placeholder.jpg" alt="Community Innovation Grants">
+                        </div>
+                        <div class="program-details">
+                            <h3>Community Innovation Grants</h3>
+                            <p>Providing financial support and mentorship for community-led initiatives that address local challenges in creative, sustainable ways.</p>
+                            <div class="program-meta">
+                                <div class="program-date">
+                                    <i class="far fa-calendar-alt"></i> Annual Applications
+                                </div>
+                                <a href="program-details.html" class="apply-now">Learn More</a>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="program-card">
+                        <div class="program-image">
+                            <img src="../images/program-placeholder.jpg" alt="Digital Inclusion Program">
+                        </div>
+                        <div class="program-details">
+                            <h3>Digital Inclusion Program</h3>
+                            <p>Bridging the digital divide by providing technology access, digital literacy training, and online resources to underserved communities.</p>
+                            <div class="program-meta">
+                                <div class="program-date">
+                                    <i class="far fa-calendar-alt"></i> Ongoing
+                                </div>
+                                <a href="program-details.html" class="apply-now">Learn More</a>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="program-card hidden">
+                        <div class="program-image">
+                            <img src="../images/program-placeholder.jpg" alt="Urban Agriculture Initiative">
+                        </div>
+                        <div class="program-details">
+                            <h3>Urban Agriculture Initiative</h3>
+                            <p>Promoting food security and sustainable food systems through urban farming education, community gardens, and local food networks.</p>
+                            <div class="program-meta">
+                                <div class="program-date">
+                                    <i class="far fa-calendar-alt"></i> Seasonal
+                                </div>
+                                <a href="program-details.html" class="apply-now">Learn More</a>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="program-card hidden">
+                        <div class="program-image">
+                            <img src="../images/program-placeholder.jpg" alt="Community Health Navigators">
+                        </div>
+                        <div class="program-details">
+                            <h3>Community Health Navigators</h3>
+                            <p>Training local volunteers to serve as health advocates and resource connectors, improving access to healthcare services in underserved areas.</p>
+                            <div class="program-meta">
+                                <div class="program-date">
+                                    <i class="far fa-calendar-alt"></i> Quarterly Training
+                                </div>
+                                <a href="program-details.html" class="apply-now">Learn More</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="category-cta">
+                    <button class="show-more-button" id="showMoreCommunity">Show more</button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="timeline-section">
+        <div class="timeline-container">
+            <div class="timeline-header">
+                <h2>Program Implementation Process</h2>
+                <p>Our structured approach to implementing meaningful and sustainable programs</p>
+            </div>
+            
+            <div class="timeline">
+                <div class="timeline-item">
+                    <div class="timeline-content">
+                        <h3>Needs Assessment</h3>
+                        <p>We begin by conducting thorough research and community consultations to identify critical needs and opportunities for impact.</p>
+                    </div>
+                </div>
+                
+                <div class="timeline-item">
+                    <div class="timeline-content">
+                        <h3>Program Design</h3>
+                        <p>Based on our findings, we design innovative and culturally appropriate programs with clear objectives and measurable outcomes.</p>
+                    </div>
+                </div>
+                
+                <div class="timeline-item">
+                    <div class="timeline-content">
+                        <h3>Resource Mobilization</h3>
+                        <p>We secure necessary resources, build partnerships, and prepare the infrastructure needed for successful implementation.</p>
+                    </div>
+                </div>
+                
+                <div class="timeline-item">
+                    <div class="timeline-content">
+                        <h3>Implementation</h3>
+                        <p>Programs are executed with community involvement and regular adaptations based on ongoing feedback and changing conditions.</p>
+                    </div>
+                </div>
+                
+                <div class="timeline-item">
+                    <div class="timeline-content">
+                        <h3>Monitoring & Evaluation</h3>
+                        <p>We continuously track progress and measure impact using both quantitative metrics and qualitative assessments.</p>
+                    </div>
+                </div>
+                
+                <div class="timeline-item">
+                    <div class="timeline-content">
+                        <h3>Sustainability & Scale</h3>
+                        <p>Successful programs are refined for sustainability and prepared for potential scaling to reach wider communities.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="join-us">
+        <div class="join-content">
+            <h2>Partner With Us<br><span class="highlight">For Greater Impact</span></h2>
+            <p>Are you an organization with similar goals? We believe in the power of collaboration to create meaningful change. Partner with Icons of Change to amplify your impact and reach more communities.</p>
+            <a href="contact.html" class="cta-button">Become a Partner</a>
+        </div>
+        <div class="join-image">
+            <img src="../images/partnership.jpg" alt="Partnership">
+        </div>
+    </section>
+
+    <footer>
+        <div class="footer-content">
+            <div class="footer-logo">
+                <a href="../index.html">
+                    <img src="../images/logo.png" alt="Icons of Change Logo" class="footer-logo-img">
+                    <span class="logo-text">Icons of <span class="highlight">Change</span></span>
+                </a>
+            </div>
+            <div class="footer-links">
+                <a href="../index.html">Home</a>
+                <a href="about.html">About Us</a>
+                <a href="programs.html">Programs</a>
+                <a href="volunteer.html">Volunteer</a>
+                <a href="news.html">News & Impact</a>
+                <a href="contact.html">Contact</a>
+            </div>
+            <div class="footer-cta">
+                <a href="volunteer.html" class="cta-button">Become a Volunteer</a>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>© Icons of Change All Rights Reserved | <a href="privacy.html">Privacy Policy</a> | <a href="terms.html">Terms</a> | <a href="sitemap.html">Sitemap</a></p>
+        </div>
+    </footer>
+
+    <script src="../js/main.js"></script>
+    <script>
+        // Program search functionality
+        function searchPrograms() {
+            const searchTerm = document.getElementById('programSearch').value.toLowerCase();
+            const programCards = document.querySelectorAll('.program-card');
+            const noResults = document.querySelector('.no-results');
+            
+            if (noResults) {
+                noResults.style.display = 'none';
+            }
+            
+            let hasResults = false;
+            
+            programCards.forEach(card => {
+                const cardText = card.textContent.toLowerCase();
+                
+                if (cardText.includes(searchTerm)) {
+                    card.classList.remove('hidden');
+                    hasResults = true;
+                    
+                    // Highlight matching text
+                    if (searchTerm !== '') {
+                        highlightText(card, searchTerm);
+                    } else {
+                        // Clear highlights
+                        clearHighlights(card);
+                    }
+                } else {
+                    card.classList.add('hidden');
+                }
+            });
+            
+            if (!hasResults && searchTerm !== '') {
+                if (!noResults) {
+                    const noResultsElem = document.createElement('div');
+                    noResultsElem.className = 'no-results';
+                    noResultsElem.innerHTML = `<h3>No programs found</h3><p>No programs matching "${searchTerm}" were found. Try different keywords.</p>`;
+                    document.querySelector('.category-container').appendChild(noResultsElem);
+                } else {
+                    noResults.style.display = 'block';
+                    noResults.innerHTML = `<h3>No programs found</h3><p>No programs matching "${searchTerm}" were found. Try different keywords.</p>`;
+                }
+            }
+        }
+        
+        function highlightText(element, searchTerm) {
+            const textNodes = getTextNodes(element);
+            
+            textNodes.forEach(node => {
+                const text = node.nodeValue;
+                const lowerText = text.toLowerCase();
+                let startIndex = 0;
+                let index;
+                
+                while ((index = lowerText.indexOf(searchTerm, startIndex)) > -1) {
+                    const span = document.createElement('span');
+                    span.className = 'highlight-text';
+                    
+                    const before = document.createTextNode(text.substring(startIndex, index));
+                    const match = document.createTextNode(text.substring(index, index + searchTerm.length));
+                    
+                    span.appendChild(match);
+                    
+                    const parent = node.parentNode;
+                    parent.insertBefore(before, node);
+                    parent.insertBefore(span, node);
+                    
+                    startIndex = index + searchTerm.length;
+                }
+                
+                if (startIndex > 0) {
+                    const after = document.createTextNode(text.substring(startIndex));
+                    node.parentNode.insertBefore(after, node);
+                    node.parentNode.removeChild(node);
+                }
+            });
+        }
+        
+        function getTextNodes(element) {
+            const textNodes = [];
+            
+            function getNodes(node) {
+                if (node.nodeType === 3) {
+                    textNodes.push(node);
+                } else {
+                    const children = node.childNodes;
+                    for (let i = 0; i < children.length; i++) {
+                        getNodes(children[i]);
+                    }
+                }
+            }
+            
+            getNodes(element);
+            return textNodes;
+        }
+        
+        function clearHighlights(element) {
+            const highlights = element.querySelectorAll('.highlight-text');
+            highlights.forEach(highlight => {
+                const parent = highlight.parentNode;
+                const text = highlight.textContent;
+                const textNode = document.createTextNode(text);
+                parent.replaceChild(textNode, highlight);
+            });
+        }
+        
+        // Show more button functionality
+        document.addEventListener('DOMContentLoaded', function() {
+            const showMoreButton = document.getElementById('showMoreCommunity');
+            if (showMoreButton) {
+                showMoreButton.addEventListener('click', function() {
+                    const hiddenCards = document.querySelectorAll('.community-programs .program-card.hidden');
+                    
+                    hiddenCards.forEach(card => {
+                        card.classList.remove('hidden');
+                    });
+                    
+                    // Hide show more button
+                    showMoreButton.style.display = 'none';
+                });
+            }
+        });
+    </script>
+</body>
+</html> 

@@ -1,0 +1,991 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>News & Impact - Icons of Change</title>
+    <link rel="stylesheet" href="../css/style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <style>
+        /* News page specific styles */
+        .news-hero {
+            background-image: url('../images/news-hero.jpg');
+            background-size: cover;
+            background-position: center;
+            color: #fff;
+            position: relative;
+            text-align: center;
+            padding: 100px 20px;
+        }
+        
+        .news-hero::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.7);
+        }
+        
+        .news-hero-content {
+            position: relative;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+        
+        .news-hero h1 {
+            font-size: 3rem;
+            margin-bottom: 20px;
+        }
+        
+        .news-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 80px 20px;
+        }
+        
+        .main-content {
+            width: 100%;
+        }
+        
+        .news-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            gap: 30px;
+            margin-bottom: 50px;
+        }
+        
+        .news-card {
+            background-color: var(--card-bg);
+            border-radius: var(--border-radius);
+            overflow: hidden;
+            box-shadow: var(--shadow);
+            transition: var(--transition);
+            border: 1px solid var(--primary-color);
+        }
+        
+        .news-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.2);
+        }
+        
+        .news-image {
+            height: 200px;
+            overflow: hidden;
+        }
+        
+        .news-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: var(--transition);
+        }
+        
+        .news-card:hover .news-image img {
+            transform: scale(1.05);
+        }
+        
+        .news-details {
+            padding: 25px;
+        }
+        
+        .news-meta {
+            display: flex;
+            align-items: center;
+            margin-bottom: 15px;
+            color: #aaa;
+            font-size: 0.9rem;
+        }
+        
+        .news-category {
+            background-color: var(--primary-color);
+            color: #000;
+            font-size: 0.8rem;
+            font-weight: 600;
+            padding: 4px 10px;
+            border-radius: 50px;
+            margin-right: 15px;
+        }
+        
+        .news-date {
+            display: flex;
+            align-items: center;
+        }
+        
+        .news-date i {
+            margin-right: 5px;
+        }
+        
+        .news-details h3 {
+            font-size: 1.4rem;
+            margin-bottom: 15px;
+            line-height: 1.4;
+        }
+        
+        .news-details p {
+            margin-bottom: 20px;
+            line-height: 1.6;
+        }
+        
+        .featured-news {
+            margin-bottom: 50px;
+        }
+        
+        .featured-card {
+            display: flex;
+            background-color: var(--card-bg);
+            border-radius: var(--border-radius);
+            overflow: hidden;
+            box-shadow: var(--shadow);
+            border: 1px solid var(--primary-color);
+        }
+        
+        .featured-image {
+            flex: 1;
+            height: 400px;
+        }
+        
+        .featured-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+        
+        .featured-details {
+            flex: 1;
+            padding: 40px;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+        }
+        
+        .featured-details .news-meta {
+            margin-bottom: 20px;
+        }
+        
+        .featured-details h2 {
+            font-size: 2rem;
+            margin-bottom: 20px;
+            line-height: 1.3;
+        }
+        
+        .featured-details p {
+            margin-bottom: 30px;
+            line-height: 1.6;
+        }
+        
+        .section-header {
+            margin-bottom: 30px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        
+        .section-header h2 {
+            font-size: 2rem;
+            margin-bottom: 10px;
+        }
+        
+        .category-filter {
+            display: flex;
+            gap: 10px;
+        }
+        
+        .filter-btn {
+            padding: 8px 16px;
+            border-radius: 50px;
+            background-color: transparent;
+            border: 1px solid var(--primary-color);
+            color: var(--primary-color);
+            cursor: pointer;
+            transition: var(--transition);
+        }
+        
+        .filter-btn.active, .filter-btn:hover {
+            background-color: var(--primary-color);
+            color: #000;
+        }
+        
+        .sidebar-section {
+            background-color: var(--card-bg);
+            border-radius: var(--border-radius);
+            padding: 30px;
+            margin-bottom: 30px;
+            box-shadow: var(--shadow);
+            border: 1px solid var(--primary-color);
+        }
+        
+        .sidebar-section h3 {
+            font-size: 1.5rem;
+            margin-bottom: 20px;
+        }
+        
+        .categories-list, .tags-list, .recent-posts {
+            list-style: none;
+        }
+        
+        .categories-list li, .recent-posts li {
+            margin-bottom: 15px;
+            padding-bottom: 15px;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+        }
+        
+        .categories-list li:last-child, .recent-posts li:last-child {
+            margin-bottom: 0;
+            padding-bottom: 0;
+            border-bottom: none;
+        }
+        
+        .categories-list a, .recent-posts a {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            transition: var(--transition);
+        }
+        
+        .categories-list a:hover, .recent-posts a:hover {
+            color: var(--primary-color);
+        }
+        
+        .category-count {
+            background-color: var(--primary-color);
+            color: #000;
+            font-size: 0.8rem;
+            font-weight: 600;
+            padding: 2px 8px;
+            border-radius: 50px;
+        }
+        
+        .tags-list {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+        }
+        
+        .tag {
+            background-color: rgba(255, 255, 255, 0.1);
+            padding: 5px 15px;
+            border-radius: 50px;
+            font-size: 0.9rem;
+            transition: var(--transition);
+        }
+        
+        .tag:hover {
+            background-color: var(--primary-color);
+            color: #000;
+        }
+        
+        .recent-post-date {
+            font-size: 0.9rem;
+            color: #aaa;
+        }
+        
+        .pagination {
+            display: flex;
+            justify-content: center;
+            margin-top: 50px;
+        }
+        
+        .pagination a {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 40px;
+            height: 40px;
+            margin: 0 5px;
+            border-radius: 50%;
+            background-color: var(--card-bg);
+            border: 1px solid var(--primary-color);
+            transition: var(--transition);
+        }
+        
+        .pagination a:hover, .pagination a.active {
+            background-color: var(--primary-color);
+            color: #000;
+        }
+        
+        @media (max-width: 992px) {
+            .news-container {
+                flex-direction: column;
+            }
+            
+            .featured-card {
+                flex-direction: column;
+            }
+            
+            .featured-image {
+                height: 300px;
+            }
+            
+            .section-header {
+                flex-direction: column;
+                align-items: flex-start;
+            }
+            
+            .category-filter {
+                margin-top: 15px;
+            }
+        }
+        
+        @media (max-width: 768px) {
+            .news-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+        
+        /* Article visibility classes */
+        .news-card.stories, .news-card.news, .news-card.awards {
+            display: block;
+        }
+        
+        .news-card.hidden {
+            display: none;
+        }
+        
+        /* Pagination page classes */
+        .page {
+            display: none;
+        }
+        
+        .page.active {
+            display: grid;
+        }
+        
+        /* Search box styles */
+        .search-container {
+            margin: 30px auto 0;
+            display: flex;
+            max-width: 500px;
+        }
+        
+        .search-input {
+            flex: 1;
+            padding: 12px 15px;
+            border: 2px solid var(--primary-color);
+            border-radius: var(--border-radius) 0 0 var(--border-radius);
+            background-color: rgba(255, 255, 255, 0.1);
+            color: #fff;
+            font-size: 1rem;
+        }
+        
+        .search-input::placeholder {
+            color: rgba(255, 255, 255, 0.7);
+        }
+        
+        .search-button {
+            background-color: var(--primary-color);
+            color: #000;
+            border: none;
+            padding: 0 20px;
+            border-radius: 0 var(--border-radius) var(--border-radius) 0;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+        
+        .search-button:hover {
+            background-color: #ffcc00;
+        }
+        
+        .news-card.hidden {
+            display: none !important;
+        }
+        
+        .no-results {
+            text-align: center;
+            padding: 40px;
+            background-color: var(--card-bg);
+            border-radius: var(--border-radius);
+            margin: 20px auto;
+            width: 100%;
+            border: 1px solid var(--primary-color);
+        }
+        
+        .highlight-text {
+            background-color: yellow;
+            color: black;
+            padding: 0 2px;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <nav class="navbar">
+            <div class="logo-container">
+                <a href="../index.html" class="logo">
+                    <img src="../images/logo.png" alt="Icons of Change Logo" class="logo-img">
+                    <span class="logo-text">Icons of <span class="highlight">Change</span></span>
+                </a>
+            </div>
+            <div class="nav-links">
+                <a href="../index.html">Home</a>
+                <a href="about.html">About Us</a>
+                <a href="programs.html">Programs</a>
+                <a href="volunteer.html">Volunteer</a>
+                <a href="news.html" class="active">News & Impact</a>
+                <a href="contact.html">Contact</a>
+            </div>
+            <div class="social-icons">
+                <a href="https://www.facebook.com/@IconsOfChangePhilippines" target="_blank" class="social-icon">
+                    <i class="fab fa-facebook-f"></i>
+                </a>
+            </div>
+            <a href="volunteer.html" class="cta-button">Become a Volunteer</a>
+        </nav>
+    </header>
+
+    <section class="news-hero">
+        <div class="news-hero-content">
+            <h1>News & Impact</h1>
+            <p>Stay updated with our latest stories, news, and initiatives</p>
+            
+            <!-- Add search box -->
+            <div class="search-container">
+                <input type="text" id="newsSearch" class="search-input" placeholder="Search news...">
+                <button class="search-button" onclick="searchNews()">
+                    <i class="fas fa-search"></i>
+                </button>
+            </div>
+        </div>
+    </section>
+
+    <div class="news-container">
+        <main class="main-content">
+            <section class="featured-news">
+                <div class="featured-card">
+                    <div class="featured-image">
+                        <img src="../images/event-placeholder.jpg" alt="Featured News">
+                    </div>
+                    <div class="featured-details">
+                        <div class="news-meta">
+                            <span class="news-category">News</span>
+                            <span class="news-date"><i class="far fa-calendar-alt"></i> May 15, 2023</span>
+                        </div>
+                        <h2>Leadership Summit 2023: Transforming Communities Through Collaborative Action</h2>
+                        <p>The 2023 Leadership Summit brought together over 200 community leaders, experts, and changemakers to discuss innovative approaches to sustainable development and transformation.</p>
+                        <a href="news-detail.html" class="cta-button">Read Full Story</a>
+                    </div>
+                </div>
+            </section>
+
+            <section class="latest-news">
+                <div class="section-header">
+                    <h2>Latest News & Stories</h2>
+                    <div class="category-filter">
+                        <button class="filter-btn active" data-filter="all">All</button>
+                        <button class="filter-btn" data-filter="stories">Stories</button>
+                        <button class="filter-btn" data-filter="news">News</button>
+                        <button class="filter-btn" data-filter="awards">Awards</button>
+                    </div>
+                </div>
+
+                <!-- Page 1 -->
+                <div class="news-grid page active" id="page1">
+                    <div class="news-card stories">
+                        <div class="news-image">
+                            <img src="../images/event-placeholder.jpg" alt="News 1">
+                        </div>
+                        <div class="news-details">
+                            <div class="news-meta">
+                                <span class="news-category">Stories</span>
+                                <span class="news-date"><i class="far fa-calendar-alt"></i> May 28, 2023</span>
+                            </div>
+                            <h3>Meet Maria: The Teacher Building Rural Libraries</h3>
+                            <p>Maria Santos has dedicated her life to bringing books and educational resources to remote villages, establishing 15 community libraries in the last decade.</p>
+                            <a href="news-detail.html" class="text-link">Read More</a>
+                        </div>
+                    </div>
+
+                    <div class="news-card news">
+                        <div class="news-image">
+                            <img src="../images/event-placeholder.jpg" alt="News 2">
+                        </div>
+                        <div class="news-details">
+                            <div class="news-meta">
+                                <span class="news-category">News</span>
+                                <span class="news-date"><i class="far fa-calendar-alt"></i> May 20, 2023</span>
+                            </div>
+                            <h3>Community Workshop Series Launches in 5 New Locations</h3>
+                            <p>Our popular workshop series on sustainable community development is expanding to five new provinces, reaching over 500 additional local leaders.</p>
+                            <a href="news-detail.html" class="text-link">Read More</a>
+                        </div>
+                    </div>
+
+                    <div class="news-card awards">
+                        <div class="news-image">
+                            <img src="../images/event-placeholder.jpg" alt="News 3">
+                        </div>
+                        <div class="news-details">
+                            <div class="news-meta">
+                                <span class="news-category">Awards</span>
+                                <span class="news-date"><i class="far fa-calendar-alt"></i> May 10, 2023</span>
+                            </div>
+                            <h3>Annual Recognition Gala Honors 12 Outstanding Changemakers</h3>
+                            <p>This year's Recognition Gala celebrated individuals making extraordinary contributions in environmental conservation, education, healthcare, and social entrepreneurship.</p>
+                            <a href="news-detail.html" class="text-link">Read More</a>
+                        </div>
+                    </div>
+
+                    <div class="news-card news">
+                        <div class="news-image">
+                            <img src="../images/event-placeholder.jpg" alt="News 4">
+                        </div>
+                        <div class="news-details">
+                            <div class="news-meta">
+                                <span class="news-category">News</span>
+                                <span class="news-date"><i class="far fa-calendar-alt"></i> May 5, 2023</span>
+                            </div>
+                            <h3>New Partnership Expands Youth Leadership Opportunities</h3>
+                            <p>Icons of Change partners with Global Youth Foundation to create a robust leadership development program for young innovators ages 16-24.</p>
+                            <a href="news-detail.html" class="text-link">Read More</a>
+                        </div>
+                    </div>
+
+                    <div class="news-card stories">
+                        <div class="news-image">
+                            <img src="../images/event-placeholder.jpg" alt="News 5">
+                        </div>
+                        <div class="news-details">
+                            <div class="news-meta">
+                                <span class="news-category">Stories</span>
+                                <span class="news-date"><i class="far fa-calendar-alt"></i> April 28, 2023</span>
+                            </div>
+                            <h3>The Fisherman Who Revolutionized Coastal Conservation</h3>
+                            <p>After witnessing declining fish stocks, Antonio Reyes organized his community to establish a marine protected area that has now become a model for sustainable fishing.</p>
+                            <a href="news-detail.html" class="text-link">Read More</a>
+                        </div>
+                    </div>
+
+                    <div class="news-card awards">
+                        <div class="news-image">
+                            <img src="../images/event-placeholder.jpg" alt="News 6">
+                        </div>
+                        <div class="news-details">
+                            <div class="news-meta">
+                                <span class="news-category">Awards</span>
+                                <span class="news-date"><i class="far fa-calendar-alt"></i> April 15, 2023</span>
+                            </div>
+                            <h3>Rural Innovation Prize Awarded to Agricultural Technology Team</h3>
+                            <p>A team of young engineers receives recognition for developing low-cost irrigation systems that help small farmers increase crop yields while conserving water.</p>
+                            <a href="news-detail.html" class="text-link">Read More</a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Page 2 -->
+                <div class="news-grid page" id="page2">
+                    <div class="news-card news">
+                        <div class="news-image">
+                            <img src="../images/event-placeholder.jpg" alt="News 7">
+                        </div>
+                        <div class="news-details">
+                            <div class="news-meta">
+                                <span class="news-category">News</span>
+                                <span class="news-date"><i class="far fa-calendar-alt"></i> April 10, 2023</span>
+                            </div>
+                            <h3>Youth Leaders Conference Announces 2023 Speakers</h3>
+                            <p>This year's conference will feature internationally recognized youth activists and social entrepreneurs who have created significant impact in their communities.</p>
+                            <a href="news-detail.html" class="text-link">Read More</a>
+                        </div>
+                    </div>
+
+                    <div class="news-card stories">
+                        <div class="news-image">
+                            <img src="../images/event-placeholder.jpg" alt="News 8">
+                        </div>
+                        <div class="news-details">
+                            <div class="news-meta">
+                                <span class="news-category">Stories</span>
+                                <span class="news-date"><i class="far fa-calendar-alt"></i> April 5, 2023</span>
+                            </div>
+                            <h3>From Waste to Opportunity: The Recycling Entrepreneur</h3>
+                            <p>Elena Cruz transformed her neighborhood's waste problem into a thriving business that employs local women and diverts tons of plastic from landfills annually.</p>
+                            <a href="news-detail.html" class="text-link">Read More</a>
+                        </div>
+                    </div>
+
+                    <div class="news-card news">
+                        <div class="news-image">
+                            <img src="../images/event-placeholder.jpg" alt="News 9">
+                        </div>
+                        <div class="news-details">
+                            <div class="news-meta">
+                                <span class="news-category">News</span>
+                                <span class="news-date"><i class="far fa-calendar-alt"></i> March 30, 2023</span>
+                            </div>
+                            <h3>5 Years of Impact: Our Journey So Far</h3>
+                            <p>As Icons of Change celebrates its fifth anniversary, we reflect on the milestones, challenges, and growing community of changemakers that define our journey.</p>
+                            <a href="news-detail.html" class="text-link">Read More</a>
+                        </div>
+                    </div>
+
+                    <div class="news-card awards">
+                        <div class="news-image">
+                            <img src="../images/event-placeholder.jpg" alt="News 10">
+                        </div>
+                        <div class="news-details">
+                            <div class="news-meta">
+                                <span class="news-category">Awards</span>
+                                <span class="news-date"><i class="far fa-calendar-alt"></i> March 25, 2023</span>
+                            </div>
+                            <h3>Environmental Stewardship Award Goes to Rainforest Conservation Team</h3>
+                            <p>A dedicated team working to protect endangered species and indigenous communities in rainforest regions receives the annual Environmental Stewardship Award.</p>
+                            <a href="news-detail.html" class="text-link">Read More</a>
+                        </div>
+                    </div>
+
+                    <div class="news-card stories">
+                        <div class="news-image">
+                            <img src="../images/event-placeholder.jpg" alt="News 11">
+                        </div>
+                        <div class="news-details">
+                            <div class="news-meta">
+                                <span class="news-category">Stories</span>
+                                <span class="news-date"><i class="far fa-calendar-alt"></i> March 20, 2023</span>
+                            </div>
+                            <h3>The Doctor Bringing Healthcare to Remote Villages</h3>
+                            <p>Dr. Reyes has spent the last 15 years developing a mobile clinic program that brings essential medical services to communities with limited healthcare access.</p>
+                            <a href="news-detail.html" class="text-link">Read More</a>
+                        </div>
+                    </div>
+
+                    <div class="news-card news">
+                        <div class="news-image">
+                            <img src="../images/event-placeholder.jpg" alt="News 12">
+                        </div>
+                        <div class="news-details">
+                            <div class="news-meta">
+                                <span class="news-category">News</span>
+                                <span class="news-date"><i class="far fa-calendar-alt"></i> March 15, 2023</span>
+                            </div>
+                            <h3>New Mentorship Program Connects Established and Emerging Leaders</h3>
+                            <p>Our newly launched mentorship initiative pairs experienced community leaders with promising young changemakers for a year-long development journey.</p>
+                            <a href="news-detail.html" class="text-link">Read More</a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Page 3 -->
+                <div class="news-grid page" id="page3">
+                    <div class="news-card awards">
+                        <div class="news-image">
+                            <img src="../images/event-placeholder.jpg" alt="News 13">
+                        </div>
+                        <div class="news-details">
+                            <div class="news-meta">
+                                <span class="news-category">Awards</span>
+                                <span class="news-date"><i class="far fa-calendar-alt"></i> March 10, 2023</span>
+                            </div>
+                            <h3>Education Innovation Prize Recognizes Literacy Program</h3>
+                            <p>An innovative literacy program that has helped thousands of children in underserved communities has been awarded this year's Education Innovation Prize.</p>
+                            <a href="news-detail.html" class="text-link">Read More</a>
+                        </div>
+                    </div>
+
+                    <div class="news-card stories">
+                        <div class="news-image">
+                            <img src="../images/event-placeholder.jpg" alt="News 14">
+                        </div>
+                        <div class="news-details">
+                            <div class="news-meta">
+                                <span class="news-category">Stories</span>
+                                <span class="news-date"><i class="far fa-calendar-alt"></i> March 5, 2023</span>
+                            </div>
+                            <h3>The Architect Building Sustainable Housing for Displaced Communities</h3>
+                            <p>Using innovative, low-cost materials and indigenous design principles, architect David Lim is creating housing solutions that are both culturally appropriate and environmentally sustainable.</p>
+                            <a href="news-detail.html" class="text-link">Read More</a>
+                        </div>
+                    </div>
+
+                    <div class="news-card news">
+                        <div class="news-image">
+                            <img src="../images/event-placeholder.jpg" alt="News 15">
+                        </div>
+                        <div class="news-details">
+                            <div class="news-meta">
+                                <span class="news-category">News</span>
+                                <span class="news-date"><i class="far fa-calendar-alt"></i> February 28, 2023</span>
+                            </div>
+                            <h3>Icons of Change Partners with Global Foundation</h3>
+                            <p>A new partnership with the Global Development Foundation will expand our capacity to support changemakers through increased funding and international networking opportunities.</p>
+                            <a href="news-detail.html" class="text-link">Read More</a>
+                        </div>
+                    </div>
+
+                    <div class="news-card awards">
+                        <div class="news-image">
+                            <img src="../images/event-placeholder.jpg" alt="News 16">
+                        </div>
+                        <div class="news-details">
+                            <div class="news-meta">
+                                <span class="news-category">Awards</span>
+                                <span class="news-date"><i class="far fa-calendar-alt"></i> February 20, 2023</span>
+                            </div>
+                            <h3>Social Entrepreneurship Award Celebrates Innovative Business Models</h3>
+                            <p>Three social enterprises demonstrating exceptional impact through sustainable business models received recognition at our recent awards ceremony.</p>
+                            <a href="news-detail.html" class="text-link">Read More</a>
+                        </div>
+                    </div>
+
+                    <div class="news-card stories">
+                        <div class="news-image">
+                            <img src="../images/event-placeholder.jpg" alt="News 17">
+                        </div>
+                        <div class="news-details">
+                            <div class="news-meta">
+                                <span class="news-category">Stories</span>
+                                <span class="news-date"><i class="far fa-calendar-alt"></i> February 15, 2023</span>
+                            </div>
+                            <h3>The Teacher Transforming STEM Education in Rural Schools</h3>
+                            <p>With limited resources but unlimited creativity, science teacher Carlos Mendoza is inspiring a new generation of problem-solvers through hands-on learning.</p>
+                            <a href="news-detail.html" class="text-link">Read More</a>
+                        </div>
+                    </div>
+
+                    <div class="news-card news">
+                        <div class="news-image">
+                            <img src="../images/event-placeholder.jpg" alt="News 18">
+                        </div>
+                        <div class="news-details">
+                            <div class="news-meta">
+                                <span class="news-category">News</span>
+                                <span class="news-date"><i class="far fa-calendar-alt"></i> February 10, 2023</span>
+                            </div>
+                            <h3>Meet the Changemakers: Spotlight on Rural Innovators</h3>
+                            <p>Our upcoming documentary series will highlight extraordinary individuals creating innovative solutions to challenges facing rural communities.</p>
+                            <a href="news-detail.html" class="text-link">Read More</a>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="pagination">
+                    <a href="#" class="page-link active" data-page="1">1</a>
+                    <a href="#" class="page-link" data-page="2">2</a>
+                    <a href="#" class="page-link" data-page="3">3</a>
+                </div>
+            </section>
+        </main>
+    </div>
+
+    <footer>
+        <div class="footer-content">
+            <div class="footer-logo">
+                <a href="../index.html">
+                    <img src="../images/logo.png" alt="Icons of Change Logo" class="footer-logo-img">
+                    <span class="logo-text">Icons of <span class="highlight">Change</span></span>
+                </a>
+            </div>
+            <div class="footer-links">
+                <a href="../index.html">Home</a>
+                <a href="about.html">About Us</a>
+                <a href="programs.html">Programs</a>
+                <a href="volunteer.html">Volunteer</a>
+                <a href="news.html">News & Impact</a>
+                <a href="contact.html">Contact</a>
+            </div>
+            <div class="footer-cta">
+                <a href="volunteer.html" class="cta-button">Become a Volunteer</a>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>© Icons of Change All Rights Reserved | <a href="privacy.html">Privacy Policy</a> | <a href="terms.html">Terms</a> | <a href="sitemap.html">Sitemap</a></p>
+        </div>
+    </footer>
+
+    <script src="../js/main.js"></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            // Category filtering
+            const filterButtons = document.querySelectorAll('.filter-btn');
+            const newsCards = document.querySelectorAll('.news-card');
+            
+            filterButtons.forEach(button => {
+                button.addEventListener('click', function() {
+                    // Remove active class from all buttons
+                    filterButtons.forEach(btn => btn.classList.remove('active'));
+                    
+                    // Add active class to clicked button
+                    this.classList.add('active');
+                    
+                    const filter = this.getAttribute('data-filter');
+                    
+                    newsCards.forEach(card => {
+                        if (filter === 'all') {
+                            card.classList.remove('hidden');
+                        } else {
+                            if (card.classList.contains(filter)) {
+                                card.classList.remove('hidden');
+                            } else {
+                                card.classList.add('hidden');
+                            }
+                        }
+                    });
+                    
+                    // Reset to first page when filter changes
+                    showPage(1);
+                });
+            });
+            
+            // Pagination
+            const pageLinks = document.querySelectorAll('.page-link');
+            const pages = document.querySelectorAll('.page');
+            
+            function showPage(pageNumber) {
+                // Hide all pages
+                pages.forEach(page => page.classList.remove('active'));
+                
+                // Show selected page
+                document.getElementById(`page${pageNumber}`).classList.add('active');
+                
+                // Update active page link
+                pageLinks.forEach(link => {
+                    link.classList.remove('active');
+                    if (link.getAttribute('data-page') == pageNumber) {
+                        link.classList.add('active');
+                    }
+                });
+            }
+            
+            pageLinks.forEach(link => {
+                link.addEventListener('click', function(e) {
+                    e.preventDefault();
+                    const pageNumber = this.getAttribute('data-page');
+                    showPage(pageNumber);
+                });
+            });
+            
+            // Check for category parameter in URL
+            const urlParams = new URLSearchParams(window.location.search);
+            const categoryParam = urlParams.get('category');
+            
+            if (categoryParam) {
+                // Trigger click on the corresponding filter button
+                const targetButton = document.querySelector(`.filter-btn[data-filter="${categoryParam}"]`);
+                if (targetButton) {
+                    targetButton.click();
+                }
+            }
+        });
+        
+        // News search functionality
+        function searchNews() {
+            // Get search keywords
+            const searchTerm = document.getElementById('newsSearch').value.toLowerCase().trim();
+            
+            // Get all news cards
+            const newsCards = document.querySelectorAll('.news-card');
+            
+            // Remove all previous highlights
+            document.querySelectorAll('.highlight-text').forEach(highlighted => {
+                const parent = highlighted.parentNode;
+                parent.innerHTML = parent.innerHTML.replace(/<span class="highlight-text">(.+?)<\/span>/g, '$1');
+            });
+            
+            // Count found results
+            let resultsFound = 0;
+            
+            // Remove previous "no results" message
+            const oldNoResults = document.querySelector('.no-results');
+            if (oldNoResults) {
+                oldNoResults.remove();
+            }
+            
+            if (searchTerm === '') {
+                // If search box is empty, show all news and restore category filtering
+                const activeFilter = document.querySelector('.filter-btn.active');
+                if (activeFilter) {
+                    activeFilter.click();
+                } else {
+                    newsCards.forEach(card => {
+                        card.classList.remove('hidden');
+                    });
+                    showPage(1);
+                }
+                return;
+            }
+            
+            // Reset category filter buttons
+            document.querySelectorAll('.filter-btn').forEach(btn => {
+                btn.classList.remove('active');
+            });
+            document.querySelector('.filter-btn[data-filter="all"]').classList.add('active');
+            
+            // Show news from all pages, as we need to search across all news
+            document.querySelectorAll('.page').forEach(page => {
+                page.classList.add('active');
+            });
+            
+            // Loop through all news cards
+            newsCards.forEach(card => {
+                // Get the title and description text from the card
+                const title = card.querySelector('h3').textContent.toLowerCase();
+                const description = card.querySelector('p').textContent.toLowerCase();
+                const category = card.querySelector('.news-category').textContent.toLowerCase();
+                const date = card.querySelector('.news-date').textContent.toLowerCase();
+                const content = title + ' ' + description + ' ' + category + ' ' + date;
+                
+                // Check if matches search term
+                if (content.includes(searchTerm)) {
+                    // Show matching cards
+                    card.classList.remove('hidden');
+                    resultsFound++;
+                    
+                    // Highlight matching text
+                    highlightText(card.querySelector('h3'), searchTerm);
+                    highlightText(card.querySelector('p'), searchTerm);
+                } else {
+                    // Hide non-matching cards
+                    card.classList.add('hidden');
+                }
+            });
+            
+            // If no results found, show message
+            if (resultsFound === 0) {
+                const noResults = document.createElement('div');
+                noResults.className = 'no-results';
+                noResults.innerHTML = `<h3>No news found matching "${searchTerm}"</h3><p>Please try different keywords or browse all our news.</p>`;
+                
+                // Insert message before the first news grid
+                const newsSection = document.querySelector('.latest-news');
+                const firstGrid = newsSection.querySelector('.news-grid');
+                firstGrid.parentNode.insertBefore(noResults, firstGrid);
+            }
+            
+            // Hide pagination since we're now showing search results
+            document.querySelector('.pagination').style.display = resultsFound > 0 ? 'none' : 'flex';
+        }
+        
+        // Function to highlight text
+        function highlightText(element, searchTerm) {
+            const content = element.innerHTML;
+            const searchPattern = new RegExp('(' + searchTerm + ')', 'gi');
+            const newContent = content.replace(searchPattern, '<span class="highlight-text">$1</span>');
+            element.innerHTML = newContent;
+        }
+        
+        // 为搜索框添加按回车键搜索的功能
+        document.getElementById('newsSearch').addEventListener('keypress', function(event) {
+            if (event.key === 'Enter') {
+                searchNews();
+            }
+        });
+        
+        // 页面导航函数，让它在全局可访问
+        function showPage(pageNumber) {
+            // 隐藏所有页面
+            document.querySelectorAll('.page').forEach(page => page.classList.remove('active'));
+            
+            // 显示选中的页面
+            document.getElementById(`page${pageNumber}`).classList.add('active');
+            
+            // 更新活动页面链接
+            document.querySelectorAll('.page-link').forEach(link => {
+                link.classList.remove('active');
+                if (link.getAttribute('data-page') == pageNumber) {
+                    link.classList.add('active');
+                }
+            });
+        }
+    </script>
+</body>
+</html> 
