@@ -517,18 +517,6 @@ header {
   overflow: hidden;
 }
 
-.video-thumbnail::after {
-  content: "\f144";
-  font-family: "Font Awesome 5 Free";
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  font-size: 3rem;
-  color: rgba(255, 255, 255, 0.8);
-  transition: var(--transition);
-}
-
 .video-card:hover .video-thumbnail::after {
   color: var(--primary-color);
 }
