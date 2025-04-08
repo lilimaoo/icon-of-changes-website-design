@@ -164,31 +164,9 @@
 
     <section class="video-gallery">
       <h2>IoCPTV<br /><span class="subtitle">Our Impact in Action</span></h2>
-      <div class="video-cards">
-        <div class="video-card" data-fb-id="683031690740763">
-          <div class="video-thumbnail">
-            <img src="images/IoCPTV-vid1.jpg" alt="Video 1" />
-          </div>
-          <div class="video-details">
-            <h3>
-              “The People’s Platform: Every Candidate, Every Voice” - MAGZ
-              MAGLANA (Congressional Candidate 1st District Davao City)
-            </h3>
-            <p>Watch Video</p>
-          </div>
-        </div>
-        <div class="video-card" data-fb-id="1019246593583007">
-          <div class="video-thumbnail">
-            <img src="images/IoCPTV-vid2.jpg" alt="Video 2" />
-          </div>
-          <div class="video-details">
-            <h3>
-              “The People’s Platform: Every Candidate, Every Voice” Featuring
-              ATTY. LEANDRO VERCELES (Senatorial Candidate)
-            </h3>
-            <p>Watch Video</p>
-          </div>
-        </div>
+      <div class="video-cards"></div>
+      <div class="center-btn">
+        <a href="pages/ioCPTV.html" class="outline-button">Explore More</a>
       </div>
     </section>
 
@@ -248,5 +226,34 @@
     </footer>
 
     <script src="js/main.js"></script>
+    <script src="js/events-data.js"></script>
+
+    <script>
+      document.addEventListener("DOMContentLoaded", () => {
+        const videoContainer = document.querySelector(".video-cards");
+
+        events.slice(0, 2).forEach((event) => {
+          const card = document.createElement("div");
+          card.className = "video-card";
+
+          card.innerHTML = `
+            <div class="video-thumbnail">
+              <!-- You can replace with dynamic thumbnails if available -->
+              <iframe src="${
+                event.videoEmbed.match(/src="([^"]+)"/)?.[1]
+              }" width="100%" height="314" frameborder="0" scrolling="no" allowfullscreen allow="autoplay; clipboard-write; encrypted-media; picture-in-picture; web-share"></iframe>
+            </div>
+            <div class="video-details">
+              <h3>${event.title}</h3>
+              <p><a href="${
+                event.link
+              }" target="_blank">Watch on Facebook</a></p>
+            </div>
+          `;
+
+          videoContainer.appendChild(card);
+        });
+      });
+    </script>
   </body>
 </html>
