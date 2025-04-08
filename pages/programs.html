@@ -9,7 +9,7 @@
     <style>
         /* Programs page specific styles */
         .programs-hero {
-            background-image: url('../images/programs-bg.jpg');
+            background-image: url('../images/programs/programs-bg.jpg');
             background-size: cover;
             background-position: center;
             color: #fff;
@@ -328,12 +328,6 @@
             border: 1px solid var(--primary-color);
         }
         
-        .highlight-text {
-            background-color: yellow;
-            color: black;
-            padding: 0 2px;
-        }
-        
         /* Show/hide program styles */
         .program-grid-container {
             margin-bottom: 60px;
@@ -367,6 +361,286 @@
         .show-more-button:hover {
             background-color: var(--primary-color);
             color: #000;
+        }
+        
+        /* Modal styles */
+        .modal {
+            display: none;
+            position: fixed;
+            z-index: 1000;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            overflow: auto;
+            background-color: rgba(0, 0, 0, 0.8);
+        }
+        
+        .modal-content {
+            background-color: var(--card-bg);
+            margin: 5% auto;
+            padding: 0;
+            width: 80%;
+            max-width: 900px;
+            border-radius: var(--border-radius);
+            box-shadow: 0 5px 30px rgba(0, 0, 0, 0.3);
+            border: 1px solid var(--primary-color);
+            animation: modalFadeIn 0.3s;
+            max-height: 90vh;
+            overflow-y: auto;
+        }
+        
+        @keyframes modalFadeIn {
+            from {opacity: 0; transform: translateY(-50px);}
+            to {opacity: 1; transform: translateY(0);}
+        }
+        
+        .close-modal {
+            color: var(--primary-color);
+            float: right;
+            font-size: 28px;
+            font-weight: bold;
+            position: absolute;
+            right: 20px;
+            top: 15px;
+            transition: all 0.3s ease;
+        }
+        
+        .close-modal:hover,
+        .close-modal:focus {
+            color: #ffcc00;
+            text-decoration: none;
+            cursor: pointer;
+            transform: rotate(90deg);
+        }
+        
+        .modal-header {
+            padding: 30px 30px 20px;
+            border-bottom: 1px solid rgba(255, 215, 0, 0.2);
+            position: relative;
+        }
+        
+        .modal-header h2 {
+            margin-top: 0;
+            margin-bottom: 20px;
+            color: var(--primary-color);
+        }
+        
+        .event-meta {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 15px;
+        }
+        
+        .event-meta p {
+            margin: 0;
+            font-size: 0.95rem;
+            display: flex;
+            align-items: center;
+        }
+        
+        .event-meta i {
+            color: var(--primary-color);
+            margin-right: 8px;
+        }
+        
+        .modal-body {
+            padding: 30px;
+        }
+        
+        .modal-body h3 {
+            color: var(--primary-color);
+            margin-top: 25px;
+            margin-bottom: 15px;
+        }
+        
+        .modal-body p {
+            margin-bottom: 15px;
+            line-height: 1.6;
+        }
+        
+        .modal-body ul {
+            margin-bottom: 25px;
+            padding-left: 20px;
+        }
+        
+        .modal-body li {
+            margin-bottom: 10px;
+        }
+        
+        .modal-actions {
+            margin-top: 30px;
+            text-align: center;
+        }
+        
+        .modal-actions .cta-button {
+            padding: 12px 35px;
+            font-size: 1.1rem;
+        }
+        
+        .feature-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+            gap: 25px;
+            margin: 25px 0;
+        }
+        
+        .feature-item {
+            background-color: rgba(0, 0, 0, 0.2);
+            border-radius: var(--border-radius);
+            padding: 20px;
+            border-left: 3px solid var(--primary-color);
+            transition: all 0.3s ease;
+        }
+        
+        .feature-item:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+        }
+        
+        .feature-item i {
+            font-size: 2rem;
+            color: var(--primary-color);
+            margin-bottom: 15px;
+            display: block;
+        }
+        
+        .feature-item h4 {
+            font-size: 1.1rem;
+            margin-bottom: 10px;
+            color: var(--primary-color);
+        }
+        
+        .feature-item p {
+            font-size: 0.9rem;
+            margin: 0;
+        }
+        
+        .check-list {
+            list-style: none;
+            padding-left: 10px;
+            margin: 20px 0;
+        }
+        
+        .check-list li {
+            position: relative;
+            padding-left: 30px;
+            margin-bottom: 12px;
+        }
+        
+        .check-list li:before {
+            content: "\f00c";
+            font-family: "Font Awesome 5 Free";
+            font-weight: 900;
+            position: absolute;
+            left: 0;
+            top: 0;
+            color: var(--primary-color);
+        }
+        
+        .sdg-icons {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 15px;
+            margin: 20px 0 30px;
+            justify-content: center;
+        }
+        
+        .sdg-icon {
+            text-align: center;
+            width: 100px;
+        }
+        
+        .sdg-icon img {
+            width: 60px;
+            height: 60px;
+            border-radius: 50%;
+            margin-bottom: 8px;
+            border: 2px solid var(--primary-color);
+        }
+        
+        .sdg-icon span {
+            display: block;
+            font-size: 0.8rem;
+            line-height: 1.2;
+            color: #ccc;
+        }
+        
+        .highlight-note {
+            background-color: rgba(255, 215, 0, 0.1);
+            border-left: 4px solid var(--primary-color);
+            padding: 15px;
+            margin: 25px 0;
+            border-radius: 0 var(--border-radius) var(--border-radius) 0;
+        }
+        
+        .speakers-list {
+            margin-bottom: 25px;
+        }
+        
+        .speakers-list li {
+            margin-bottom: 12px;
+        }
+        
+        /* 添加新样式 */
+        .speakers-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            gap: 30px;
+            margin: 25px 0;
+        }
+        
+        .speaker-card {
+            background-color: rgba(0, 0, 0, 0.2);
+            border-radius: var(--border-radius);
+            padding: 25px;
+            border-left: 3px solid var(--primary-color);
+            transition: all 0.3s ease;
+        }
+        
+        .speaker-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+        }
+        
+        .speaker-header {
+            margin-bottom: 15px;
+        }
+        
+        .speaker-header h4 {
+            font-size: 1.25rem;
+            color: var(--primary-color);
+            margin-bottom: 10px;
+        }
+        
+        .speaker-divider {
+            width: 50px;
+            height: 3px;
+            background-color: var(--primary-color);
+            margin-bottom: 15px;
+        }
+        
+        .speaker-contributions {
+            margin-top: 15px;
+        }
+        
+        .speaker-contributions h5 {
+            font-size: 1rem;
+            color: #ccc;
+            margin-bottom: 10px;
+        }
+        
+        .speaker-contributions ul {
+            padding-left: 20px;
+        }
+        
+        .speaker-contributions li {
+            margin-bottom: 10px;
+            font-size: 0.9rem;
+        }
+        
+        .speaker-contributions strong {
+            color: var(--primary-color);
         }
     </style>
 </head>
@@ -421,156 +695,111 @@
     <section class="program-categories">
         <div class="category-container">
             <div class="category-heading">
-                <h2>Leadership Development</h2>
-                <p>Cultivating the next generation of community changemakers</p>
+                <h2>Featured Events</h2>
+                <p>Exciting opportunities to showcase talent and create positive change</p>
             </div>
             
             <div class="program-grid-container">
-                <div class="program-grid leadership-programs">
+                <div class="program-grid events-programs">
                     <div class="program-card">
                         <div class="program-image">
-                            <img src="../images/program-placeholder.jpg" alt="Youth Leadership Academy">
+                            <img src="../images/programs/wellness-seminar.jpg" alt="Wellness Without Borders: Nature's Impact on Your Health">
                         </div>
                         <div class="program-details">
-                            <h3>Youth Leadership Academy</h3>
-                            <p>A comprehensive 12-week program developing leadership skills, community awareness, and project management capabilities in young leaders aged 16-24.</p>
+                            <h3>Wellness Without Borders: Nature's Impact on Your Health</h3>
+                            <p>An insightful seminar exploring how environmental health influences personal wellbeing, featuring healthcare and environmental experts.</p>
                             <div class="program-meta">
                                 <div class="program-date">
-                                    <i class="far fa-calendar-alt"></i> Quarterly Intakes
+                                    <i class="far fa-calendar-alt"></i> January 18, 2025
                                 </div>
-                                <a href="program-details.html" class="apply-now">Learn More</a>
+                                <a href="#" class="apply-now" onclick="showWellnessSeminarDetails(event)">Details</a>
                             </div>
                         </div>
                     </div>
                     
                     <div class="program-card">
                         <div class="program-image">
-                            <img src="../images/program-placeholder.jpg" alt="Women in Leadership">
+                            <img src="../images/programs/peace-symposium.jpg" alt="International Year of Peace and Trust Symposium 2025">
                         </div>
                         <div class="program-details">
-                            <h3>Women in Leadership</h3>
-                            <p>Empowering women to take on leadership roles in their communities through mentorship, skill development, and networking opportunities.</p>
+                            <h3>International Year of Peace and Trust Symposium 2025</h3>
+                            <p>A symposium focusing on conflict resolution, peace-building, and trust development in alignment with the UN's 2025 International Year of Peace and Trust.</p>
                             <div class="program-meta">
                                 <div class="program-date">
-                                    <i class="far fa-calendar-alt"></i> Ongoing
+                                    <i class="far fa-calendar-alt"></i> January 25, 2025
                                 </div>
-                                <a href="program-details.html" class="apply-now">Learn More</a>
+                                <a href="#" class="apply-now" onclick="showPeaceSymposiumDetails(event)">Details</a>
                             </div>
                         </div>
                     </div>
                     
                     <div class="program-card">
                         <div class="program-image">
-                            <img src="../images/program-placeholder.jpg" alt="Community Leadership Certification">
+                            <img src="../images/programs/awards-ceremony.jpg" alt="Icons of Change Metro Manila 2025 Awarding Ceremony">
                         </div>
                         <div class="program-details">
-                            <h3>Community Leadership Certification</h3>
-                            <p>A comprehensive certification program equipping community leaders with the tools, knowledge, and networks to create lasting change.</p>
+                            <h3>Icons of Change Metro Manila 2025 Awarding Ceremony</h3>
+                            <p>A prestigious annual program honoring individuals, organizations, and businesses driving positive societal impact, running in tandem with the Metro Manila SDG Action Summit 2025.</p>
                             <div class="program-meta">
                                 <div class="program-date">
-                                    <i class="far fa-calendar-alt"></i> Biannual
+                                    <i class="far fa-calendar-alt"></i> April 27, 2025
                                 </div>
-                                <a href="program-details.html" class="apply-now">Learn More</a>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            
-            <div class="category-cta">
-                <a href="program-application.html" class="cta-button">Apply for Leadership Programs</a>
-            </div>
-            
-            <div class="category-heading">
-                <h2>Community Development</h2>
-                <p>Building stronger, more resilient communities</p>
-            </div>
-            
-            <div class="program-grid-container">
-                <div class="program-grid community-programs">
-                    <div class="program-card">
-                        <div class="program-image">
-                            <img src="../images/program-placeholder.jpg" alt="Sustainable Communities Initiative">
-                        </div>
-                        <div class="program-details">
-                            <h3>Sustainable Communities Initiative</h3>
-                            <p>A holistic approach to community development focusing on economic resilience, environmental sustainability, and social cohesion.</p>
-                            <div class="program-meta">
-                                <div class="program-date">
-                                    <i class="far fa-calendar-alt"></i> Year-round
-                                </div>
-                                <a href="program-details.html" class="apply-now">Learn More</a>
+                                <a href="#" class="apply-now" onclick="showAwardsDetails(event)">Details</a>
                             </div>
                         </div>
                     </div>
                     
                     <div class="program-card">
                         <div class="program-image">
-                            <img src="../images/program-placeholder.jpg" alt="Community Innovation Grants">
+                            <img src="../images/programs/alumni-dinner.jpg" alt="Perpetual Help Alumni Testimonial Dinner">
                         </div>
                         <div class="program-details">
-                            <h3>Community Innovation Grants</h3>
-                            <p>Providing financial support and mentorship for community-led initiatives that address local challenges in creative, sustainable ways.</p>
+                            <h3>Perpetual Help Alumni Testimonial Dinner</h3>
+                            <p>A prestigious event honoring distinguished Alumni Icons of Change Awardees who have significantly impacted their respective fields and communities.</p>
                             <div class="program-meta">
                                 <div class="program-date">
-                                    <i class="far fa-calendar-alt"></i> Annual Applications
+                                    <i class="far fa-calendar-alt"></i> November 27, 2024
                                 </div>
-                                <a href="program-details.html" class="apply-now">Learn More</a>
+                                <a href="#" class="apply-now" onclick="showAlumniDinnerDetails(event)">Details</a>
                             </div>
                         </div>
                     </div>
                     
                     <div class="program-card">
                         <div class="program-image">
-                            <img src="../images/program-placeholder.jpg" alt="Digital Inclusion Program">
+                            <img src="../images/programs/expert-talks.jpg" alt="Empowering Lives: Expert Talks on Health and Personal Growth">
                         </div>
                         <div class="program-details">
-                            <h3>Digital Inclusion Program</h3>
-                            <p>Bridging the digital divide by providing technology access, digital literacy training, and online resources to underserved communities.</p>
+                            <h3>Empowering Lives: Expert Talks on Health and Personal Growth</h3>
+                            <p>Join our series of expert talks focused on holistic wellbeing, featuring prominent health professionals and personal development coaches.</p>
                             <div class="program-meta">
                                 <div class="program-date">
-                                    <i class="far fa-calendar-alt"></i> Ongoing
+                                    <i class="far fa-calendar-alt"></i> January 11, 2025
                                 </div>
-                                <a href="program-details.html" class="apply-now">Learn More</a>
+                                <a href="#" class="apply-now" onclick="showExpertTalksDetails(event)">Details</a>
                             </div>
                         </div>
                     </div>
                     
-                    <div class="program-card hidden">
+                    <div class="program-card">
                         <div class="program-image">
-                            <img src="../images/program-placeholder.jpg" alt="Urban Agriculture Initiative">
+                            <img src="../images/programs/idpd-event.jpg" alt="International Day of Persons with Disabilities 2024">
                         </div>
                         <div class="program-details">
-                            <h3>Urban Agriculture Initiative</h3>
-                            <p>Promoting food security and sustainable food systems through urban farming education, community gardens, and local food networks.</p>
+                            <h3>International Day of Persons with Disabilities 2024</h3>
+                            <p>A celebration of the achievements and contributions of people with disabilities, raising awareness and promoting an inclusive, accessible society for all.</p>
                             <div class="program-meta">
                                 <div class="program-date">
-                                    <i class="far fa-calendar-alt"></i> Seasonal
+                                    <i class="far fa-calendar-alt"></i> December 7, 2024
                                 </div>
-                                <a href="program-details.html" class="apply-now">Learn More</a>
-                            </div>
-                        </div>
-                    </div>
-                    
-                    <div class="program-card hidden">
-                        <div class="program-image">
-                            <img src="../images/program-placeholder.jpg" alt="Community Health Navigators">
-                        </div>
-                        <div class="program-details">
-                            <h3>Community Health Navigators</h3>
-                            <p>Training local volunteers to serve as health advocates and resource connectors, improving access to healthcare services in underserved areas.</p>
-                            <div class="program-meta">
-                                <div class="program-date">
-                                    <i class="far fa-calendar-alt"></i> Quarterly Training
-                                </div>
-                                <a href="program-details.html" class="apply-now">Learn More</a>
+                                <a href="#" class="apply-now" onclick="showDisabilitiesDayDetails(event)">Details</a>
                             </div>
                         </div>
                     </div>
                 </div>
                 
                 <div class="category-cta">
-                    <button class="show-more-button" id="showMoreCommunity">Show more</button>
+                    <button class="show-more-button" id="showMoreEvents">Show more</button>
                 </div>
             </div>
         </div>
@@ -636,7 +865,7 @@
             <a href="contact.html" class="cta-button">Become a Partner</a>
         </div>
         <div class="join-image">
-            <img src="../images/partnership.jpg" alt="Partnership">
+            <img src="../images/programs/partnership.jpg" alt="Partnership">
         </div>
     </section>
 
@@ -665,8 +894,400 @@
         </div>
     </footer>
 
+    <div id="peaceSymposiumModal" class="modal">
+        <div class="modal-content">
+            <span class="close-modal">&times;</span>
+            <div class="modal-header">
+                <h2>Icons of Change Symposium: International Year of Peace and Trust</h2>
+                <div class="event-meta">
+                    <p><i class="fas fa-map-marker-alt"></i> SM Center Las Piñas, Las Piñas City, Philippines</p>
+                    <p><i class="far fa-calendar-alt"></i> January 25, 2025 | 10:00 AM - 12:00 PM</p>
+                    <p><i class="fas fa-users"></i> Event by Icons of Change</p>
+                    <p><i class="fas fa-globe"></i> Public · Anyone can attend</p>
+                </div>
+            </div>
+            <div class="modal-body">
+                <p>In celebration of the United Nations General Assembly's proclamation of 2025 as the International Year of Peace and Trust, Icons of Change brings together exceptional leaders who have made remarkable contributions to promoting unity, building trust, and sustainable development. This event will not only highlight the significance of the UN declaration but also inspire action at the local and national levels to create a more peaceful and trusting society.</p>
+                
+                <h3>What the United Nations Proclamation Means</h3>
+                <p>The International Year of Peace and Trust is a global call to prioritize dialogue, cooperation, and solidarity. It recognizes that lasting peace and trust can only be achieved by addressing the root causes of conflict, strengthening justice and equality, and promoting partnerships that transcend borders, cultures, and ideologies. This year challenges us to take actionable steps in our communities to uphold these values and lay the groundwork for a better future.</p>
+                
+                <h3>Meet the Speakers</h3>
+                
+                <p><strong>Felipe Fernández Montealto Jr.</strong></p>
+                <p>Felipe has built a life dedicated to justice, advocacy, and meaningful service. With extensive experience across legal, governmental, and community sectors, he brings a unique perspective to the challenge of building trust and peace in today's society.</p>
+                <p>How He Contributes to the UN's Vision:</p>
+                <p>- <strong>Advocating for Justice and Human Dignity:</strong> Felipe's historic victory in the Supreme Court case ISDI v. Montealto Jr., which upheld the rights of Overseas Filipino Workers (OFWs), demonstrates his commitment to fairness and equality.</p>
+                <p>- <strong>Community Leadership:</strong> As President of the Fondazione Vatican Giovanni Paolo II Philippine Chapter, Felipe actively works to unite communities through faith-based initiatives, promoting dialogue, compassion, and shared values.</p>
+                <p>- <strong>Governance and Policy Reform:</strong> His tenure as Chair Emeritus of the Philippine National Police EOD K9 Advisory Group reflects his ability to contribute to peacekeeping efforts, enhancing public trust in law enforcement.</p>
+                
+                <p><strong>Dr. Angelo E. Base</strong></p>
+                <p>A visionary in the fields of law, mental health, and education, Dr. Base combines his expertise to create meaningful impact in the lives of individuals and communities. His work reflects the interconnectedness of peace, mental well-being, and ethical governance.</p>
+                <p>How He Contributes to the UN's Vision:</p>
+                <p>- <strong>Conflict Resolution:</strong> As a Supreme Court mediator and co-founder of BD&A Mediation Services Philippines, Dr. Base has helped resolve countless disputes through fair and effective mediation.</p>
+                <p>- <strong>Empowering Future Leaders:</strong> As Dean of Pearl of the Orient Theological Seminary & Colleges Inc., he nurtures a new generation of leaders grounded in ethics, compassion, and a commitment to community.</p>
+                <p>- <strong>Mental Health Advocacy:</strong> His work as a behavioral therapist shows the critical role of mental health in creating stable, harmonious societies.</p>
+                
+                <p><strong>Euan Rex Toralballa</strong></p>
+                <p>A dynamic leader with a passion for empowering communities, Euan has dedicated his career to promoting progress in Las Piñas and beyond. His experience spans leadership roles in business, community development, and governance.</p>
+                <p>How He Contributes to the UN's Vision:</p>
+                <p>- <strong>Economic Empowerment:</strong> As Regional Head for Small Businesses at PLDT Enterprise, Euan has helped countless entrepreneurs thrive, emphasizing the importance of economic opportunities in reducing inequality.</p>
+                <p>- <strong>Community Leadership:</strong> Euan's work as President of the BFRV Homeowners Association Inc. demonstrates his ability to unite diverse stakeholders, resolve local issues, and promote community welfare.</p>
+                <p>- <strong>Innovative Problem-Solving:</strong> Euan's leadership in the private sector, including his roles at Smart Communications and Banco de Oro, equips him with the tools to develop innovative solutions to societal challenges.</p>
+                
+                <h3>Why You Should Join</h3>
+                <p>The Icons of Change Symposium offers a unique opportunity to learn from these distinguished leaders and gain practical insights into how we can contribute to the UN's vision in our own communities. Expect thought-provoking discussions on topics such as:</p>
+                <p>- Promoting justice and reducing inequality as foundations for peace</p>
+                <p>- Addressing mental health and well-being to strengthen community trust</p>
+                <p>- Empowering local economies to reduce disparities and promote collaboration</p>
+                <p>- Uniting diverse groups through dialogue and shared values</p>
+                
+                <h3>Together for a Peaceful and Trusting World</h3>
+                <p>As we embark on the International Year of Peace and Trust, let us draw inspiration from leaders like Felipe Fernández Montealto Jr., Dr. Angelo E. Base, and Euan Rex Toralballa. Their work reminds us that achieving peace and trust is not just a lofty ideal but a collective responsibility.</p>
+                <p>Join us on January 25, 2025, at SM Center Las Piñas, as we celebrate this global initiative and explore how we can create a future rooted in harmony, cooperation, and mutual respect.</p>
+                
+                <div class="modal-actions">
+                    <a href="volunteer.html?program=peace-symposium&role=Event Assistant" class="cta-button">Become a Volunteer</a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div id="awardsModal" class="modal">
+        <div class="modal-content">
+            <span class="close-modal">&times;</span>
+            <div class="modal-header">
+                <h2>Icons of Change Metro Manila 2025 Awarding Ceremony</h2>
+                <div class="event-meta">
+                    <p><i class="fas fa-map-marker-alt"></i> Southville International School and Colleges, Las Piñas City, Philippines</p>
+                    <p><i class="far fa-calendar-alt"></i> April 27, 2025 | 2:00 PM - 5:00 PM</p>
+                    <p><i class="fas fa-users"></i> Event by Icons of Change</p>
+                    <p><i class="fas fa-globe"></i> Public · Anyone can attend</p>
+                </div>
+            </div>
+            <div class="modal-body">
+                <p>The Icons of Change Metro Manila 2025 Awarding Ceremony is set to spotlight exemplary leadership, innovation, and societal transformation in an event that promises to redefine how change is celebrated. This prestigious annual program honors individuals, organizations, and businesses that have consistently driven positive societal impact through their work. By recognizing not only established leaders but also the unsung heroes whose contributions often go unnoticed, the awards aim to elevate a culture of excellence, social responsibility, and visionary change.</p>
+                
+                <h3>In Partnership with Metro Manila SDG Action Summit</h3>
+                <p>This year, the Awards will run in tandem with the Metro Manila SDG Action Summit 2025, a dynamic platform aligned with the United Nations' designation of 2025 as the International Year of Peace and Trust. The Summit will serve as an essential forum for dialogue and collaboration among stakeholders, as it demonstrates the vital importance of collective action and community-driven initiatives in advancing the Sustainable Development Goals (SDGs).</p>
+                
+                <h3>Event Highlights</h3>
+                <p>The combined events are designed to shine a light on transformative efforts—from eradicating poverty and promoting quality education to advancing gender equality and ensuring environmental sustainability—thereby galvanizing meaningful progress on multiple fronts.</p>
+                
+                <p>Set for April 27, 2025, from 2:00 PM to 5:00 PM at Southville International School and Colleges in Las Piñas City, the event will feature:</p>
+                
+                <p>- <strong>Keynote Speeches:</strong> Delivered by distinguished leaders who have shaped the course of social innovation and public policy.</p>
+                
+                <p>- <strong>Award Presentations:</strong> Across various SDG-aligned categories celebrating past achievements and inspiring future endeavors.</p>
+                
+                <p>- <strong>Interactive Networking:</strong> Sessions designed to promote the exchange of ideas, best practices, and collaborative strategies among changemakers, policymakers, and industry experts.</p>
+                
+                <h3>Beyond the Ceremony</h3>
+                <p>Beyond the awards ceremony itself, the Icons of Change Metro Manila 2025 Awarding Ceremony will document the narratives and success stories of its honorees in a comprehensive publication. This book aims to serve as both an educational resource and a lasting source of inspiration, offering detailed insights into the journeys of those who have dedicated themselves to making a difference.</p>
+                
+                <h3>Our Vision</h3>
+                <p>The Icons of Change Metro Manila 2025 Awarding Ceremony seeks to catalyze a movement of innovation, leadership, and sustainable development. It celebrates those who have dared to challenge the status quo and create meaningful change, reinforcing the idea that every effort—no matter how small—can contribute to a brighter, more equitable future for Metro Manila and beyond.</p>
+                
+                <div class="modal-actions">
+                    <a href="volunteer.html?program=awards-ceremony&role=Event Coordinator" class="cta-button">Become a Volunteer</a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div id="alumniDinnerModal" class="modal">
+        <div class="modal-content">
+            <span class="close-modal">&times;</span>
+            <div class="modal-header">
+                <h2>University of Perpetual Help Hosts Testimonial Dinner for Alumni Icons of Change Awardees</h2>
+                <div class="event-meta">
+                    <p><i class="fas fa-map-marker-alt"></i> CITHM Lobby, University of Perpetual Help System DALTA, Las Piñas City, Philippines</p>
+                    <p><i class="far fa-calendar-alt"></i> November 27, 2024 | 5:00 PM - 8:00 PM</p>
+                    <p><i class="fas fa-users"></i> Event by Icons of Change</p>
+                    <p><i class="fas fa-globe"></i> Public · Anyone can attend</p>
+                </div>
+            </div>
+            <div class="modal-body">
+                <p>The University of Perpetual Help - Las Piñas Campus will hold a prestigious Testimonial Dinner to honor the distinguished Alumni Icons of Change Awardees on Wednesday, November 27, 2024, from 5:00 PM to 8:00 PM, at the CITHM Lobby.</p>
+                
+                <h3>Celebrating Excellence</h3>
+                <p>This special evening will celebrate the remarkable achievements of alumni who have significantly impacted their respective fields and communities, embodying the university's core values. These awardees serve as an inspiration to the entire Perpetualite family, showcasing the power of excellence, service, and leadership.</p>
+                
+                <h3>Event Highlights</h3>
+                <p>The event will bring together university officials, faculty, students, and guests to recognize these outstanding individuals' accomplishments and their contributions toward creating meaningful change. It will be an evening of camaraderie, reflection, and inspiration, highlighting the enduring bond between the University of Perpetual Help and its alumni.</p>
+                
+                <h3>Join Us</h3>
+                <p>Join us as we honor the Icons of Change and continue to uplift the spirit of the Perpetualite legacy.</p>
+                
+                <div class="modal-actions">
+                    <a href="volunteer.html?program=alumni-dinner&role=Event Support" class="cta-button">Become a Volunteer</a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div id="wellnessSeminarModal" class="modal">
+        <div class="modal-content">
+            <span class="close-modal">&times;</span>
+            <div class="modal-header">
+                <h2>Wellness Without Borders: Nature's Impact on Your Health</h2>
+                <div class="event-meta">
+                    <p><i class="fas fa-map-marker-alt"></i> SM Center Las Piñas, Las Piñas City, Philippines</p>
+                    <p><i class="far fa-calendar-alt"></i> January 18, 2025 | 10:00 AM - 12:00 NN</p>
+                    <p><i class="fas fa-users"></i> Event by Icons of Change</p>
+                    <p><i class="fas fa-globe"></i> Public · Anyone can attend</p>
+                </div>
+            </div>
+            <div class="modal-body">
+                <p>In an era where health and environmental challenges are ever-evolving, understanding the deep connection between personal wellness and the health of our planet is crucial. Join us for an enlightening seminar titled "Wellness Without Borders: Nature's Impact on Your Health," which will explore how the environment directly influences our physical and mental health.</p>
+                
+                <h3>Distinguished Speakers</h3>
+                
+                <p><strong>Dra. Ma. Victoria Diezmo-Marbibi</strong></p>
+                <p>Head and Senior Manager of Healthcare Access and Vaccination Services at Asian Hospital and Medical Center</p>
+                <p>Dra. Diezmo-Marbibi is a highly respected figure in healthcare, with extensive experience in promoting public health initiatives and vaccination programs. She will be discussing the importance of preventive healthcare, especially vaccination, and how a proactive approach to physical health contributes to overall wellness. She will delve into the vital role of healthcare systems in ensuring better access to services that support long-term well-being.</p>
+                
+                <p><strong>David D'Angelo</strong></p>
+                <p>Board of Director at Global Responsibility for Environmental and Ecological Nurturing (GREEN)</p>
+                <p>David D'Angelo, a passionate environmentalist and advocate for sustainable development, will offer his unique perspective on how environmental health impacts our personal health. With his leadership roles as the National President of the Green Party of the Philippines, and Vice President of Bayanihan Para sa Kalikasan Movement, David will explore the interconnectedness of our ecosystems and the human body. He will highlight how climate change, pollution, and ecological degradation directly affect our health, and offer solutions for creating a more sustainable future through collective action.</p>
+                
+                <h3>Why Attend?</h3>
+                <p>This seminar will provide invaluable insights into the growing link between personal wellness and environmental health. Attendees will learn about the critical factors that influence their well-being—ranging from air and water quality to the preservation of natural resources—and how these elements shape our overall health.</p>
+                
+                <p>This event also aims to encourage proactive steps to improve our surroundings, knowing that a healthier planet means a healthier you. Whether you are a healthcare professional, environmental advocate, or simply someone interested in how nature affects your personal wellness, this event will equip you with the knowledge to take meaningful action in both your health journey and environmental responsibilities.</p>
+                
+                <h3>Join Us for This Vital Discussion!</h3>
+                <p>Be part of the conversation that connects physical health with ecological preservation. Don't miss the chance to hear from these two impactful leaders as they share their expertise on how we can achieve holistic health in harmony with nature.</p>
+                
+                <p>Together, let's build a healthier future—one that bridges the gap between personal wellness and a thriving planet!</p>
+                
+                <div class="modal-actions">
+                    <a href="volunteer.html?program=wellness-seminar&role=Event Assistant" class="cta-button">Become a Volunteer</a>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <div id="expertTalksModal" class="modal">
+        <div class="modal-content">
+            <span class="close-modal">&times;</span>
+            <div class="modal-header">
+                <h2>Empowering Lives: Expert Talks on Health and Personal Growth</h2>
+                <div class="event-meta">
+                    <p><i class="fas fa-map-marker-alt"></i> Southville International School, Las Piñas City, Philippines</p>
+                    <p><i class="far fa-calendar-alt"></i> January 11, 2025 | 2:00 PM - 4:30 PM</p>
+                    <p><i class="fas fa-users"></i> Event by Icons of Change</p>
+                    <p><i class="fas fa-globe"></i> Public · Anyone can attend</p>
+                </div>
+            </div>
+            <div class="modal-body">
+                <p>Join us for an inspiring educational event featuring two distinguished speakers who will share invaluable insights on diabetes management and cultivating genuine compassion in our daily lives.</p>
+                
+                <h3>Featured Speakers</h3>
+                
+                <p><strong>Dr. Arvin C. Marbibi</strong></p>
+                <p>Specialist in Lifestyle Medicine and Diabetes Management</p>
+                <p>Dr. Marbibi will present "Understanding Diabetes: Prevention, Management, and Living Well." With his extensive clinical experience, Dr. Marbibi will provide practical knowledge about diabetes prevention, effective management strategies, and how to maintain a fulfilling life while living with this condition. His talk will cover the latest research, lifestyle interventions, and medical approaches that can make a significant difference in managing diabetes and improving overall health.</p>
+                
+                <p><strong>Malvin Dinlasan</strong></p>
+                <p>Compassionate Leadership Coach and Community Development Advocate</p>
+                <p>Malvin will present "The Power of Genuine Compassion in Personal and Professional Relationships." Drawing from his work in community development and leadership coaching, Malvin will explore how authentic compassion can transform our interactions with others, enhance our leadership capabilities, and create more harmonious environments at home and in the workplace. His presentation will include practical exercises and real-world examples of how compassion can be a driving force for positive change.</p>
+                
+                <h3>Why Attend?</h3>
+                <p>This event offers a unique opportunity to gain knowledge that can transform both your physical health and personal relationships. Whether you are directly affected by diabetes, care for someone who is, or simply want to learn preventive measures, Dr. Marbibi's talk will provide valuable information. Similarly, Malvin's insights on compassion can help anyone seeking to improve their personal connections and leadership skills.</p>
+                
+                <p>Attendees will receive resource materials, have the opportunity to ask questions during dedicated Q&A sessions, and connect with others who share similar interests in health and personal development.</p>
+                
+                <h3>Join Us for This Enriching Experience!</h3>
+                <p>Don't miss this chance to learn from experts who are passionate about empowering others through knowledge and practical wisdom. This event is free and open to the public, but registration is encouraged due to limited seating.</p>
+                
+                <div class="modal-actions">
+                    <a href="volunteer.html?program=expert-talk&role=Event Coordinator" class="cta-button">Become a Volunteer</a>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <div id="disabilitiesDayModal" class="modal">
+        <div class="modal-content">
+            <span class="close-modal">&times;</span>
+            <div class="modal-header">
+                <h2>International Day of Persons with Disabilities 2024</h2>
+                <div class="event-meta">
+                    <p><i class="fas fa-map-marker-alt"></i> SM City Las Piñas, Las Piñas City, Philippines</p>
+                    <p><i class="far fa-calendar-alt"></i> December 7, 2024 | 1:00 PM - 5:00 PM</p>
+                    <p><i class="fas fa-users"></i> Event by Icons of Change</p>
+                    <p><i class="fas fa-globe"></i> Public · Anyone can attend</p>
+                </div>
+            </div>
+            <div class="modal-body">
+                <p>In celebration of the International Day of Persons with Disabilities (IDPD), Icons of Change presents a special event highlighting the achievements and contributions of people with disabilities, while raising awareness about the importance of creating an inclusive, accessible society for all.</p>
+                
+                <h3>Event Theme: "Building Forward Better: Toward an Inclusive, Accessible, and Sustainable Post-COVID-19 World for Persons with Disabilities"</h3>
+                
+                <p>This year's event focuses on the unique challenges and opportunities that have emerged for persons with disabilities during and after the global pandemic, and how we can create more inclusive communities moving forward.</p>
+                
+                <h3>Featured Speakers</h3>
+                
+                <p><strong>John Guarnes</strong></p>
+                <p>Disability Rights Advocate and Inclusive Education Specialist</p>
+                <p>John will share his personal journey and discuss the importance of accessible education for all. His presentation will highlight successful models of inclusive educational settings and provide practical recommendations for schools and institutions to better accommodate students with various disabilities.</p>
+                
+                <p><strong>Dr. Mayla Wahab</strong></p>
+                <p>Director, National Council on Disability Affairs</p>
+                <p>Dr. Wahab will provide insights into national policy frameworks supporting persons with disabilities and discuss how government, private sector, and civil society can collaborate to create more accessible physical and digital environments. Her talk will include the latest data on disability inclusion in the Philippines and progress in implementing the UN Convention on the Rights of Persons with Disabilities.</p>
+                
+                <h3>Event Highlights</h3>
+                
+                <p>- <strong>Accessible Arts Showcase:</strong> Featuring artwork, performances, and creations by talented individuals with disabilities</p>
+                
+                <p>- <strong>Technology Demonstrations:</strong> Exhibiting the latest assistive technologies and digital accessibility tools</p>
+                
+                <p>- <strong>Inclusive Employment Forum:</strong> Exploring opportunities and best practices for workplace inclusion</p>
+                
+                <p>- <strong>Community Resource Fair:</strong> Connecting attendees with local services and support organizations</p>
+                
+                <h3>Why Attend?</h3>
+                
+                <p>This event offers valuable insights for:</p>
+                <p>- Persons with disabilities and their families seeking resources and community</p>
+                <p>- Educators and employers interested in creating more inclusive environments</p>
+                <p>- Policymakers and community leaders focused on accessibility and inclusion</p>
+                <p>- Anyone committed to supporting equal rights and opportunities for all people</p>
+                
+                <h3>Join Us in Celebrating Diversity and Inclusion!</h3>
+                
+                <p>Together, we can break down barriers and build a more inclusive society that values the contributions of all its members. This event is free and open to the public, with full accessibility accommodations available.</p>
+                
+                <div class="modal-actions">
+                    <a href="volunteer.html?program=disabilities-day&role=Accessibility Assistant" class="cta-button">Become a Volunteer</a>
+                </div>
+            </div>
+        </div>
+    </div>
+
     <script src="../js/main.js"></script>
     <script>
+        // Wellness Seminar Modal
+        function showWellnessSeminarDetails(event) {
+            event.preventDefault();
+            const modal = document.getElementById('wellnessSeminarModal');
+            modal.style.display = 'block';
+            
+            // Close modal when clicking on X
+            const closeBtn = modal.querySelector('.close-modal');
+            closeBtn.onclick = function() {
+                modal.style.display = 'none';
+            }
+            
+            // Close modal when clicking outside
+            window.onclick = function(event) {
+                if (event.target == modal) {
+                    modal.style.display = 'none';
+                }
+            }
+        }
+        
+        // Peace Symposium Modal
+        function showPeaceSymposiumDetails(event) {
+            event.preventDefault();
+            const modal = document.getElementById('peaceSymposiumModal');
+            modal.style.display = 'block';
+            
+            // Close modal when clicking on X
+            const closeBtn = modal.querySelector('.close-modal');
+            closeBtn.onclick = function() {
+                modal.style.display = 'none';
+            }
+            
+            // Close modal when clicking outside
+            window.onclick = function(event) {
+                if (event.target == modal) {
+                    modal.style.display = 'none';
+                }
+            }
+        }
+
+        // Awards Modal
+        function showAwardsDetails(event) {
+            event.preventDefault();
+            const modal = document.getElementById('awardsModal');
+            modal.style.display = 'block';
+            
+            // Close modal when clicking on X
+            const closeBtn = modal.querySelector('.close-modal');
+            closeBtn.onclick = function() {
+                modal.style.display = 'none';
+            }
+            
+            // Close modal when clicking outside
+            window.onclick = function(event) {
+                if (event.target == modal) {
+                    modal.style.display = 'none';
+                }
+            }
+        }
+
+        // Alumni Dinner Modal
+        function showAlumniDinnerDetails(event) {
+            event.preventDefault();
+            const modal = document.getElementById('alumniDinnerModal');
+            modal.style.display = 'block';
+            
+            // Close modal when clicking on X
+            const closeBtn = modal.querySelector('.close-modal');
+            closeBtn.onclick = function() {
+                modal.style.display = 'none';
+            }
+            
+            // Close modal when clicking outside
+            window.onclick = function(event) {
+                if (event.target == modal) {
+                    modal.style.display = 'none';
+                }
+            }
+        }
+
+        // Expert Talks Modal
+        function showExpertTalksDetails(event) {
+            event.preventDefault();
+            const modal = document.getElementById('expertTalksModal');
+            modal.style.display = 'block';
+            
+            // Close modal when clicking on X
+            const closeBtn = modal.querySelector('.close-modal');
+            closeBtn.onclick = function() {
+                modal.style.display = 'none';
+            }
+            
+            // Close modal when clicking outside
+            window.onclick = function(event) {
+                if (event.target == modal) {
+                    modal.style.display = 'none';
+                }
+            }
+        }
+        
+        // Disabilities Day Modal
+        function showDisabilitiesDayDetails(event) {
+            event.preventDefault();
+            const modal = document.getElementById('disabilitiesDayModal');
+            modal.style.display = 'block';
+            
+            // Close modal when clicking on X
+            const closeBtn = modal.querySelector('.close-modal');
+            closeBtn.onclick = function() {
+                modal.style.display = 'none';
+            }
+            
+            // Close modal when clicking outside
+            window.onclick = function(event) {
+                if (event.target == modal) {
+                    modal.style.display = 'none';
+                }
+            }
+        }
+
         // Program search functionality
         function searchPrograms() {
             const searchTerm = document.getElementById('programSearch').value.toLowerCase();
@@ -685,14 +1306,6 @@
                 if (cardText.includes(searchTerm)) {
                     card.classList.remove('hidden');
                     hasResults = true;
-                    
-                    // Highlight matching text
-                    if (searchTerm !== '') {
-                        highlightText(card, searchTerm);
-                    } else {
-                        // Clear highlights
-                        clearHighlights(card);
-                    }
                 } else {
                     card.classList.add('hidden');
                 }
@@ -711,80 +1324,75 @@
             }
         }
         
-        function highlightText(element, searchTerm) {
-            const textNodes = getTextNodes(element);
+        // 解析日期字符串为Date对象
+        function parseEventDate(dateStr) {
+            const months = {
+                'January': 0, 'February': 1, 'March': 2, 'April': 3, 'May': 4, 'June': 5,
+                'July': 6, 'August': 7, 'September': 8, 'October': 9, 'November': 10, 'December': 11
+            };
             
-            textNodes.forEach(node => {
-                const text = node.nodeValue;
-                const lowerText = text.toLowerCase();
-                let startIndex = 0;
-                let index;
-                
-                while ((index = lowerText.indexOf(searchTerm, startIndex)) > -1) {
-                    const span = document.createElement('span');
-                    span.className = 'highlight-text';
-                    
-                    const before = document.createTextNode(text.substring(startIndex, index));
-                    const match = document.createTextNode(text.substring(index, index + searchTerm.length));
-                    
-                    span.appendChild(match);
-                    
-                    const parent = node.parentNode;
-                    parent.insertBefore(before, node);
-                    parent.insertBefore(span, node);
-                    
-                    startIndex = index + searchTerm.length;
-                }
-                
-                if (startIndex > 0) {
-                    const after = document.createTextNode(text.substring(startIndex));
-                    node.parentNode.insertBefore(after, node);
-                    node.parentNode.removeChild(node);
-                }
-            });
+            const parts = dateStr.trim().split(' ');
+            const month = months[parts[0]];
+            const day = parseInt(parts[1].replace(',', ''));
+            const year = parseInt(parts[2]);
+            
+            return new Date(year, month, day);
         }
         
-        function getTextNodes(element) {
-            const textNodes = [];
-            
-            function getNodes(node) {
-                if (node.nodeType === 3) {
-                    textNodes.push(node);
-                } else {
-                    const children = node.childNodes;
-                    for (let i = 0; i < children.length; i++) {
-                        getNodes(children[i]);
-                    }
-                }
+        // 获取卡片的日期
+        function getCardDate(card) {
+            const dateElement = card.querySelector('.program-date');
+            if (dateElement) {
+                const dateText = dateElement.textContent.replace(/\s+/g, ' ').trim();
+                // 去除图标文本，只保留日期部分
+                const dateStr = dateText.split('  ').pop();
+                return parseEventDate(dateStr);
             }
-            
-            getNodes(element);
-            return textNodes;
+            return new Date(0); // 默认日期，如果没有找到日期
         }
         
-        function clearHighlights(element) {
-            const highlights = element.querySelectorAll('.highlight-text');
-            highlights.forEach(highlight => {
-                const parent = highlight.parentNode;
-                const text = highlight.textContent;
-                const textNode = document.createTextNode(text);
-                parent.replaceChild(textNode, highlight);
+        // 对卡片进行排序
+        function sortProgramCards() {
+            const programGrid = document.querySelector('.program-grid.events-programs');
+            if (!programGrid) return;
+            
+            const cards = Array.from(programGrid.querySelectorAll('.program-card'));
+            
+            // 按日期从近到远排序
+            cards.sort((a, b) => {
+                const dateA = getCardDate(a);
+                const dateB = getCardDate(b);
+                return dateB - dateA; // 降序排列（最近的日期在前）
+            });
+            
+            // 显示前三个，隐藏其余的
+            cards.forEach((card, index) => {
+                if (index < 3) {
+                    card.classList.remove('hidden');
+                } else {
+                    card.classList.add('hidden');
+                }
+                programGrid.appendChild(card);
             });
         }
         
         // Show more button functionality
         document.addEventListener('DOMContentLoaded', function() {
-            const showMoreButton = document.getElementById('showMoreCommunity');
-            if (showMoreButton) {
-                showMoreButton.addEventListener('click', function() {
-                    const hiddenCards = document.querySelectorAll('.community-programs .program-card.hidden');
+            // 首先对所有卡片进行排序
+            sortProgramCards();
+            
+            // 为Featured Events添加显示更多功能
+            const showMoreEventsButton = document.getElementById('showMoreEvents');
+            if (showMoreEventsButton) {
+                showMoreEventsButton.addEventListener('click', function() {
+                    const hiddenCards = document.querySelectorAll('.events-programs .program-card.hidden');
                     
                     hiddenCards.forEach(card => {
                         card.classList.remove('hidden');
                     });
                     
-                    // Hide show more button
-                    showMoreButton.style.display = 'none';
+                    // 隐藏显示更多按钮
+                    showMoreEventsButton.style.display = 'none';
                 });
             }
         });
