@@ -1,0 +1,260 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>IoCPTV - Icons of Change</title>
+    <link rel="stylesheet" href="../css/style.css" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css"
+    />
+    <style>
+      /* Volunteer page specific styles */
+      .iocptv-hero {
+        background-image: url("../images/volunteer-bg.jpg");
+        background-size: cover;
+        background-position: center;
+        color: #fff;
+        position: relative;
+        text-align: center;
+      }
+
+      .iocptv-hero::before {
+        content: "";
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background-color: rgba(0, 0, 0, 0.7);
+      }
+
+      .iocptv-hero-content {
+        position: relative;
+        max-width: 800px;
+        margin: 0 auto;
+      }
+
+      .iocptv-hero h1 {
+        font-size: 3rem;
+      }
+
+      .iocptv-hero p {
+        font-size: 1.2rem;
+        margin-bottom: 30px;
+      }
+
+      .ioCPTV-details iframe {
+        margin-bottom: 10px;
+        max-width: 100%;
+        height: auto;
+        display: block;
+      }
+
+      .ioCPTV-details .cta-button {
+        margin-top: 15px;
+      }
+
+      .ioCPTV-section {
+        padding: 80px 20px;
+      }
+
+      .ioCPTV-container {
+        max-width: 1200px;
+        margin: 0 auto;
+      }
+
+      .section-header {
+        text-align: center;
+        margin-bottom: 50px;
+      }
+
+      .section-header h2 {
+        font-size: 2rem;
+        margin-bottom: 15px;
+      }
+
+      .ioCPTV-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
+        gap: 30px;
+      }
+
+      .ioCPTV-card {
+        background-color: var(--card-bg);
+        border-radius: var(--border-radius);
+        overflow: hidden;
+        box-shadow: var(--shadow);
+        transition: var(--transition);
+        height: 100%;
+        border: 1px solid var(--primary-color);
+
+        display: flex;
+        flex-direction: column;
+      }
+
+      .ioCPTV-details {
+        flex-grow: 1;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        padding: 25px;
+      }
+
+      .ioCPTV-card:hover {
+        transform: translateY(-10px);
+        box-shadow: 0 15px 30px rgba(0, 0, 0, 0.2);
+      }
+
+      .ioCPTV-image {
+        height: 200px;
+        overflow: hidden;
+      }
+
+      .ioCPTV-image img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        transition: var(--transition);
+      }
+
+      .ioCPTV-card:hover .ioCPTV-image img {
+        transform: scale(1.05);
+      }
+
+      .ioCPTV-details h3 {
+        font-size: 1.4rem;
+        margin-bottom: 15px;
+        color: var(--primary-color);
+      }
+
+      .ioCPTV-details p {
+        margin-bottom: 20px;
+        line-height: 1.6;
+      }
+
+      .ioCPTV-meta {
+        margin-top: 20px;
+        border-top: 1px solid rgba(255, 255, 255, 0.1);
+        padding-top: 15px;
+      }
+
+      .meta-item {
+        display: flex;
+        align-items: center;
+        margin-bottom: 8px;
+      }
+
+      .meta-item i {
+        color: var(--primary-color);
+        margin-right: 10px;
+        width: 20px;
+        text-align: center;
+      }
+
+      @media (max-width: 768px) {
+        .form-row {
+          flex-direction: column;
+          gap: 0;
+        }
+
+        .iocptv-hero h1 {
+          font-size: 2.5rem;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <header>
+      <nav class="navbar">
+        <div class="logo-container">
+          <a href="../index.html" class="logo">
+            <img
+              src="../images/logo.png"
+              alt="Icons of Change Logo"
+              class="logo-img"
+            />
+            <span class="logo-text"
+              >Icons of <span class="highlight">Change</span></span
+            >
+          </a>
+        </div>
+        <div class="nav-links">
+          <a href="../index.html">Home</a>
+          <a href="about.html">About Us</a>
+          <a href="programs.html">Programs</a>
+          <a href="volunteer.html">Volunteer</a>
+          <a href="news.html">News & Impact</a>
+          <a href="contact.html">Contact</a>
+        </div>
+        <div class="social-icons">
+          <a
+            href="https://www.facebook.com/@IconsOfChangePhilippines"
+            target="_blank"
+            class="social-icon"
+          >
+            <i class="fab fa-facebook-f"></i>
+          </a>
+        </div>
+        <a href="volunteer.html" class="cta-button">Become a Volunteer</a>
+      </nav>
+    </header>
+
+    <section class="iocptv-hero">
+      <div class="iocptv-hero-content">
+        <h1>IoCPTV</h1>
+      </div>
+    </section>
+
+    <section class="ioCPTV-section">
+      <div class="ioCPTV-container">
+        <div class="ioCPTV-grid"></div>
+      </div>
+    </section>
+
+    <footer>
+      <div class="footer-content">
+        <div class="footer-logo">
+          <a href="../index.html">
+            <img
+              src="../images/logo.png"
+              alt="Icons of Change Logo"
+              class="footer-logo-img"
+            />
+            <span class="logo-text"
+              >Icons of <span class="highlight">Change</span></span
+            >
+          </a>
+        </div>
+        <div class="footer-links">
+          <a href="../index.html">Home</a>
+          <a href="about.html">About Us</a>
+          <a href="programs.html">Programs</a>
+          <a href="volunteer.html">Volunteer</a>
+          <a href="news.html">News & Impact</a>
+          <a href="contact.html">Contact</a>
+        </div>
+        <div class="footer-cta">
+          <a href="volunteer.html" class="cta-button">Become a Volunteer</a>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <p>
+          © Icons of Change All Rights Reserved |
+          <a href="privacy.html">Privacy Policy</a> |
+          <a href="terms.html">Terms</a> | <a href="sitemap.html">Sitemap</a>
+        </p>
+      </div>
+    </footer>
+    <script src="../js/events-data.js"></script>
+    <script src="../js/ioCPTV-details.js"></script>
+  </body>
+  <div id="fb-root"></div>
+  <script
+    async
+    defer
+    crossorigin="anonymous"
+    src="https://connect.facebook.net/en_US/sdk.js#xfbml=1&version=v19.0"
+  ></script>
+</html>
