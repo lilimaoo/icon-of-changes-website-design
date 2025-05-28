@@ -1,0 +1,649 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Create Post - Icons of Change</title>
+    <link rel="stylesheet" href="../css/style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <!-- Add CKEditor CDN -->
+    <script src="https://cdn.ckeditor.com/ckeditor5/40.0.0/classic/ckeditor.js"></script>
+    <style>
+        /* Create Post Page Styles */
+        .create-post-hero {
+            background-image: url('../images/newss-bg.jpg');
+            background-size: cover;
+            background-position: center;
+            background-attachment: fixed;
+            color: #fff;
+            position: relative;
+            text-align: center;
+            padding: 120px 20px;
+            min-height: 40vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        
+        .create-post-hero::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(to bottom, rgba(0, 0, 0, 0.8), rgba(0, 0, 0, 0.9));
+        }
+        
+        .create-post-hero-content {
+            position: relative;
+            max-width: 800px;
+            margin: 0 auto;
+            z-index: 1;
+        }
+        
+        .create-post-hero h1 {
+            font-size: 3rem;
+            margin-bottom: 20px;
+            color: #fff;
+            line-height: 1.2;
+        }
+        
+        .create-post-hero p {
+            font-size: 1.2rem;
+            margin-bottom: 30px;
+            color: rgba(255, 255, 255, 0.9);
+        }
+
+        .create-post-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 60px 20px;
+        }
+
+        .create-post-form {
+            background-color: var(--card-bg);
+            border-radius: var(--border-radius);
+            padding: 40px;
+            box-shadow: var(--shadow);
+            border: 1px solid var(--primary-color);
+        }
+
+        .form-header {
+            margin-bottom: 30px;
+            padding-bottom: 20px;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        .form-header h2 {
+            font-size: 2rem;
+            margin-bottom: 10px;
+        }
+
+        .form-header p {
+            color: rgba(255, 255, 255, 0.7);
+        }
+
+        .form-grid {
+            display: grid;
+            grid-template-columns: 2fr 1fr;
+            gap: 40px;
+        }
+
+        .main-form {
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+        }
+
+        .form-sidebar {
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+        }
+
+        .form-group {
+            display: flex;
+            flex-direction: column;
+            gap: 8px;
+        }
+
+        .form-group label {
+            font-weight: 600;
+            color: var(--text-color);
+        }
+
+        .form-group input,
+        .form-group select,
+        .form-group textarea {
+            padding: 12px;
+            border: 1px solid var(--primary-color);
+            border-radius: var(--border-radius);
+            background-color: rgba(255, 255, 255, 0.1);
+            color: var(--text-color);
+            font-size: 1rem;
+            transition: var(--transition);
+        }
+
+        .form-group input:focus,
+        .form-group select:focus,
+        .form-group textarea:focus {
+            outline: none;
+            box-shadow: 0 0 0 2px rgba(212, 175, 55, 0.3);
+        }
+
+        .image-upload {
+            border: 2px dashed var(--primary-color);
+            padding: 20px;
+            text-align: center;
+            border-radius: var(--border-radius);
+            cursor: pointer;
+            transition: var(--transition);
+            background-color: rgba(255, 255, 255, 0.05);
+        }
+
+        .image-upload:hover {
+            background-color: rgba(212, 175, 55, 0.1);
+        }
+
+        .image-upload i {
+            font-size: 2rem;
+            color: var(--primary-color);
+            margin-bottom: 10px;
+        }
+
+        .image-preview {
+            display: none;
+            margin-top: 10px;
+        }
+
+        .image-preview img {
+            max-width: 100%;
+            max-height: 200px;
+            border-radius: var(--border-radius);
+        }
+
+        .form-actions {
+            display: flex;
+            gap: 15px;
+            margin-top: 20px;
+        }
+
+        .submit-btn {
+            background-color: var(--primary-color);
+            color: #000;
+            border: none;
+            padding: 12px 30px;
+            border-radius: var(--border-radius);
+            font-weight: 600;
+            cursor: pointer;
+            transition: var(--transition);
+        }
+
+        .submit-btn:hover {
+            background-color: #ffcc00;
+            transform: translateY(-2px);
+        }
+
+        .cancel-btn {
+            background-color: transparent;
+            color: var(--text-color);
+            border: 1px solid var(--primary-color);
+            padding: 12px 30px;
+            border-radius: var(--border-radius);
+            font-weight: 600;
+            cursor: pointer;
+            transition: var(--transition);
+        }
+
+        .cancel-btn:hover {
+            background-color: rgba(212, 175, 55, 0.1);
+        }
+
+        .publish-options {
+            background-color: rgba(255, 255, 255, 0.05);
+            padding: 20px;
+            border-radius: var(--border-radius);
+            border: 1px solid var(--primary-color);
+        }
+
+        .publish-options h3 {
+            margin-bottom: 15px;
+            font-size: 1.2rem;
+        }
+
+        .publish-options .form-group {
+            margin-bottom: 15px;
+        }
+
+        .publish-options select {
+            width: 100%;
+        }
+
+        .status-badge {
+            display: inline-block;
+            padding: 4px 12px;
+            border-radius: 50px;
+            font-size: 0.9rem;
+            font-weight: 600;
+            margin-top: 10px;
+        }
+
+        .status-draft {
+            background-color: rgba(255, 255, 255, 0.1);
+            color: var(--text-color);
+        }
+
+        .status-published {
+            background-color: rgba(0, 255, 0, 0.1);
+            color: #00ff00;
+        }
+
+        .status-scheduled {
+            background-color: rgba(255, 165, 0, 0.1);
+            color: #ffa500;
+        }
+
+        @media (max-width: 992px) {
+            .form-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .create-post-hero h1 {
+                font-size: 2.5rem;
+            }
+
+            .create-post-hero p {
+                font-size: 1.1rem;
+            }
+
+            .create-post-form {
+                padding: 20px;
+            }
+
+            .form-actions {
+                flex-direction: column;
+            }
+
+            .submit-btn,
+            .cancel-btn {
+                width: 100%;
+            }
+        }
+
+        /* Rich Text Editor Styles */
+        .ck-editor__editable {
+            min-height: 400px;
+            background-color: rgba(255, 255, 255, 0.1) !important;
+            color: var(--text-color) !important;
+        }
+
+        .ck-toolbar {
+            background-color: var(--card-bg) !important;
+            border-color: var(--primary-color) !important;
+        }
+
+        .ck-button {
+            background-color: transparent !important;
+            border-color: var(--primary-color) !important;
+            color: var(--text-color) !important;
+        }
+
+        .ck-button:hover {
+            background-color: rgba(212, 175, 55, 0.1) !important;
+        }
+
+        .ck-button.ck-on {
+            background-color: var(--primary-color) !important;
+            color: #000 !important;
+        }
+
+        .ck-content {
+            border-color: var(--primary-color) !important;
+        }
+
+        .ck-editor__editable:focus {
+            box-shadow: 0 0 0 2px rgba(212, 175, 55, 0.3) !important;
+        }
+
+        .ck-dropdown__panel {
+            background-color: var(--card-bg) !important;
+            border-color: var(--primary-color) !important;
+        }
+
+        .ck-dropdown__panel * {
+            color: var(--text-color) !important;
+        }
+
+        .ck-dropdown__panel .ck-button:hover {
+            background-color: rgba(212, 175, 55, 0.1) !important;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <nav class="navbar">
+            <div class="logo-container">
+                <a href="../index.html" class="logo">
+                    <img src="../images/logo.png" alt="Icons of Change Logo" class="logo-img">
+                    <span class="logo-text">Icons of <span class="highlight">Change</span></span>
+                </a>
+            </div>
+            <div class="nav-links">
+                <a href="../index.html">Home</a>
+                <a href="about.html">About Us</a>
+                <a href="programs.html">Programs</a>
+                <a href="volunteer.html">Volunteer</a>
+                <a href="news.html">News & Impact</a>
+                <a href="contact.html">Contact</a>
+            </div>
+            <div class="auth-buttons">
+                <div class="user-menu" id="userMenu">
+                    <button class="user-menu-button">
+                        <i class="fas fa-user"></i>
+                        <span id="userName">User</span>
+                    </button>
+                    <div class="user-menu-dropdown">
+                        <a href="#" class="user-menu-item" id="profileLink">Profile</a>
+                        <a href="#" class="user-menu-item" id="logoutLink">Logout</a>
+                    </div>
+                </div>
+            </div>
+        </nav>
+    </header>
+
+    <section class="create-post-hero">
+        <div class="create-post-hero-content">
+            <h1>Create New Post</h1>
+            <p>Share your story and make an impact</p>
+        </div>
+    </section>
+
+    <div class="create-post-container">
+        <form class="create-post-form" id="createPostForm">
+            <div class="form-header">
+                <h2>Write Your Post</h2>
+                <p>Fill in the details below to create your post</p>
+            </div>
+
+            <div class="form-grid">
+                <div class="main-form">
+                    <div class="form-group">
+                        <label for="postTitle">Post Title</label>
+                        <input type="text" id="postTitle" required>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="postContent">Content</label>
+                        <textarea id="postContent"></textarea>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="postExcerpt">Short Excerpt</label>
+                        <textarea id="postExcerpt" rows="3" required></textarea>
+                    </div>
+
+                    <div class="form-actions">
+                        <button type="submit" class="submit-btn">Publish Post</button>
+                        <button type="button" class="cancel-btn" onclick="window.location.href='news.html'">Cancel</button>
+                    </div>
+                </div>
+
+                <div class="form-sidebar">
+                    <div class="publish-options">
+                        <h3>Publish Options</h3>
+                        <div class="form-group">
+                            <label for="postCategory">Category</label>
+                            <select id="postCategory" required>
+                                <option value="">Select a category</option>
+                                <option value="news">News</option>
+                                <option value="stories">Stories</option>
+                                <option value="awards">Awards</option>
+                            </select>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="postStatus">Status</label>
+                            <select id="postStatus">
+                                <option value="draft">Draft</option>
+                                <option value="published">Published</option>
+                                <option value="scheduled">Scheduled</option>
+                            </select>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="postDate">Publish Date</label>
+                            <input type="datetime-local" id="postDate">
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="postImage">Featured Image</label>
+                        <div class="image-upload" id="imageUpload">
+                            <i class="fas fa-cloud-upload-alt"></i>
+                            <p>Click or drag image to upload</p>
+                            <input type="file" id="postImage" accept="image/*" style="display: none;">
+                        </div>
+                        <div class="image-preview" id="imagePreview">
+                            <img src="" alt="Preview">
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </form>
+    </div>
+
+    <footer>
+        <div class="footer-content">
+            <div class="footer-logo">
+                <a href="../index.html">
+                    <img src="../images/logo.png" alt="Icons of Change Logo" class="footer-logo-img">
+                    <span class="logo-text">Icons of <span class="highlight">Change</span></span>
+                </a>
+            </div>
+            <div class="footer-links">
+                <a href="../index.html">Home</a>
+                <a href="about.html">About Us</a>
+                <a href="programs.html">Programs</a>
+                <a href="volunteer.html">Volunteer</a>
+                <a href="news.html">News & Impact</a>
+                <a href="contact.html">Contact</a>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>© Icons of Change All Rights Reserved | <a href="privacy.html">Privacy Policy</a> | <a href="terms.html">Terms</a> | <a href="sitemap.html">Sitemap</a></p>
+        </div>
+    </footer>
+
+    <script src="../js/main.js"></script>
+    <script>
+        let editor; // Declare editor variable globally
+
+        document.addEventListener('DOMContentLoaded', function() {
+            // Initialize CKEditor
+            ClassicEditor
+                .create(document.querySelector('#postContent'), {
+                    toolbar: {
+                        items: [
+                            'heading',
+                            '|',
+                            'bold',
+                            'italic',
+                            'link',
+                            'bulletedList',
+                            'numberedList',
+                            '|',
+                            'outdent',
+                            'indent',
+                            '|',
+                            'blockQuote',
+                            'insertTable',
+                            'mediaEmbed',
+                            'undo',
+                            'redo',
+                            '|',
+                            'code',
+                            'codeBlock'
+                        ]
+                    },
+                    heading: {
+                        options: [
+                            { model: 'paragraph', title: 'Paragraph', class: 'ck-heading_paragraph' },
+                            { model: 'heading1', view: 'h1', title: 'Heading 1', class: 'ck-heading_heading1' },
+                            { model: 'heading2', view: 'h2', title: 'Heading 2', class: 'ck-heading_heading2' },
+                            { model: 'heading3', view: 'h3', title: 'Heading 3', class: 'ck-heading_heading3' }
+                        ]
+                    }
+                })
+                .then(newEditor => {
+                    editor = newEditor; // Store editor instance
+                    console.log('CKEditor initialized successfully');
+                })
+                .catch(error => {
+                    console.error('CKEditor initialization error:', error);
+                });
+
+            // Image upload functionality
+            const imageUpload = document.getElementById('imageUpload');
+            const postImage = document.getElementById('postImage');
+            const imagePreview = document.getElementById('imagePreview');
+
+            imageUpload.addEventListener('click', function() {
+                postImage.click();
+            });
+
+            imageUpload.addEventListener('dragover', function(e) {
+                e.preventDefault();
+                this.style.backgroundColor = 'rgba(212, 175, 55, 0.2)';
+            });
+
+            imageUpload.addEventListener('dragleave', function() {
+                this.style.backgroundColor = '';
+            });
+
+            imageUpload.addEventListener('drop', function(e) {
+                e.preventDefault();
+                this.style.backgroundColor = '';
+                const file = e.dataTransfer.files[0];
+                if (file && file.type.startsWith('image/')) {
+                    handleImageFile(file);
+                }
+            });
+
+            postImage.addEventListener('change', function() {
+                const file = this.files[0];
+                if (file) {
+                    handleImageFile(file);
+                }
+            });
+
+            function handleImageFile(file) {
+                const reader = new FileReader();
+                reader.onload = function(e) {
+                    imagePreview.querySelector('img').src = e.target.result;
+                    imagePreview.style.display = 'block';
+                };
+                reader.readAsDataURL(file);
+            }
+
+            // Form submission
+            const createPostForm = document.getElementById('createPostForm');
+            createPostForm.addEventListener('submit', async function(e) {
+                e.preventDefault();
+                
+                try {
+                    console.log('Form submission started...');
+                    
+                    // Validate required fields
+                    const title = document.getElementById('postTitle').value.trim();
+                    const category = document.getElementById('postCategory').value;
+                    const excerpt = document.getElementById('postExcerpt').value.trim();
+                    
+                    console.log('Form data:', { title, category, excerpt });
+                    
+                    if (!title || !category || !excerpt) {
+                        alert('Please fill in all required fields');
+                        return;
+                    }
+
+                    // Get the rich text content from CKEditor
+                    if (!editor) {
+                        throw new Error('Editor not initialized');
+                    }
+                    const content = editor.getData();
+                    
+                    if (!content.trim()) {
+                        alert('Please add some content to your post');
+                        return;
+                    }
+
+                    const formData = new FormData();
+                    formData.append('title', title);
+                    formData.append('category', category);
+                    formData.append('excerpt', excerpt);
+                    formData.append('content', content);
+                    formData.append('status', document.getElementById('postStatus').value);
+                    formData.append('publishDate', document.getElementById('postDate').value);
+                    
+                    // Get the image file
+                    const imageFile = postImage.files[0];
+                    if (imageFile) {
+                        formData.append('image', imageFile);
+                    }
+
+                    // Show loading state
+                    const submitBtn = this.querySelector('.submit-btn');
+                    const originalText = submitBtn.textContent;
+                    submitBtn.textContent = 'Publishing...';
+                    submitBtn.disabled = true;
+
+                    console.log('Sending request to server...');
+                    const response = await fetch('http://localhost:5000/upload-news', {
+                        method: 'POST',
+                        body: formData
+                    });
+
+                    console.log('Server response status:', response.status);
+                    
+                    if (!response.ok) {
+                        const errorData = await response.json();
+                        console.error('Server error:', errorData);
+                        throw new Error(errorData.message || `HTTP error! status: ${response.status}`);
+                    }
+
+                    const result = await response.json();
+                    console.log('Server response:', result);
+                    
+                    alert('Post created successfully!');
+                    window.location.href = 'news.html';
+                } catch (error) {
+                    console.error('Error details:', error);
+                    alert(`Failed to create post: ${error.message}. Please make sure the backend server is running at http://localhost:5000`);
+                    
+                    // Reset button state
+                    const submitBtn = this.querySelector('.submit-btn');
+                    submitBtn.textContent = 'Publish Post';
+                    submitBtn.disabled = false;
+                }
+            });
+
+            // Check authentication
+            function checkAuthStatus() {
+                const isLoggedIn = localStorage.getItem('isLoggedIn') === 'true';
+                const user = JSON.parse(localStorage.getItem('user') || '{}');
+                
+                if (!isLoggedIn || !user.name) {
+                    window.location.href = 'news.html';
+                } else {
+                    document.getElementById('userName').textContent = user.name;
+                }
+            }
+
+            // Initial auth check
+            checkAuthStatus();
+        });
+    </script>
+</body>
+</html> 

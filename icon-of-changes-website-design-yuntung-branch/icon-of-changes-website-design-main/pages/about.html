@@ -1,0 +1,543 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>About Us - Icons of Change</title>
+    <link rel="stylesheet" href="../css/style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <style>
+        /* About page specific styles */
+        .mission-section {
+            background-color: var(--card-bg);
+            padding: 100px 20px;
+            text-align: center;
+            position: relative;
+            background-image: url('../images/mission-bg.jpg');
+            background-size: cover;
+            background-position: center;
+            color: #fff;
+        }
+        
+        .mission-section::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.7);
+        }
+        
+        .mission-content {
+            max-width: 800px;
+            margin: 0 auto;
+            position: relative;
+            z-index: 1;
+        }
+        
+        .mission-content h1 {
+            font-size: 3rem;
+            margin-bottom: 30px;
+            color: var(--primary-color);
+        }
+        
+        .mission-content p {
+            font-size: 1.2rem;
+            margin-bottom: 30px;
+            line-height: 1.8;
+        }
+        
+        .vision-section {
+            padding: 80px 20px;
+            display: flex;
+            align-items: center;
+            max-width: 1200px;
+            margin: 0 auto;
+            gap: 70px;
+        }
+        
+        .vision-image, .vision-content {
+            flex: 1;
+        }
+        
+        .vision-image img {
+            width: 100%;
+            border-radius: var(--border-radius);
+            box-shadow: var(--shadow);
+            border: 2px solid var(--primary-color);
+        }
+        
+        .vision-content h2 {
+            font-size: 2.5rem;
+            margin-bottom: 30px;
+            color: var(--primary-color);
+        }
+        
+        .vision-content p {
+            margin-bottom: 25px;
+            line-height: 1.8;
+            font-size: 1.1rem;
+        }
+        
+        .who-we-are {
+            background-color: var(--light-bg);
+            padding: 100px 20px;
+            position: relative;
+        }
+        
+        .who-we-are::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-image: url('../images/pattern-bg.png');
+            background-size: cover;
+            opacity: 0.05;
+            z-index: 0;
+        }
+        
+        .who-content {
+            max-width: 1200px;
+            margin: 0 auto;
+            text-align: center;
+            position: relative;
+            z-index: 1;
+        }
+        
+        .who-content h2 {
+            font-size: 2.5rem;
+            margin-bottom: 30px;
+            color: var(--primary-color);
+        }
+        
+        .who-content > p {
+            max-width: 800px;
+            margin: 0 auto 50px;
+            font-size: 1.1rem;
+            line-height: 1.8;
+        }
+        
+        .team-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+            gap: 40px;
+            margin-top: 50px;
+        }
+        
+        .team-member {
+            background-color: var(--card-bg);
+            border-radius: var(--border-radius);
+            overflow: hidden;
+            box-shadow: var(--shadow);
+            transition: var(--transition);
+            border: 1px solid var(--primary-color);
+        }
+        
+        .team-member:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.3);
+        }
+        
+        .member-photo {
+            height: 320px;
+            overflow: hidden;
+            position: relative;
+        }
+        
+        .member-photo::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            height: 30%;
+            background: linear-gradient(to top, rgba(0,0,0,0.8), transparent);
+        }
+        
+        .member-photo img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: var(--transition);
+        }
+        
+        .team-member:hover .member-photo img {
+            transform: scale(1.05);
+        }
+        
+        .member-info {
+            padding: 25px;
+            text-align: center;
+        }
+        
+        .member-info h3 {
+            margin-bottom: 8px;
+            font-size: 1.3rem;
+        }
+        
+        .member-info p {
+            color: var(--primary-color);
+            margin-bottom: 20px;
+            font-weight: 600;
+        }
+        
+        .social-links {
+            display: flex;
+            justify-content: center;
+            gap: 15px;
+        }
+        
+        .social-links a {
+            color: #aaa;
+            transition: var(--transition);
+            width: 36px;
+            height: 36px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+        }
+        
+        .social-links a:hover {
+            color: var(--primary-color);
+            border-color: var(--primary-color);
+            background-color: rgba(218, 165, 32, 0.1);
+        }
+        
+        .values-section {
+            padding: 100px 20px;
+        }
+        
+        .values-container {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+        
+        .values-header {
+            text-align: center;
+            margin-bottom: 60px;
+        }
+        
+        .values-header h2 {
+            font-size: 2.5rem;
+            margin-bottom: 20px;
+            color: var(--primary-color);
+        }
+        
+        .values-header p {
+            max-width: 700px;
+            margin: 0 auto;
+            font-size: 1.1rem;
+            line-height: 1.8;
+        }
+        
+        .values-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            gap: 40px;
+        }
+        
+        .value-card {
+            background-color: var(--card-bg);
+            border-radius: var(--border-radius);
+            padding: 40px 30px;
+            text-align: center;
+            box-shadow: var(--shadow);
+            transition: var(--transition);
+            border: 1px solid var(--primary-color);
+            height: 100%;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+        }
+        
+        .value-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.3);
+        }
+        
+        .value-icon {
+            font-size: 2.5rem;
+            color: var(--primary-color);
+            margin-bottom: 25px;
+        }
+        
+        .value-card h3 {
+            margin-bottom: 15px;
+            font-size: 1.4rem;
+        }
+        
+        .value-card p {
+            line-height: 1.7;
+        }
+        
+        .join-cta {
+            text-align: center;
+            padding: 50px 20px;
+            background-color: var(--light-bg);
+            margin-top: 80px;
+        }
+        
+        .join-cta h3 {
+            font-size: 2rem;
+            margin-bottom: 20px;
+            color: var(--primary-color);
+        }
+        
+        .join-cta p {
+            max-width: 600px;
+            margin: 0 auto 30px;
+            font-size: 1.1rem;
+        }
+        
+        @media (max-width: 992px) {
+            .vision-section {
+                flex-direction: column;
+                gap: 50px;
+            }
+            
+            .vision-image {
+                order: 1;
+            }
+            
+            .vision-content {
+                order: 2;
+            }
+            
+            .mission-content h1,
+            .vision-content h2,
+            .who-content h2,
+            .values-header h2 {
+                font-size: 2.2rem;
+            }
+        }
+        
+        @media (max-width: 768px) {
+            .team-grid,
+            .values-grid {
+                grid-template-columns: 1fr;
+                max-width: 400px;
+                margin-left: auto;
+                margin-right: auto;
+            }
+            
+            .mission-section,
+            .vision-section,
+            .who-we-are,
+            .values-section {
+                padding: 60px 20px;
+            }
+            
+            .mission-content h1 {
+                font-size: 2rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <nav class="navbar">
+            <div class="logo-container">
+                <a href="../index.html" class="logo">
+                    <img src="../images/logo.png" alt="Icons of Change Logo" class="logo-img">
+                    <span class="logo-text">Icons of <span class="highlight">Change</span></span>
+                </a>
+            </div>
+            <div class="nav-links">
+                <a href="../index.html">Home</a>
+                <a href="about.html" class="active">About Us</a>
+                <a href="programs.html">Programs</a>
+                <a href="volunteer.html">Volunteer</a>
+                <a href="news.html">News & Impact</a>
+                <a href="contact.html">Contact</a>
+            </div>
+            <div class="social-icons">
+                <a href="https://www.facebook.com/@IconsOfChangePhilippines" target="_blank" class="social-icon">
+                    <i class="fab fa-facebook-f"></i>
+                </a>
+            </div>
+            <a href="volunteer.html" class="cta-button">Become a Volunteer</a>
+        </nav>
+    </header>
+
+    <section class="mission-section">
+        <div class="mission-content">
+            <h1>Our Mission</h1>
+            <p>To recognize, empower, and celebrate the everyday trailblazers who spark meaningful, lasting impact in their communities. Icons of Change is dedicated to elevating the unrecognized changemakers by providing them a dynamic platform for visibility, connection, and growth opportunities. Through innovative awards, forward-thinking training, and collaborative projects, we aim to foster a culture of sustainable impact and inspire innovative collaborations across public and private sectors that drive social change.</p>
+        </div>
+    </section>
+
+    <section class="vision-section">
+        <div class="vision-image">
+            <img src="../images/vision-image.jpg" alt="Our Vision">
+        </div>
+        <div class="vision-content">
+            <h2>Our Vision</h2>
+            <p>A world where every community leader and changemaker is acknowledged, empowered, and equipped to drive sustainable impact. Icons of Change envisions a collaborative ecosystem that bridges communities, organizations, and global institutions, fostering strategic partnerships that inspire positive, lasting change throughout the Philippines and beyond.</p>
+            <p>United under a common purpose, these empowered changemakers will lead resilient, empowered communities toward a better future.</p>
+        </div>
+    </section>
+
+    <section class="who-we-are">
+        <div class="who-content">
+            <h2>Who We Are</h2>
+            <p>Icons of Change is your platform for recognizing everyday trailblazers who create meaningful, lasting change. Through awards, training, and collaborative projects, we elevate unsung heroes and inspire innovative cross-sector collaborations.</p>
+            
+            <div class="team-grid">
+                <div class="team-member">
+                    <div class="member-photo">
+                        <img src="../images/team-member-placeholder.jpg" alt="Nicole Davis">
+                    </div>
+                    <div class="member-info">
+                        <h3>Nicole Davis</h3>
+                        <p>Founder</p>
+                        <div class="social-links">
+                            <a href="#"><i class="fab fa-linkedin-in"></i></a>
+                            <a href="#"><i class="fab fa-twitter"></i></a>
+                            <a href="#"><i class="far fa-envelope"></i></a>
+                        </div>
+                    </div>
+                </div>
+                <div class="team-member">
+                    <div class="member-photo">
+                        <img src="../images/team-member-placeholder.jpg" alt="Michael Johnson">
+                    </div>
+                    <div class="member-info">
+                        <h3>Michael Johnson</h3>
+                        <p>Executive Director</p>
+                        <div class="social-links">
+                            <a href="#"><i class="fab fa-linkedin-in"></i></a>
+                            <a href="#"><i class="fab fa-twitter"></i></a>
+                            <a href="#"><i class="far fa-envelope"></i></a>
+                        </div>
+                    </div>
+                </div>
+                <div class="team-member">
+                    <div class="member-photo">
+                        <img src="../images/team-member-placeholder.jpg" alt="Sarah Kim">
+                    </div>
+                    <div class="member-info">
+                        <h3>Sarah Kim</h3>
+                        <p>Program Director</p>
+                        <div class="social-links">
+                            <a href="#"><i class="fab fa-linkedin-in"></i></a>
+                            <a href="#"><i class="fab fa-twitter"></i></a>
+                            <a href="#"><i class="far fa-envelope"></i></a>
+                        </div>
+                    </div>
+                </div>
+                <div class="team-member">
+                    <div class="member-photo">
+                        <img src="../images/team-member-placeholder.jpg" alt="David Martinez">
+                    </div>
+                    <div class="member-info">
+                        <h3>David Martinez</h3>
+                        <p>Community Engagement Manager</p>
+                        <div class="social-links">
+                            <a href="#"><i class="fab fa-linkedin-in"></i></a>
+                            <a href="#"><i class="fab fa-twitter"></i></a>
+                            <a href="#"><i class="far fa-envelope"></i></a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <section class="values-section">
+        <div class="values-container">
+            <div class="values-header">
+                <h2>Our Core Values</h2>
+                <p>The principles that guide everything we do at Icons of Change</p>
+            </div>
+            
+            <div class="values-grid">
+                <div class="value-card">
+                    <div class="value-icon">
+                        <i class="fas fa-lightbulb"></i>
+                    </div>
+                    <h3>Innovation</h3>
+                    <p>We embrace creative thinking and novel approaches to addressing complex social challenges, constantly seeking to improve our methods and maximize our impact.</p>
+                </div>
+                
+                <div class="value-card">
+                    <div class="value-icon">
+                        <i class="fas fa-hands-helping"></i>
+                    </div>
+                    <h3>Collaboration</h3>
+                    <p>We believe in the power of partnerships and collective action, working across sectors and communities to achieve greater impact than any single entity could alone.</p>
+                </div>
+                
+                <div class="value-card">
+                    <div class="value-icon">
+                        <i class="fas fa-balance-scale"></i>
+                    </div>
+                    <h3>Equity</h3>
+                    <p>We are committed to fairness and justice in all our work, ensuring that opportunities and resources are accessible to all, particularly those who have been historically marginalized.</p>
+                </div>
+                
+                <div class="value-card">
+                    <div class="value-icon">
+                        <i class="fas fa-globe-americas"></i>
+                    </div>
+                    <h3>Sustainability</h3>
+                    <p>We pursue solutions that create lasting change, considering long-term environmental, social, and economic impacts in all our decisions and actions.</p>
+                </div>
+                
+                <div class="value-card">
+                    <div class="value-icon">
+                        <i class="fas fa-heart"></i>
+                    </div>
+                    <h3>Empathy</h3>
+                    <p>We approach our work with compassion and understanding, respecting the dignity, experiences, and perspectives of all people we engage with.</p>
+                </div>
+                
+                <div class="value-card">
+                    <div class="value-icon">
+                        <i class="fas fa-shield-alt"></i>
+                    </div>
+                    <h3>Integrity</h3>
+                    <p>We hold ourselves to the highest ethical standards, operating with transparency, honesty, and accountability in all our interactions and initiatives.</p>
+                </div>
+            </div>
+            
+            <div class="join-cta">
+                <h3>Join Our Movement</h3>
+                <p>Be part of a growing community dedicated to recognizing and empowering changemakers across the Philippines and beyond.</p>
+                <a href="volunteer.html" class="cta-button">Become a Volunteer</a>
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <div class="footer-content">
+            <div class="footer-logo">
+                <a href="../index.html">
+                    <img src="../images/logo.png" alt="Icons of Change Logo" class="footer-logo-img">
+                    <span class="logo-text">Icons of <span class="highlight">Change</span></span>
+                </a>
+            </div>
+            <div class="footer-links">
+                <a href="../index.html">Home</a>
+                <a href="about.html">About Us</a>
+                <a href="programs.html">Programs</a>
+                <a href="volunteer.html">Volunteer</a>
+                <a href="news.html">News & Impact</a>
+                <a href="contact.html">Contact Us</a>
+            </div>
+            <div class="footer-cta">
+                <a href="volunteer.html" class="cta-button">Become a Volunteer</a>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>© Icons of Change All Rights Reserved | <a href="privacy.html">Privacy Policy</a> | <a href="terms.html">Terms</a> | <a href="sitemap.html">Sitemap</a></p>
+        </div>
+    </footer>
+
+    <script src="../js/main.js"></script>
+</body>
+</html> 

@@ -1,0 +1,704 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Volunteer - Icons of Change</title>
+    <link rel="stylesheet" href="../css/style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <style>
+        /* Volunteer page specific styles */
+        .volunteer-hero {
+            background-image: url('../images/volunteer-bg.jpg');
+            background-size: cover;
+            background-position: center;
+            color: #fff;
+            position: relative;
+            text-align: center;
+            padding: 100px 20px;
+        }
+        
+        .volunteer-hero::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.7);
+        }
+        
+        .volunteer-hero-content {
+            position: relative;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+        
+        .volunteer-hero h1 {
+            font-size: 3rem;
+            margin-bottom: 20px;
+        }
+        
+        .volunteer-hero p {
+            font-size: 1.2rem;
+            margin-bottom: 30px;
+        }
+        
+        .volunteer-intro {
+            background-color: var(--light-bg);
+            padding: 80px 20px;
+            text-align: center;
+        }
+        
+        .volunteer-intro-content {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+        
+        .volunteer-intro h2 {
+            font-size: 2rem;
+            margin-bottom: 30px;
+        }
+        
+        .volunteer-intro p {
+            margin-bottom: 30px;
+            line-height: 1.8;
+        }
+        
+        .opportunities-section {
+            padding: 80px 20px;
+        }
+        
+        .opportunities-container {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+        
+        .section-header {
+            text-align: center;
+            margin-bottom: 50px;
+        }
+        
+        .section-header h2 {
+            font-size: 2rem;
+            margin-bottom: 15px;
+        }
+        
+        .opportunities-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
+            gap: 30px;
+        }
+        
+        .opportunity-card {
+            background-color: var(--card-bg);
+            border-radius: var(--border-radius);
+            overflow: hidden;
+            box-shadow: var(--shadow);
+            transition: var(--transition);
+            height: 100%;
+            border: 1px solid var(--primary-color);
+        }
+        
+        .opportunity-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.2);
+        }
+        
+        .opportunity-image {
+            height: 200px;
+            overflow: hidden;
+        }
+        
+        .opportunity-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: var(--transition);
+        }
+        
+        .opportunity-card:hover .opportunity-image img {
+            transform: scale(1.05);
+        }
+        
+        .opportunity-details {
+            padding: 25px;
+        }
+        
+        .opportunity-details h3 {
+            font-size: 1.4rem;
+            margin-bottom: 15px;
+            color: var(--primary-color);
+        }
+        
+        .opportunity-details p {
+            margin-bottom: 20px;
+            line-height: 1.6;
+        }
+        
+        .opportunity-meta {
+            margin-top: 20px;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            padding-top: 15px;
+        }
+        
+        .meta-item {
+            display: flex;
+            align-items: center;
+            margin-bottom: 8px;
+        }
+        
+        .meta-item i {
+            color: var(--primary-color);
+            margin-right: 10px;
+            width: 20px;
+            text-align: center;
+        }
+        
+        .testimonials-section {
+            background-color: var(--light-bg);
+            padding: 80px 20px;
+        }
+        
+        .testimonials-container {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+        
+        .testimonials-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
+            gap: 30px;
+        }
+        
+        .testimonial-card {
+            background-color: var(--card-bg);
+            border-radius: var(--border-radius);
+            padding: 30px;
+            box-shadow: var(--shadow);
+            position: relative;
+            border: 1px solid var(--primary-color);
+        }
+        
+        .testimonial-text {
+            font-style: italic;
+            margin-bottom: 20px;
+            line-height: 1.8;
+            position: relative;
+        }
+        
+        .testimonial-text::before {
+            content: '\201C';
+            font-size: 4rem;
+            font-family: Georgia, serif;
+            color: var(--primary-color);
+            opacity: 0.3;
+            position: absolute;
+            top: -20px;
+            left: -15px;
+        }
+        
+        .testimonial-author {
+            display: flex;
+            align-items: center;
+        }
+        
+        .author-image {
+            width: 60px;
+            height: 60px;
+            border-radius: 50%;
+            overflow: hidden;
+            margin-right: 15px;
+            border: 2px solid var(--primary-color);
+        }
+        
+        .author-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+        
+        .author-info h4 {
+            margin-bottom: 5px;
+        }
+        
+        .author-info p {
+            color: #aaa;
+            font-size: 0.9rem;
+        }
+        
+        .application-section {
+            padding: 80px 20px;
+        }
+        
+        .application-container {
+            max-width: 800px;
+            margin: 0 auto;
+            background-color: var(--card-bg);
+            border-radius: var(--border-radius);
+            padding: 40px;
+            box-shadow: var(--shadow);
+            border: 1px solid var(--primary-color);
+        }
+        
+        .application-container h2 {
+            text-align: center;
+            margin-bottom: 30px;
+        }
+        
+        .form-row {
+            display: flex;
+            gap: 20px;
+            margin-bottom: 20px;
+        }
+        
+        .form-group {
+            flex: 1;
+        }
+        
+        .form-group label {
+            display: block;
+            margin-bottom: 8px;
+            font-weight: 600;
+        }
+        
+        .form-control {
+            width: 100%;
+            padding: 12px 15px;
+            border: 1px solid #333;
+            border-radius: var(--border-radius);
+            background-color: rgba(0, 0, 0, 0.2);
+            color: #fff;
+        }
+        
+        .form-control:focus {
+            border-color: var(--primary-color);
+            outline: none;
+        }
+        
+        textarea.form-control {
+            min-height: 150px;
+            resize: vertical;
+        }
+        
+        .form-check {
+            display: flex;
+            align-items: flex-start;
+            margin-bottom: 15px;
+        }
+        
+        .form-check input {
+            margin-right: 10px;
+            margin-top: 5px;
+        }
+        
+        .form-submit {
+            text-align: center;
+            margin-top: 30px;
+        }
+        
+        @media (max-width: 768px) {
+            .form-row {
+                flex-direction: column;
+                gap: 0;
+            }
+            
+            .volunteer-hero h1 {
+                font-size: 2.5rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <nav class="navbar">
+            <div class="logo-container">
+                <a href="../index.html" class="logo">
+                    <img src="../images/logo.png" alt="Icons of Change Logo" class="logo-img">
+                    <span class="logo-text">Icons of <span class="highlight">Change</span></span>
+                </a>
+            </div>
+            <div class="nav-links">
+                <a href="../index.html">Home</a>
+                <a href="about.html">About Us</a>
+                <a href="programs.html">Programs</a>
+                <a href="volunteer.html" class="active">Volunteer</a>
+                <a href="news.html">News & Impact</a>
+                <a href="contact.html">Contact</a>
+            </div>
+            <div class="social-icons">
+                <a href="https://www.facebook.com/@IconsOfChangePhilippines" target="_blank" class="social-icon">
+                    <i class="fab fa-facebook-f"></i>
+                </a>
+            </div>
+            <a href="volunteer.html" class="cta-button">Become a Volunteer</a>
+        </nav>
+    </header>
+
+    <section class="volunteer-hero">
+        <div class="volunteer-hero-content">
+            <h1>Join Our Volunteer Team</h1>
+            <p>Be part of a community of changemakers creating meaningful impact</p>
+            <a href="#apply" class="cta-button">Apply Now</a>
+        </div>
+    </section>
+
+    <section class="volunteer-intro">
+        <div class="volunteer-intro-content">
+            <h2>Why Volunteer With Us</h2>
+            <p>At Icons of Change, volunteers are the heartbeat of our organization. By joining our volunteer team, you become part of a vibrant community of passionate individuals dedicated to creating lasting, positive change in communities across the Philippines and beyond.</p>
+            <p>Whether you have a few hours to spare or are looking for a long-term volunteer opportunity, your skills, experience, and enthusiasm can make a real difference in the lives of others.</p>
+        </div>
+    </section>
+
+    <section class="opportunities-section">
+        <div class="opportunities-container">
+            <div class="section-header">
+                <h2>Volunteer Opportunities</h2>
+                <p>Find the perfect role that matches your skills and passion</p>
+            </div>
+            
+            <div class="opportunities-grid">
+                <div class="opportunity-card">
+                    <div class="opportunity-image">
+                        <img src="../images/volunteer-event.jpg" alt="Event Support">
+                    </div>
+                    <div class="opportunity-details">
+                        <h3>Event Support</h3>
+                        <p>Help organize and facilitate community events, workshops, and recognition ceremonies. Assist with setup, registration, coordination, and ensuring participants have a great experience.</p>
+                        <div class="opportunity-meta">
+                            <div class="meta-item">
+                                <i class="far fa-clock"></i>
+                                <span>Short-term, event-based</span>
+                            </div>
+                            <div class="meta-item">
+                                <i class="fas fa-map-marker-alt"></i>
+                                <span>On-site</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="opportunity-card">
+                    <div class="opportunity-image">
+                        <img src="../images/volunteer-mentoring.jpg" alt="Mentorship Programs">
+                    </div>
+                    <div class="opportunity-details">
+                        <h3>Mentorship Programs</h3>
+                        <p>Share your expertise and experience by mentoring community leaders, youth changemakers, or program participants. Guide them through challenges and help them develop leadership skills.</p>
+                        <div class="opportunity-meta">
+                            <div class="meta-item">
+                                <i class="far fa-clock"></i>
+                                <span>3-6 month commitment</span>
+                            </div>
+                            <div class="meta-item">
+                                <i class="fas fa-map-marker-alt"></i>
+                                <span>In-person or virtual</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="opportunity-card">
+                    <div class="opportunity-image">
+                        <img src="../images/volunteer-digital.jpg" alt="Digital Skills">
+                    </div>
+                    <div class="opportunity-details">
+                        <h3>Digital & Creative Support</h3>
+                        <p>Use your digital, design, photography, or content creation skills to help tell the stories of community changemakers and amplify our mission through compelling communications.</p>
+                        <div class="opportunity-meta">
+                            <div class="meta-item">
+                                <i class="far fa-clock"></i>
+                                <span>Flexible, project-based</span>
+                            </div>
+                            <div class="meta-item">
+                                <i class="fas fa-map-marker-alt"></i>
+                                <span>Remote</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="opportunity-card">
+                    <div class="opportunity-image">
+                        <img src="../images/volunteer-community.jpg" alt="Community Projects">
+                    </div>
+                    <div class="opportunity-details">
+                        <h3>Community Project Support</h3>
+                        <p>Work directly with community initiatives to implement projects, conduct research, or provide specialized skills that help address local challenges and build community capacity.</p>
+                        <div class="opportunity-meta">
+                            <div class="meta-item">
+                                <i class="far fa-clock"></i>
+                                <span>Varied commitment</span>
+                            </div>
+                            <div class="meta-item">
+                                <i class="fas fa-map-marker-alt"></i>
+                                <span>On-site</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="opportunity-card">
+                    <div class="opportunity-image">
+                        <img src="../images/volunteer-admin.jpg" alt="Administrative Support">
+                    </div>
+                    <div class="opportunity-details">
+                        <h3>Administrative Support</h3>
+                        <p>Help our organization run smoothly by assisting with administrative tasks, database management, correspondence, volunteer coordination, and logistical planning.</p>
+                        <div class="opportunity-meta">
+                            <div class="meta-item">
+                                <i class="far fa-clock"></i>
+                                <span>Regular, ongoing</span>
+                            </div>
+                            <div class="meta-item">
+                                <i class="fas fa-map-marker-alt"></i>
+                                <span>Office-based or remote</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="opportunity-card">
+                    <div class="opportunity-image">
+                        <img src="../images/volunteer-advisory.jpg" alt="Advisory Roles">
+                    </div>
+                    <div class="opportunity-details">
+                        <h3>Advisory Roles</h3>
+                        <p>Provide strategic guidance, professional expertise, and sectoral knowledge to help strengthen our programs, organizational capacity, and community impact.</p>
+                        <div class="opportunity-meta">
+                            <div class="meta-item">
+                                <i class="far fa-clock"></i>
+                                <span>Ongoing, periodic meetings</span>
+                            </div>
+                            <div class="meta-item">
+                                <i class="fas fa-map-marker-alt"></i>
+                                <span>Remote or in-person</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="testimonials-section">
+        <div class="testimonials-container">
+            <div class="section-header">
+                <h2>Volunteer Stories</h2>
+                <p>Hear from those who have experienced the impact of volunteering with us</p>
+            </div>
+            
+            <div class="testimonials-grid">
+                <div class="testimonial-card">
+                    <div class="testimonial-text">
+                        <p>Volunteering with Icons of Change has been one of the most rewarding experiences of my life. I've not only been able to contribute my skills but have also grown personally and professionally through the connections I've made.</p>
+                    </div>
+                    <div class="testimonial-author">
+                        <div class="author-image">
+                            <img src="../images/volunteer-testimonial-1.jpg" alt="Maria Santos">
+                        </div>
+                        <div class="author-info">
+                            <h4>Maria Santos</h4>
+                            <p>Event Support Volunteer, 2 years</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="testimonial-card">
+                    <div class="testimonial-text">
+                        <p>As a mentor in the Youth Leadership program, I've had the privilege of watching young leaders develop confidence and skills to create change in their communities. It's been inspiring to be part of their journey.</p>
+                    </div>
+                    <div class="testimonial-author">
+                        <div class="author-image">
+                            <img src="../images/volunteer-testimonial-2.jpg" alt="James Chen">
+                        </div>
+                        <div class="author-info">
+                            <h4>James Chen</h4>
+                            <p>Mentor, 3 years</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="testimonial-card">
+                    <div class="testimonial-text">
+                        <p>Working remotely as a digital volunteer has allowed me to contribute my design skills while still maintaining my full-time job. The flexibility and impact make it the perfect volunteer opportunity for me.</p>
+                    </div>
+                    <div class="testimonial-author">
+                        <div class="author-image">
+                            <img src="../images/volunteer-testimonial-3.jpg" alt="Sophia Reyes">
+                        </div>
+                        <div class="author-info">
+                            <h4>Sophia Reyes</h4>
+                            <p>Digital Support Volunteer, 1 year</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="apply" class="application-section">
+        <div class="application-container">
+            <h2>Volunteer Application</h2>
+            <form id="volunteerForm">
+                <div class="form-row">
+                    <div class="form-group">
+                        <label for="firstName">First Name *</label>
+                        <input type="text" id="firstName" class="form-control" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="lastName">Last Name *</label>
+                        <input type="text" id="lastName" class="form-control" required>
+                    </div>
+                </div>
+                
+                <div class="form-row">
+                    <div class="form-group">
+                        <label for="email">Email *</label>
+                        <input type="email" id="email" class="form-control" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="phone">Phone Number</label>
+                        <input type="tel" id="phone" class="form-control">
+                    </div>
+                </div>
+                
+                <div class="form-group">
+                    <label for="opportunities">Areas of Interest (Select all that apply) *</label>
+                    <div class="form-check">
+                        <input type="checkbox" id="eventSupport" name="opportunities">
+                        <label for="eventSupport">Event Support</label>
+                    </div>
+                    <div class="form-check">
+                        <input type="checkbox" id="mentorship" name="opportunities">
+                        <label for="mentorship">Mentorship Programs</label>
+                    </div>
+                    <div class="form-check">
+                        <input type="checkbox" id="digitalCreative" name="opportunities">
+                        <label for="digitalCreative">Digital & Creative Support</label>
+                    </div>
+                    <div class="form-check">
+                        <input type="checkbox" id="communityProjects" name="opportunities">
+                        <label for="communityProjects">Community Project Support</label>
+                    </div>
+                    <div class="form-check">
+                        <input type="checkbox" id="administrative" name="opportunities">
+                        <label for="administrative">Administrative Support</label>
+                    </div>
+                    <div class="form-check">
+                        <input type="checkbox" id="advisory" name="opportunities">
+                        <label for="advisory">Advisory Roles</label>
+                    </div>
+                </div>
+                
+                <div class="form-group">
+                    <label for="availability">Availability *</label>
+                    <div class="form-check">
+                        <input type="checkbox" id="weekdays" name="availability">
+                        <label for="weekdays">Weekdays</label>
+                    </div>
+                    <div class="form-check">
+                        <input type="checkbox" id="evenings" name="availability">
+                        <label for="evenings">Evenings</label>
+                    </div>
+                    <div class="form-check">
+                        <input type="checkbox" id="weekends" name="availability">
+                        <label for="weekends">Weekends</label>
+                    </div>
+                </div>
+                
+                <div class="form-group">
+                    <label for="experience">Relevant Skills & Experience</label>
+                    <textarea id="experience" class="form-control"></textarea>
+                </div>
+                
+                <div class="form-group">
+                    <label for="motivation">Why do you want to volunteer with Icons of Change? *</label>
+                    <textarea id="motivation" class="form-control" required></textarea>
+                </div>
+                
+                <div class="form-submit">
+                    <button type="submit" class="cta-button">Submit Application</button>
+                </div>
+            </form>
+        </div>
+    </section>
+
+    <footer>
+        <div class="footer-content">
+            <div class="footer-logo">
+                <a href="../index.html">
+                    <img src="../images/logo.png" alt="Icons of Change Logo" class="footer-logo-img">
+                    <span class="logo-text">Icons of <span class="highlight">Change</span></span>
+                </a>
+            </div>
+            <div class="footer-links">
+                <a href="../index.html">Home</a>
+                <a href="about.html">About Us</a>
+                <a href="programs.html">Programs</a>
+                <a href="volunteer.html">Volunteer</a>
+                <a href="news.html">News & Impact</a>
+                <a href="contact.html">Contact</a>
+            </div>
+            <div class="footer-cta">
+                <a href="volunteer.html" class="cta-button">Become a Volunteer</a>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>© Icons of Change All Rights Reserved | <a href="privacy.html">Privacy Policy</a> | <a href="terms.html">Terms</a> | <a href="sitemap.html">Sitemap</a></p>
+        </div>
+    </footer>
+
+    <script src="../js/main.js"></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const volunteerForm = document.getElementById('volunteerForm');
+            
+            volunteerForm.addEventListener('submit', function(e) {
+                e.preventDefault();
+                
+                // Simple form validation
+                const name = document.getElementById('firstName').value;
+                const email = document.getElementById('email').value;
+                const phone = document.getElementById('phone').value;
+                const skills = document.getElementById('experience').value;
+                
+                if (name && email && phone && skills) {
+                    // Here you would typically send the form data to a server
+                    // For this example, we'll just show a success message
+                    
+                    // Success message
+                    const successMessage = document.createElement('div');
+                    successMessage.className = 'alert alert-success';
+                    successMessage.textContent = 'Your volunteer application has been submitted successfully. We will contact you soon!';
+                    
+                    // Insert the success message before the form
+                    volunteerForm.parentNode.insertBefore(successMessage, volunteerForm);
+                    
+                    // Reset the form
+                    volunteerForm.reset();
+                    
+                    // Remove the success message after 5 seconds
+                    setTimeout(function() {
+                        successMessage.remove();
+                    }, 5000);
+                } else {
+                    // Error message
+                    const errorMessage = document.createElement('div');
+                    errorMessage.className = 'alert alert-error';
+                    errorMessage.textContent = 'Please fill in all required fields.';
+                    
+                    // Insert the error message before the form
+                    volunteerForm.parentNode.insertBefore(errorMessage, volunteerForm);
+                    
+                    // Remove the error message after 5 seconds
+                    setTimeout(function() {
+                        errorMessage.remove();
+                    }, 5000);
+                }
+            });
+        });
+    </script>
+</body>
+</html> 
