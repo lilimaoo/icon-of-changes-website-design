@@ -14,7 +14,7 @@
             padding: 150px 0 100px;
             text-align: center;
             position: relative;
-            background-image: url('../images/header.png');
+            background-image: url('../images/contact-bg.jpg');
             background-size: cover;
             background-position: center;
             color: #fff;
@@ -270,37 +270,7 @@
             color: var(--primary-color);
             font-size: 1.2rem;
         }
-        .join-us-section {
-        padding: 100px 0;
-        background-color: var(--dark-bg);
-        width: 100%;
-    }
-    
-        .join-us-card {
-        display: flex;          /* put text + image side by side */
-        flex-wrap: wrap;        /* allow wrapping on smaller screens */
-        align-items: center;    /* vertically center if you like */
-        gap: 20px;              /* spacing between text & image */
-        }
-
-        /* Left side (text) */
-        .join-us-text {
-        flex: 1;  /* takes up available width */
-        }
-
-        /* Right side (image) */
-        .join-us-image {
-        flex: 1;  /* also takes up available width */
-        }
-
-        /* Make the image responsive and nicely fitted */
-        .join-us-image img {
-        width: 100%;
-        height: auto; /* let the height scale naturally */
-        border-radius: var(--border-radius);
-        border: 1px solid rgba(255, 255, 255, 0.1);
-        object-fit: cover; /* optional if you want a cropped fill */
-        }
+        
         @media (max-width: 768px) {
             .contact-hero-content h1 {
                 font-size: 2.5rem;
@@ -561,50 +531,6 @@
         </div>
     </section>
 
-    <section class="contact-section">
-        <div class="contact-container">
-          
-          <!-- Single card containing BOTH text and image -->
-          <div class="contact-card" 
-               style="display: flex; gap: 2rem; align-items: center; flex-wrap: wrap;">
-            
-            <!-- Left side: text, heading, paragraph, button -->
-            <div class="contact-item" style="flex: 1;">
-              <div class="contact-text">
-                <h2>
-                  Join <span class="highlight">Us</span><br />
-                  Be the <span class="highlight">Change</span>
-                </h2>
-                <p style="margin-bottom: 1rem;">
-                  At Icons of Change, we believe in the power of everyday 
-                  trailblazers—individuals who create meaningful, lasting impact 
-                  in their communities. Through recognition, empowerment, and 
-                  collaboration, we provide a platform where changemakers can 
-                  thrive, inspire, and spark transformation.
-                </p>
-                <!-- Add a little top margin to the button so it isn't jammed 
-                     against the paragraph -->
-                <a href="volunteer.html" class="cta-button" style="margin-top: 0.5rem;">
-                  Become a Volunteer
-                </a>
-              </div>
-            </div>
-            
-            <!-- Right side: image -->
-            <div class="contact-item" style="flex: 1;">
-              <div class="contact-text">
-                <img
-                  src="../images/logo.png"
-                  alt="Icons of Change event with audience"
-                  style="width: 100%; height: auto; border-radius: var(--border-radius);"
-                />
-              </div>
-            </div>
-            
-          </div><!-- /.contact-card -->
-          
-        </div><!-- /.contact-container -->
-      </section>
     <footer>
         <div class="footer-content">
             <div class="footer-logo">
@@ -697,7 +623,5 @@
             });
         });
     </script>
-
-    <script src="//code.tidio.co/42axnexylbswnevmcnzy27um64abkmsv.js" async></script>
 </body>
 </html> 

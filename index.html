@@ -45,6 +45,19 @@
           </a>
         </div>
         <a href="pages/volunteer.html" class="cta-button">Become a Volunteer</a>
+        <div class="auth-buttons">
+            <button class="login-btn" id="loginBtn">Login</button>
+            <div class="user-menu" id="userMenu">
+                <button class="user-menu-button">
+                    <i class="fas fa-user"></i>
+                    <span id="userName">User</span>
+                </button>
+                <div class="user-menu-dropdown">
+                    <a href="#" class="user-menu-item" id="profileLink">Profile</a>
+                    <a href="#" class="user-menu-item" id="logoutLink">Logout</a>
+                </div>
+            </div>
+        </div>
       </nav>
     </header>
 
@@ -164,9 +177,31 @@
 
     <section class="video-gallery">
       <h2>IoCPTV<br /><span class="subtitle">Our Impact in Action</span></h2>
-      <div class="video-cards"></div>
-      <div class="center-btn">
-        <a href="pages/ioCPTV.html" class="outline-button">Explore More</a>
+      <div class="video-cards">
+        <div class="video-card" data-fb-id="683031690740763">
+          <div class="video-thumbnail">
+            <img src="images/IoCPTV-vid1.jpg" alt="Video 1" />
+          </div>
+          <div class="video-details">
+            <h3>
+              "The People's Platform: Every Candidate, Every Voice" - MAGZ
+              MAGLANA (Congressional Candidate 1st District Davao City)
+            </h3>
+            <p>Watch Video</p>
+          </div>
+        </div>
+        <div class="video-card" data-fb-id="1019246593583007">
+          <div class="video-thumbnail">
+            <img src="images/IoCPTV-vid2.jpg" alt="Video 2" />
+          </div>
+          <div class="video-details">
+            <h3>
+              "The People's Platform: Every Candidate, Every Voice" Featuring
+              ATTY. LEANDRO VERCELES (Senatorial Candidate)
+            </h3>
+            <p>Watch Video</p>
+          </div>
+        </div>
       </div>
     </section>
 
@@ -225,37 +260,116 @@
       </div>
     </footer>
 
+    <!-- Login Modal -->
+    <div id="loginModal" class="modal">
+        <div class="modal-content">
+            <span class="close" id="closeLoginModal">&times;</span>
+            <h2>Login</h2>
+            <form id="loginForm">
+                <div class="form-group">
+                    <label for="email">Email:</label>
+                    <input type="email" id="email" name="email" required>
+                </div>
+                <div class="form-group">
+                    <label for="password">Password:</label>
+                    <input type="password" id="password" name="password" required>
+                </div>
+                <div class="error-message" id="loginError"></div>
+                <button type="submit" class="submit-btn">Login</button>
+            </form>
+        </div>
+    </div>
+
     <script src="js/main.js"></script>
-    <script src="js/events-data.js"></script>
-
-    <script src="//code.tidio.co/42axnexylbswnevmcnzy27um64abkmsv.js" async></script>
-
     <script>
-      document.addEventListener("DOMContentLoaded", () => {
-        const videoContainer = document.querySelector(".video-cards");
+    // Authentication functionality
+    document.addEventListener('DOMContentLoaded', function() {
+        const loginBtn = document.getElementById('loginBtn');
+        const loginModal = document.getElementById('loginModal');
+        const closeLoginModal = document.getElementById('closeLoginModal');
+        const loginForm = document.getElementById('loginForm');
+        const loginError = document.getElementById('loginError');
+        const userMenu = document.getElementById('userMenu');
+        const userName = document.getElementById('userName');
+        const logoutLink = document.getElementById('logoutLink');
+        const createArticleBtn = document.getElementById('createArticleBtn');
 
-        events.slice(0, 2).forEach((event) => {
-          const card = document.createElement("div");
-          card.className = "video-card";
+        // Check if user is logged in
+        function checkAuthStatus() {
+            const isLoggedIn = localStorage.getItem('isLoggedIn') === 'true';
+            const user = JSON.parse(localStorage.getItem('user') || '{}');
+            
+            if (isLoggedIn && user.name) {
+                loginBtn.style.display = 'none';
+                userMenu.style.display = 'block';
+                userName.textContent = user.name;
+                if (createArticleBtn) {
+                    createArticleBtn.classList.add('visible');
+                }
+            } else {
+                loginBtn.style.display = 'block';
+                userMenu.style.display = 'none';
+                if (createArticleBtn) {
+                    createArticleBtn.classList.remove('visible');
+                }
+            }
+        }
 
-          card.innerHTML = `
-            <div class="video-thumbnail">
-              <!-- You can replace with dynamic thumbnails if available -->
-              <iframe src="${
-                event.videoEmbed.match(/src="([^"]+)"/)?.[1]
-              }" width="100%" height="314" frameborder="0" scrolling="no" allowfullscreen allow="autoplay; clipboard-write; encrypted-media; picture-in-picture; web-share"></iframe>
-            </div>
-            <div class="video-details">
-              <h3>${event.title}</h3>
-              <p><a href="${
-                event.link
-              }" target="_blank">Watch on Facebook</a></p>
-            </div>
-          `;
-
-          videoContainer.appendChild(card);
+        // Show login modal
+        loginBtn.addEventListener('click', function() {
+            loginModal.classList.add('active');
         });
-      });
+
+        // Close login modal
+        closeLoginModal.addEventListener('click', function() {
+            loginModal.classList.remove('active');
+            loginError.style.display = 'none';
+        });
+
+        // Handle login form submission
+        loginForm.addEventListener('submit', function(e) {
+            e.preventDefault();
+            const email = document.getElementById('email').value;
+            const password = document.getElementById('password').value;
+
+            // Mock authentication
+            if (email === 'admin@example.com' && password === 'password123') {
+                localStorage.setItem('isLoggedIn', 'true');
+                localStorage.setItem('user', JSON.stringify({
+                    name: 'Admin User',
+                    email: email
+                }));
+                loginModal.classList.remove('active');
+                checkAuthStatus();
+            } else {
+                loginError.style.display = 'block';
+                loginError.textContent = 'Invalid email or password';
+            }
+        });
+
+        // Handle logout
+        logoutLink.addEventListener('click', function(e) {
+            e.preventDefault();
+            localStorage.removeItem('isLoggedIn');
+            localStorage.removeItem('user');
+            checkAuthStatus();
+        });
+
+        // Close user menu when clicking outside
+        document.addEventListener('click', function(e) {
+            if (!userMenu.contains(e.target)) {
+                userMenu.classList.remove('active');
+            }
+        });
+
+        // Toggle user menu
+        userMenu.querySelector('.user-menu-button').addEventListener('click', function() {
+            userMenu.classList.toggle('active');
+        });
+
+        // Initial auth check
+        checkAuthStatus();
+    });
     </script>
   </body>
 </html>
