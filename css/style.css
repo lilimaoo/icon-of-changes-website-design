@@ -140,7 +140,7 @@ section {
 }
 
 .program-card .date {
-  display: flex;
+  display: flsex;
   align-items: center;
   gap: 6px; /* Controls spacing between icon and text */
   color: var(--primary-color);
