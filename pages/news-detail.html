@@ -1,257 +1,276 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>News Detail - Icons of Change</title>
-    <link rel="stylesheet" href="../css/style.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link rel="stylesheet" href="../css/style.css" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css"
+    />
     <style>
-        .article-header {
-            background-image: url('../images/newss-bg.jpg');
-            background-size: cover;
-            background-position: center;
-            background-attachment: fixed;
-            color: #fff;
-            position: relative;
-            text-align: center;
-            padding: 120px 20px;
-            min-height: 40vh;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-        }
-        
-        .article-header::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background: linear-gradient(to bottom, rgba(0, 0, 0, 0.8), rgba(0, 0, 0, 0.9));
-        }
-        
-        .article-header-content {
-            position: relative;
-            max-width: 800px;
-            margin: 0 auto;
-            z-index: 1;
-        }
-        
+      .article-header {
+        background-image: url("../images/newss-bg.jpg");
+        background-size: cover;
+        background-position: center;
+        background-attachment: fixed;
+        color: #fff;
+        position: relative;
+        text-align: center;
+        padding: 120px 20px;
+        min-height: 40vh;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+      }
+
+      .article-header::before {
+        content: "";
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background: linear-gradient(
+          to bottom,
+          rgba(0, 0, 0, 0.8),
+          rgba(0, 0, 0, 0.9)
+        );
+      }
+
+      .article-header-content {
+        position: relative;
+        max-width: 800px;
+        margin: 0 auto;
+        z-index: 1;
+      }
+
+      .article-header h1 {
+        font-size: 3rem;
+        margin-bottom: 20px;
+        line-height: 1.2;
+      }
+
+      .article-meta {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        gap: 20px;
+        margin-bottom: 30px;
+        font-size: 1.1rem;
+      }
+
+      .article-category {
+        background-color: var(--primary-color);
+        color: #000;
+        padding: 5px 15px;
+        border-radius: 50px;
+        font-weight: 600;
+      }
+
+      .article-date {
+        display: flex;
+        align-items: center;
+        gap: 8px;
+      }
+
+      .article-content {
+        max-width: 800px;
+        margin: 0 auto;
+        padding: 60px 20px;
+      }
+
+      .article-image {
+        width: 100%;
+        max-height: 500px;
+        margin-bottom: 40px;
+        border-radius: var(--border-radius);
+        overflow: hidden;
+      }
+
+      .article-image img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+      }
+
+      .article-text {
+        font-size: 1.1rem;
+        line-height: 1.8;
+        color: var(--text-color);
+      }
+
+      .article-text p {
+        margin-bottom: 20px;
+      }
+
+      .article-navigation {
+        display: flex;
+        justify-content: space-between;
+        margin-top: 60px;
+        padding-top: 40px;
+        border-top: 1px solid rgba(255, 255, 255, 0.1);
+      }
+
+      .nav-link {
+        display: flex;
+        align-items: center;
+        gap: 10px;
+        color: var(--text-color);
+        text-decoration: none;
+        transition: var(--transition);
+      }
+
+      .nav-link:hover {
+        color: var(--primary-color);
+      }
+
+      .nav-link.prev {
+        flex-direction: row;
+      }
+
+      .nav-link.next {
+        flex-direction: row-reverse;
+      }
+
+      .nav-link i {
+        font-size: 1.2rem;
+      }
+
+      @media (max-width: 768px) {
         .article-header h1 {
-            font-size: 3rem;
-            margin-bottom: 20px;
-            line-height: 1.2;
+          font-size: 2rem;
         }
-        
+
         .article-meta {
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            gap: 20px;
-            margin-bottom: 30px;
-            font-size: 1.1rem;
+          flex-direction: column;
+          gap: 10px;
         }
-        
-        .article-category {
-            background-color: var(--primary-color);
-            color: #000;
-            padding: 5px 15px;
-            border-radius: 50px;
-            font-weight: 600;
-        }
-        
-        .article-date {
-            display: flex;
-            align-items: center;
-            gap: 8px;
-        }
-        
-        .article-content {
-            max-width: 800px;
-            margin: 0 auto;
-            padding: 60px 20px;
-        }
-        
-        .article-image {
-            width: 100%;
-            max-height: 500px;
-            margin-bottom: 40px;
-            border-radius: var(--border-radius);
-            overflow: hidden;
-        }
-        
-        .article-image img {
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-        }
-        
-        .article-text {
-            font-size: 1.1rem;
-            line-height: 1.8;
-            color: var(--text-color);
-        }
-        
-        .article-text p {
-            margin-bottom: 20px;
-        }
-        
+
         .article-navigation {
-            display: flex;
-            justify-content: space-between;
-            margin-top: 60px;
-            padding-top: 40px;
-            border-top: 1px solid rgba(255, 255, 255, 0.1);
+          flex-direction: column;
+          gap: 20px;
         }
-        
-        .nav-link {
-            display: flex;
-            align-items: center;
-            gap: 10px;
-            color: var(--text-color);
-            text-decoration: none;
-            transition: var(--transition);
-        }
-        
-        .nav-link:hover {
-            color: var(--primary-color);
-        }
-        
-        .nav-link.prev {
-            flex-direction: row;
-        }
-        
+
         .nav-link.next {
-            flex-direction: row-reverse;
+          justify-content: flex-start;
         }
-        
-        .nav-link i {
-            font-size: 1.2rem;
-        }
-        
-        @media (max-width: 768px) {
-            .article-header h1 {
-                font-size: 2rem;
-            }
-            
-            .article-meta {
-                flex-direction: column;
-                gap: 10px;
-            }
-            
-            .article-navigation {
-                flex-direction: column;
-                gap: 20px;
-            }
-            
-            .nav-link.next {
-                justify-content: flex-start;
-            }
-        }
+      }
     </style>
-</head>
-<body>
+  </head>
+  <body>
     <header>
-        <nav class="navbar">
-            <div class="logo-container">
-                <a href="../index.html" class="logo">
-                    <img src="../images/logo.png" alt="Icons of Change Logo" class="logo-img">
-                    <span class="logo-text">Icons of <span class="highlight">Change</span></span>
-                </a>
-            </div>
-            <div class="nav-links">
-                <a href="../index.html">Home</a>
-                <a href="about.html">About Us</a>
-                <a href="programs.html">Programs</a>
-                <a href="volunteer.html">Volunteer</a>
-                <a href="news.html" class="active">News & Impact</a>
-                <a href="contact.html">Contact</a>
-            </div>
-            <div class="auth-buttons">
-                <button class="login-btn" id="loginBtn">Login</button>
-                <div class="user-menu" id="userMenu">
-                    <button class="user-menu-button">
-                        <i class="fas fa-user"></i>
-                        <span id="userName">User</span>
-                    </button>
-                    <div class="user-menu-dropdown">
-                        <a href="#" class="user-menu-item" id="profileLink">Profile</a>
-                        <a href="#" class="user-menu-item" id="logoutLink">Logout</a>
-                    </div>
-                </div>
-            </div>
-            <a href="volunteer.html" class="cta-button">Become a Volunteer</a>
-        </nav>
+      <nav class="navbar">
+        <div class="logo-container">
+          <a href="../index.html" class="logo">
+            <img
+              src="../images/logo.png"
+              alt="Icons of Change Logo"
+              class="logo-img"
+            />
+            <span class="logo-text"
+              >Icons of <span class="highlight">Change</span></span
+            >
+          </a>
+        </div>
+        <div class="nav-links">
+          <a href="../index.html">Home</a>
+          <a href="about.html">About Us</a>
+          <a href="programs.html">Programs</a>
+          <a href="volunteer.html">Volunteer</a>
+          <a href="news.html" class="active">News & Impact</a>
+          <a href="contact.html">Contact</a>
+        </div>
+
+        <div class="social-icons">
+          <a
+            href="https://www.facebook.com/TheIconsOfChange"
+            target="_blank"
+            class="social-icon"
+          >
+            <i class="fab fa-facebook-f"></i>
+          </a>
+        </div>
+        <a href="volunteer.html" class="cta-button">Become a Volunteer</a>
+      </nav>
     </header>
 
     <article class="article-header">
-        <div class="article-header-content">
-            <h1 id="articleTitle">Loading...</h1>
-                <div class="article-meta">
-                <span class="article-category" id="articleCategory">Loading...</span>
-                <span class="article-date">
-                    <i class="far fa-calendar-alt"></i>
-                    <span id="articleDate">Loading...</span>
-                </span>
-            </div>
-            </div>
-        </article>
-        
+      <div class="article-header-content">
+        <h1 id="articleTitle">Loading...</h1>
+        <div class="article-meta">
+          <span class="article-category" id="articleCategory">Loading...</span>
+          <span class="article-date">
+            <i class="far fa-calendar-alt"></i>
+            <span id="articleDate">Loading...</span>
+          </span>
+        </div>
+      </div>
+    </article>
+
     <main class="article-content">
-        <div class="article-image">
-            <img id="articleImage" src="" alt="Article Image">
-                    </div>
-        <div class="article-text" id="articleContent">
-            Loading...
-            </div>
-        
-        <div class="article-navigation">
-            <a href="#" class="nav-link prev" id="prevArticle">
-                <i class="fas fa-arrow-left"></i>
-                Previous Article
-            </a>
-            <a href="#" class="nav-link next" id="nextArticle">
-                Next Article
-                <i class="fas fa-arrow-right"></i>
-            </a>
-            </div>
+      <div class="article-image">
+        <img id="articleImage" src="" alt="Article Image" />
+      </div>
+      <div class="article-text" id="articleContent">Loading...</div>
+
+      <div class="article-navigation">
+        <a href="#" class="nav-link prev" id="prevArticle">
+          <i class="fas fa-arrow-left"></i>
+          Previous Article
+        </a>
+        <a href="#" class="nav-link next" id="nextArticle">
+          Next Article
+          <i class="fas fa-arrow-right"></i>
+        </a>
+      </div>
     </main>
 
     <footer>
-        <div class="footer-content">
-            <div class="footer-logo">
-                <a href="../index.html">
-                    <img src="../images/logo.png" alt="Icons of Change Logo" class="footer-logo-img">
-                    <span class="logo-text">Icons of <span class="highlight">Change</span></span>
-                </a>
-            </div>
-            <div class="footer-links">
-                <a href="../index.html">Home</a>
-                <a href="about.html">About Us</a>
-                <a href="programs.html">Programs</a>
-                <a href="volunteer.html">Volunteer</a>
-                <a href="news.html">News & Impact</a>
-                <a href="contact.html">Contact</a>
-            </div>
-            <div class="footer-cta">
-                <a href="volunteer.html" class="cta-button">Become a Volunteer</a>
-            </div>
+      <div class="footer-content">
+        <div class="footer-logo">
+          <a href="../index.html">
+            <img
+              src="../images/logo.png"
+              alt="Icons of Change Logo"
+              class="footer-logo-img"
+            />
+            <span class="logo-text"
+              >Icons of <span class="highlight">Change</span></span
+            >
+          </a>
         </div>
-        <div class="footer-bottom">
-            <p>© Icons of Change All Rights Reserved | <a href="privacy.html">Privacy Policy</a> | <a href="terms.html">Terms</a> | <a href="sitemap.html">Sitemap</a></p>
+        <div class="footer-links">
+          <a href="../index.html">Home</a>
+          <a href="about.html">About Us</a>
+          <a href="programs.html">Programs</a>
+          <a href="volunteer.html">Volunteer</a>
+          <a href="news.html">News & Impact</a>
+          <a href="contact.html">Contact</a>
         </div>
+        <div class="footer-cta">
+          <a href="volunteer.html" class="cta-button">Become a Volunteer</a>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <p>
+          © Icons of Change All Rights Reserved |
+          <a href="privacy.html">Privacy Policy</a> |
+          <a href="terms.html">Terms</a> | <a href="sitemap.html">Sitemap</a>
+        </p>
+      </div>
     </footer>
-    
+
     <script>
-        const newsArticles = {
-            1: {
-                title: "LPU-Laguna Honored for Excellence in Industry-Driven Education and Innovation at Icons of Change Awards 2025",
-                category: "Awards",
-                date: "May 28, 2023",
-                image: "../images/news-image/Laguna.jpg",
-                content: `
+      const newsArticles = {
+        1: {
+          title:
+            "LPU-Laguna Honored for Excellence in Industry-Driven Education and Innovation at Icons of Change Awards 2025",
+          category: "Awards",
+          date: "May 28, 2023",
+          image: "../images/news-image/Laguna.jpg",
+          content: `
                     <p>Lyceum of the Philippines University - Laguna (LPU-Laguna) receives the Excellence in Industry-Driven Education and Innovation Award at the Icons of Change Awards 2025 for its commitment to bridging academia and industry, pioneering experiential learning, and producing globally competitive graduates.</p>
                     
                     <p>LPU-Laguna's innovative approach to education includes:</p>
@@ -273,14 +292,15 @@
                     </ul>
                     
                     <p>The impact of her work extends beyond just providing books. These libraries have become community centers where children gather to study, adults learn new skills, and communities come together.</p>
-                `
-            },
-            2: {
-                title: "RG Cruz: Outstanding Political Correspondent at Icons of Change 2025",
-                category: "Stories",
-                date: "May 20, 2023",
-                image: "../images/news-image/RG Cruz.jpg",
-                content: `
+                `,
+        },
+        2: {
+          title:
+            "RG Cruz: Outstanding Political Correspondent at Icons of Change 2025",
+          category: "Stories",
+          date: "May 20, 2023",
+          image: "../images/news-image/RG Cruz.jpg",
+          content: `
                     <p>Our popular workshop series on sustainable community development is expanding to five new provinces, reaching over 500 additional local leaders.</p>
                     
                     <p>The expansion includes:</p>
@@ -292,14 +312,15 @@
                     </ul>
                     
                     <p>Each location will host monthly workshops, providing practical skills and knowledge to community leaders.</p>
-                `
-            },
-            3: {
-                title: "RG Cruz: Outstanding Political Correspondent at Icons of Change 2025",
-                category: "Stories",
-                date: "May 20, 2023",
-                image: "../images/news-image/RG Cruz.jpg",
-                content: `
+                `,
+        },
+        3: {
+          title:
+            "RG Cruz: Outstanding Political Correspondent at Icons of Change 2025",
+          category: "Stories",
+          date: "May 20, 2023",
+          image: "../images/news-image/RG Cruz.jpg",
+          content: `
                     <p>Our popular workshop series on sustainable community development is expanding to five new provinces, reaching over 500 additional local leaders.</p>
                     
                     <p>The expansion includes:</p>
@@ -311,14 +332,15 @@
                     </ul>
                     
                     <p>Each location will host monthly workshops, providing practical skills and knowledge to community leaders.</p>
-                `
-            },
-            4: {
-                title: "Dr. Joseph Manapsal: Champion for Public Health at Icons of Change 2025",
-                category: "Awards",
-                date: "May 20, 2023",
-                image: "../images/news-image/Dr. Joseph Aron Rey Manapsal.jpg",
-                content: `
+                `,
+        },
+        4: {
+          title:
+            "Dr. Joseph Manapsal: Champion for Public Health at Icons of Change 2025",
+          category: "Awards",
+          date: "May 20, 2023",
+          image: "../images/news-image/Dr. Joseph Aron Rey Manapsal.jpg",
+          content: `
                     <p>Our popular workshop series on sustainable community development is expanding to five new provinces, reaching over 500 additional local leaders.</p>
                     
                     <p>The expansion includes:</p>
@@ -330,14 +352,15 @@
                     </ul>
                     
                     <p>Each location will host monthly workshops, providing practical skills and knowledge to community leaders.</p>
-                `
-            },
-            5: {
-                title: "Dr. Neil Balba: Excellence in Innovation & Leadership in Technology Award",
-                category: "Awards",
-                date: "April 28, 2023",
-                image: "../images/news-image/Dr. Neil Perez Balba.jpg",
-                content: `
+                `,
+        },
+        5: {
+          title:
+            "Dr. Neil Balba: Excellence in Innovation & Leadership in Technology Award",
+          category: "Awards",
+          date: "April 28, 2023",
+          image: "../images/news-image/Dr. Neil Perez Balba.jpg",
+          content: `
                     <p>After witnessing declining fish stocks, Antonio Reyes organized his community to establish a marine protected area that has now become a model for sustainable fishing.</p>
                     
                     <p>Through his leadership, the community has achieved:</p>
@@ -357,14 +380,15 @@
                         <li>Recognition from national environmental agencies</li>
                         <li>Adoption of the model by neighboring communities</li>
                     </ul>
-                `
-            },
-            6: {
-                title: "Niña Terol: Trailblazer in Advancing Gender Equality at Icons of Change Awards 2025",
-                category: "Awards",
-                date: "April 15, 2023",
-                image: "../images/news-image/Niña Terol.jpg",
-                content: `
+                `,
+        },
+        6: {
+          title:
+            "Niña Terol: Trailblazer in Advancing Gender Equality at Icons of Change Awards 2025",
+          category: "Awards",
+          date: "April 15, 2023",
+          image: "../images/news-image/Niña Terol.jpg",
+          content: `
                     <p>A team of young engineers receives recognition for developing low-cost irrigation systems that help small farmers increase crop yields while conserving water.</p>
                     
                     <p>The innovative system features:</p>
@@ -384,14 +408,15 @@
                     </ul>
                     
                     <p>The prize includes funding to expand the project to 100 more farms in the coming year.</p>
-                `
-            },
-            7: {
-                title: "Gen Lee: Champion in Event Industry Leadership and Excellence at Icons of Change Awards 2025",
-                category: "Awards",
-                date: "April 15, 2023",
-                image: "../images/news-image/Gen Lee.jpg",
-                content: `
+                `,
+        },
+        7: {
+          title:
+            "Gen Lee: Champion in Event Industry Leadership and Excellence at Icons of Change Awards 2025",
+          category: "Awards",
+          date: "April 15, 2023",
+          image: "../images/news-image/Gen Lee.jpg",
+          content: `
                     <p>Gen Lee is honored at the Icons of Change Awards 2025 for his exceptional leadership and innovation in the event industry, driving growth and excellence in the sector.</p>
                     
                     <p>The innovative system features:</p>
@@ -411,131 +436,143 @@
                     </ul>
                     
                     <p>The prize includes funding to expand the project to 100 more farms in the coming year.</p>
-                `
-            },
-        };
+                `,
+        },
+      };
 
-        document.addEventListener('DOMContentLoaded', function() {
-            // Get article ID from URL
-            const urlParams = new URLSearchParams(window.location.search);
-            const articleId = urlParams.get('id');
-            
-            // Get the article data
-            const article = newsArticles[articleId];
-            
-            if (article) {
-                // Update page title
-                document.title = `${article.title} - Icons of Change`;
-                
-                // Update article content
-                document.getElementById('articleTitle').textContent = article.title;
-                document.getElementById('articleCategory').textContent = article.category;
-                document.getElementById('articleDate').textContent = article.date;
-                document.getElementById('articleImage').src = article.image;
-                document.getElementById('articleContent').innerHTML = article.content;
-                
-                // Update navigation links
-                const prevId = parseInt(articleId) - 1;
-                const nextId = parseInt(articleId) + 1;
-                
-                if (newsArticles[prevId]) {
-                    document.getElementById('prevArticle').href = `news-detail.html?id=${prevId}`;
-                        } else {
-                    document.getElementById('prevArticle').style.display = 'none';
-                }
-                
-                if (newsArticles[nextId]) {
-                    document.getElementById('nextArticle').href = `news-detail.html?id=${nextId}`;
-                } else {
-                    document.getElementById('nextArticle').style.display = 'none';
-                }
-            } else {
-                // Handle article not found
-                document.getElementById('articleTitle').textContent = 'Article Not Found';
-                document.getElementById('articleContent').innerHTML = '<p>Sorry, this article could not be found.</p>';
-                document.getElementById('prevArticle').style.display = 'none';
-                document.getElementById('nextArticle').style.display = 'none';
-            }
+      document.addEventListener("DOMContentLoaded", function () {
+        // Get article ID from URL
+        const urlParams = new URLSearchParams(window.location.search);
+        const articleId = urlParams.get("id");
 
-            // Authentication functionality
-            const loginBtn = document.getElementById('loginBtn');
-            const loginModal = document.getElementById('loginModal');
-            const closeLoginModal = document.getElementById('closeLoginModal');
-            const loginForm = document.getElementById('loginForm');
-            const loginError = document.getElementById('loginError');
-            const userMenu = document.getElementById('userMenu');
-            const userName = document.getElementById('userName');
-            const logoutLink = document.getElementById('logoutLink');
+        // Get the article data
+        const article = newsArticles[articleId];
 
-            // Check if user is logged in
-            function checkAuthStatus() {
-                const isLoggedIn = localStorage.getItem('isLoggedIn') === 'true';
-                const user = JSON.parse(localStorage.getItem('user') || '{}');
-                
-                if (isLoggedIn && user.name) {
-                    loginBtn.style.display = 'none';
-                    userMenu.style.display = 'block';
-                    userName.textContent = user.name;
-                        } else {
-                    loginBtn.style.display = 'block';
-                    userMenu.style.display = 'none';
-                }
-            }
+        if (article) {
+          // Update page title
+          document.title = `${article.title} - Icons of Change`;
 
-            // Show login modal
-            loginBtn.addEventListener('click', function() {
-                loginModal.classList.add('active');
-            });
+          // Update article content
+          document.getElementById("articleTitle").textContent = article.title;
+          document.getElementById("articleCategory").textContent =
+            article.category;
+          document.getElementById("articleDate").textContent = article.date;
+          document.getElementById("articleImage").src = article.image;
+          document.getElementById("articleContent").innerHTML = article.content;
 
-            // Close login modal
-            closeLoginModal.addEventListener('click', function() {
-                loginModal.classList.remove('active');
-                loginError.style.display = 'none';
-            });
+          // Update navigation links
+          const prevId = parseInt(articleId) - 1;
+          const nextId = parseInt(articleId) + 1;
 
-            // Handle login form submission
-            loginForm.addEventListener('submit', function(e) {
-                e.preventDefault();
-                const email = document.getElementById('email').value;
-                const password = document.getElementById('password').value;
+          if (newsArticles[prevId]) {
+            document.getElementById(
+              "prevArticle"
+            ).href = `news-detail.html?id=${prevId}`;
+          } else {
+            document.getElementById("prevArticle").style.display = "none";
+          }
 
-                if (email === 'admin@example.com' && password === 'password123') {
-                    localStorage.setItem('isLoggedIn', 'true');
-                    localStorage.setItem('user', JSON.stringify({
-                        name: 'Admin User',
-                        email: email
-                    }));
+          if (newsArticles[nextId]) {
+            document.getElementById(
+              "nextArticle"
+            ).href = `news-detail.html?id=${nextId}`;
+          } else {
+            document.getElementById("nextArticle").style.display = "none";
+          }
+        } else {
+          // Handle article not found
+          document.getElementById("articleTitle").textContent =
+            "Article Not Found";
+          document.getElementById("articleContent").innerHTML =
+            "<p>Sorry, this article could not be found.</p>";
+          document.getElementById("prevArticle").style.display = "none";
+          document.getElementById("nextArticle").style.display = "none";
+        }
 
-                    loginModal.classList.remove('active');
-                    checkAuthStatus();
-                } else {
-                    loginError.style.display = 'block';
-                }
-            });
+        // Authentication functionality
+        const loginBtn = document.getElementById("loginBtn");
+        const loginModal = document.getElementById("loginModal");
+        const closeLoginModal = document.getElementById("closeLoginModal");
+        const loginForm = document.getElementById("loginForm");
+        const loginError = document.getElementById("loginError");
+        const userMenu = document.getElementById("userMenu");
+        const userName = document.getElementById("userName");
+        const logoutLink = document.getElementById("logoutLink");
 
-            // Handle logout
-            logoutLink.addEventListener('click', function(e) {
-                e.preventDefault();
-                localStorage.removeItem('isLoggedIn');
-                localStorage.removeItem('user');
-                checkAuthStatus();
-            });
+        // Check if user is logged in
+        function checkAuthStatus() {
+          const isLoggedIn = localStorage.getItem("isLoggedIn") === "true";
+          const user = JSON.parse(localStorage.getItem("user") || "{}");
 
-            // Close user menu when clicking outside
-            document.addEventListener('click', function(e) {
-                if (!userMenu.contains(e.target)) {
-                    userMenu.classList.remove('active');
-                }
-            });
+          if (isLoggedIn && user.name) {
+            loginBtn.style.display = "none";
+            userMenu.style.display = "block";
+            userName.textContent = user.name;
+          } else {
+            loginBtn.style.display = "block";
+            userMenu.style.display = "none";
+          }
+        }
 
-            // Toggle user menu
-            userMenu.querySelector('.user-menu-button').addEventListener('click', function() {
-                userMenu.classList.toggle('active');
-            });
-
-            // Initial auth check
-            checkAuthStatus();
+        // Show login modal
+        loginBtn.addEventListener("click", function () {
+          loginModal.classList.add("active");
         });
+
+        // Close login modal
+        closeLoginModal.addEventListener("click", function () {
+          loginModal.classList.remove("active");
+          loginError.style.display = "none";
+        });
+
+        // Handle login form submission
+        loginForm.addEventListener("submit", function (e) {
+          e.preventDefault();
+          const email = document.getElementById("email").value;
+          const password = document.getElementById("password").value;
+
+          if (email === "admin@example.com" && password === "password123") {
+            localStorage.setItem("isLoggedIn", "true");
+            localStorage.setItem(
+              "user",
+              JSON.stringify({
+                name: "Admin User",
+                email: email,
+              })
+            );
+
+            loginModal.classList.remove("active");
+            checkAuthStatus();
+          } else {
+            loginError.style.display = "block";
+          }
+        });
+
+        // Handle logout
+        logoutLink.addEventListener("click", function (e) {
+          e.preventDefault();
+          localStorage.removeItem("isLoggedIn");
+          localStorage.removeItem("user");
+          checkAuthStatus();
+        });
+
+        // Close user menu when clicking outside
+        document.addEventListener("click", function (e) {
+          if (!userMenu.contains(e.target)) {
+            userMenu.classList.remove("active");
+          }
+        });
+
+        // Toggle user menu
+        userMenu
+          .querySelector(".user-menu-button")
+          .addEventListener("click", function () {
+            userMenu.classList.toggle("active");
+          });
+
+        // Initial auth check
+        checkAuthStatus();
+      });
     </script>
-</body>
-</html> 
+  </body>
+</html>

@@ -37,7 +37,7 @@
         </div>
         <div class="social-icons">
           <a
-            href="https://www.facebook.com/@IconsOfChangePhilippines"
+            href="https://www.facebook.com/TheIconsOfChange"
             target="_blank"
             class="social-icon"
           >
@@ -45,19 +45,6 @@
           </a>
         </div>
         <a href="pages/volunteer.html" class="cta-button">Become a Volunteer</a>
-        <div class="auth-buttons">
-            <button class="login-btn" id="loginBtn">Login</button>
-            <div class="user-menu" id="userMenu">
-                <button class="user-menu-button">
-                    <i class="fas fa-user"></i>
-                    <span id="userName">User</span>
-                </button>
-                <div class="user-menu-dropdown">
-                    <a href="#" class="user-menu-item" id="profileLink">Profile</a>
-                    <a href="#" class="user-menu-item" id="logoutLink">Logout</a>
-                </div>
-            </div>
-        </div>
       </nav>
     </header>
 
@@ -94,60 +81,8 @@
 
     <section class="events-programs">
       <h2>Our Events &<br />Programs</h2>
-      <div class="event-cards">
-        <div class="event-card">
-          <div class="event-image">
-            <img src="images/event-placeholder.jpg" alt="Event 1" />
-          </div>
-          <div class="event-details">
-            <h3>Leadership Summit 2023</h3>
-            <p>
-              A gathering of community leaders to exchange ideas and build
-              networks
-            </p>
-            <div class="card-actions">
-              <a href="pages/events.html" class="read-more">Read More</a>
-              <button class="share-btn">
-                <i class="fas fa-share-alt"></i>
-              </button>
-            </div>
-          </div>
-        </div>
-        <div class="event-card">
-          <div class="event-image">
-            <img src="images/event-placeholder.jpg" alt="Event 2" />
-          </div>
-          <div class="event-details">
-            <h3>Community Workshop Series</h3>
-            <p>
-              Hands-on workshops focused on sustainable community development
-            </p>
-            <div class="card-actions">
-              <a href="pages/events.html" class="read-more">Read More</a>
-              <button class="share-btn">
-                <i class="fas fa-share-alt"></i>
-              </button>
-            </div>
-          </div>
-        </div>
-        <div class="event-card">
-          <div class="event-image">
-            <img src="images/event-placeholder.jpg" alt="Event 3" />
-          </div>
-          <div class="event-details">
-            <h3>Annual Recognition Gala</h3>
-            <p>
-              Celebrating the achievements of extraordinary community
-              changemakers
-            </p>
-            <div class="card-actions">
-              <a href="pages/events.html" class="read-more">Read More</a>
-              <button class="share-btn">
-                <i class="fas fa-share-alt"></i>
-              </button>
-            </div>
-          </div>
-        </div>
+      <div class="event-cards" id="latest-events-container">
+        <!-- Latest events will be injected here -->
       </div>
       <div class="center-btn">
         <a href="pages/programs.html" class="outline-button"
@@ -178,30 +113,51 @@
     <section class="video-gallery">
       <h2>IoCPTV<br /><span class="subtitle">Our Impact in Action</span></h2>
       <div class="video-cards">
-        <div class="video-card" data-fb-id="683031690740763">
-          <div class="video-thumbnail">
-            <img src="images/IoCPTV-vid1.jpg" alt="Video 1" />
-          </div>
+        <div class="video-card">
+          <iframe
+            src="https://www.facebook.com/plugins/video.php?height=314&href=https%3A%2F%2Fwww.facebook.com%2FIconsOfChangePhilippines%2Fvideos%2F480712408256082%2F&show_text=false&width=560&t=0"
+            width="100%"
+            height="315"
+            style="border: none; overflow: hidden"
+            scrolling="no"
+            frameborder="0"
+            allowfullscreen="true"
+            allow="autoplay; clipboard-write; encrypted-media; picture-in-picture; web-share"
+          >
+          </iframe>
           <div class="video-details">
             <h3>
-              "The People's Platform: Every Candidate, Every Voice" - MAGZ
-              MAGLANA (Congressional Candidate 1st District Davao City)
-            </h3>
-            <p>Watch Video</p>
-          </div>
-        </div>
-        <div class="video-card" data-fb-id="1019246593583007">
-          <div class="video-thumbnail">
-            <img src="images/IoCPTV-vid2.jpg" alt="Video 2" />
-          </div>
-          <div class="video-details">
-            <h3>
-              "The People's Platform: Every Candidate, Every Voice" Featuring
+              The People’s Platform: Every Candidate, Every Voice” Featuring
               ATTY. LEANDRO VERCELES (Senatorial Candidate)
             </h3>
             <p>Watch Video</p>
           </div>
         </div>
+
+        <div class="video-card">
+          <iframe
+            src="https://www.facebook.com/plugins/video.php?height=314&href=https%3A%2F%2Fwww.facebook.com%2FIconsOfChangePhilippines%2Fvideos%2F4138243616397541%2F&show_text=false&width=560&t=0"
+            width="100%"
+            height="315"
+            style="border: none; overflow: hidden"
+            scrolling="no"
+            frameborder="0"
+            allowfullscreen="true"
+            allow="autoplay; clipboard-write; encrypted-media; picture-in-picture; web-share"
+          >
+          </iframe>
+          <div class="video-details">
+            <h3>
+              The People’s Platform: Every Candidate, Every Voice” Featuring
+              ATTY. ANGELO DE ALBAN (Senatorial Candidate)
+            </h3>
+            <p>Watch Video</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="center-btn">
+        <a href="pages/ioCPTV.html" class="outline-button">Explore More</a>
       </div>
     </section>
 
@@ -259,117 +215,38 @@
         </p>
       </div>
     </footer>
-
-    <!-- Login Modal -->
-    <div id="loginModal" class="modal">
-        <div class="modal-content">
-            <span class="close" id="closeLoginModal">&times;</span>
-            <h2>Login</h2>
-            <form id="loginForm">
-                <div class="form-group">
-                    <label for="email">Email:</label>
-                    <input type="email" id="email" name="email" required>
-                </div>
-                <div class="form-group">
-                    <label for="password">Password:</label>
-                    <input type="password" id="password" name="password" required>
-                </div>
-                <div class="error-message" id="loginError"></div>
-                <button type="submit" class="submit-btn">Login</button>
-            </form>
-        </div>
-    </div>
-
-    <script src="js/main.js"></script>
     <script>
-    // Authentication functionality
-    document.addEventListener('DOMContentLoaded', function() {
-        const loginBtn = document.getElementById('loginBtn');
-        const loginModal = document.getElementById('loginModal');
-        const closeLoginModal = document.getElementById('closeLoginModal');
-        const loginForm = document.getElementById('loginForm');
-        const loginError = document.getElementById('loginError');
-        const userMenu = document.getElementById('userMenu');
-        const userName = document.getElementById('userName');
-        const logoutLink = document.getElementById('logoutLink');
-        const createArticleBtn = document.getElementById('createArticleBtn');
+      document.addEventListener("DOMContentLoaded", async function () {
+        try {
+          const res = await fetch("pages/programs.html");
+          const text = await res.text();
+          const parser = new DOMParser();
+          const doc = parser.parseFromString(text, "text/html");
 
-        // Check if user is logged in
-        function checkAuthStatus() {
-            const isLoggedIn = localStorage.getItem('isLoggedIn') === 'true';
-            const user = JSON.parse(localStorage.getItem('user') || '{}');
-            
-            if (isLoggedIn && user.name) {
-                loginBtn.style.display = 'none';
-                userMenu.style.display = 'block';
-                userName.textContent = user.name;
-                if (createArticleBtn) {
-                    createArticleBtn.classList.add('visible');
-                }
-            } else {
-                loginBtn.style.display = 'block';
-                userMenu.style.display = 'none';
-                if (createArticleBtn) {
-                    createArticleBtn.classList.remove('visible');
-                }
+          const cards = Array.from(
+            doc.querySelectorAll(".events-programs .program-card")
+          );
+          const latest3 = cards.slice(0, 3);
+          const container = document.getElementById("latest-events-container");
+
+          latest3.forEach((card) => {
+            const img = card.querySelector("img");
+            if (img && img.getAttribute("src").startsWith("../")) {
+              img.src = img.getAttribute("src").replace("../", "");
             }
+
+            const cardClone = card.cloneNode(true);
+            const detailsLink = cardClone.querySelector(".details-link");
+            if (detailsLink) {
+              detailsLink.remove(); // remove the "Details" link from homepage
+            }
+
+            container.appendChild(cardClone);
+          });
+        } catch (err) {
+          console.error("Failed to load events:", err);
         }
-
-        // Show login modal
-        loginBtn.addEventListener('click', function() {
-            loginModal.classList.add('active');
-        });
-
-        // Close login modal
-        closeLoginModal.addEventListener('click', function() {
-            loginModal.classList.remove('active');
-            loginError.style.display = 'none';
-        });
-
-        // Handle login form submission
-        loginForm.addEventListener('submit', function(e) {
-            e.preventDefault();
-            const email = document.getElementById('email').value;
-            const password = document.getElementById('password').value;
-
-            // Mock authentication
-            if (email === 'admin@example.com' && password === 'password123') {
-                localStorage.setItem('isLoggedIn', 'true');
-                localStorage.setItem('user', JSON.stringify({
-                    name: 'Admin User',
-                    email: email
-                }));
-                loginModal.classList.remove('active');
-                checkAuthStatus();
-            } else {
-                loginError.style.display = 'block';
-                loginError.textContent = 'Invalid email or password';
-            }
-        });
-
-        // Handle logout
-        logoutLink.addEventListener('click', function(e) {
-            e.preventDefault();
-            localStorage.removeItem('isLoggedIn');
-            localStorage.removeItem('user');
-            checkAuthStatus();
-        });
-
-        // Close user menu when clicking outside
-        document.addEventListener('click', function(e) {
-            if (!userMenu.contains(e.target)) {
-                userMenu.classList.remove('active');
-            }
-        });
-
-        // Toggle user menu
-        userMenu.querySelector('.user-menu-button').addEventListener('click', function() {
-            userMenu.classList.toggle('active');
-        });
-
-        // Initial auth check
-        checkAuthStatus();
-    });
+      });
     </script>
   </body>
 </html>

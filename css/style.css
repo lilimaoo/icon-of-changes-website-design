@@ -67,6 +67,87 @@ section {
   margin-top: 40px;
 }
 
+/* Event Cards Container */
+
+.event-cards {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 20px;
+  margin-top: 30px;
+}
+
+/* Individual Card */
+
+.program-card {
+  background: #111;
+  border: 2px solid #f1c40f;
+  border-radius: 10px;
+  width: 100%;
+  max-width: 350px;
+  padding: 20px;
+  margin: 10px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  color: white;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  transition: transform 0.3s ease;
+}
+
+.program-card:hover {
+  transform: translateY(-5px);
+}
+
+.program-card img {
+  width: 100%;
+  height: 180px;
+  object-fit: cover;
+  border-radius: 8px;
+  margin-bottom: 15px;
+}
+
+.program-card h3 {
+  font-size: 1.1rem;
+  margin: 10px 0 8px;
+}
+
+.program-card p {
+  font-size: 0.95rem;
+  line-height: 1.4;
+  margin-bottom: 12px;
+}
+
+.program-card .date,
+.program-card .details-link {
+  font-size: 0.9rem;
+  display: inline-block;
+  margin-right: 8px;
+  color: var(--primary-color);
+}
+.program-card .date i {
+  color: var(--primary-color);
+}
+
+.program-card i {
+  color: var(--primary-color) !important;
+}
+
+.program-card .date i.fa-calendar {
+  color: var(--primary-color);
+  margin-right: 5px;
+  vertical-align: middle;
+}
+
+.program-card .date {
+  display: flex;
+  align-items: center;
+  gap: 6px; /* Controls spacing between icon and text */
+  color: var(--primary-color);
+  font-size: 0.9rem;
+  margin-top: 10px;
+}
+
 /* Button Styles */
 .cta-button {
   display: inline-block;
@@ -474,6 +555,7 @@ header {
 }
 
 /* Video Gallery Section */
+/* Video Gallery Section */
 .video-gallery {
   text-align: center;
   background-color: var(--light-bg);
@@ -492,18 +574,32 @@ header {
   margin: 0 auto;
   flex-wrap: wrap;
 }
-
 .video-card {
+  display: flex;
+  flex-direction: column;
   background-color: var(--card-bg);
   border-radius: var(--border-radius);
-  overflow: hidden;
   box-shadow: var(--shadow);
-  flex: 1;
-  min-width: 300px;
-  max-width: 350px;
-  transition: var(--transition);
-  cursor: pointer;
   border: 1px solid var(--primary-color);
+  overflow: hidden;
+  transition: var(--transition);
+  max-width: 350px;
+  width: 100%;
+}
+
+.video-card iframe {
+  display: block;
+  width: 100%;
+  height: auto;
+  aspect-ratio: 16 / 9;
+  border: none;
+  margin: 0;
+}
+
+.video-details {
+  padding: 20px;
+  text-align: left;
+  flex-grow: 0;
 }
 
 .video-card:hover {
@@ -515,18 +611,6 @@ header {
   position: relative;
   height: 200px;
   overflow: hidden;
-}
-
-.video-thumbnail::after {
-  content: "\f144";
-  font-family: "Font Awesome 5 Free";
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  font-size: 3rem;
-  color: rgba(255, 255, 255, 0.8);
-  transition: var(--transition);
 }
 
 .video-card:hover .video-thumbnail::after {
@@ -542,11 +626,6 @@ header {
 
 .video-card:hover .video-thumbnail img {
   transform: scale(1.05);
-}
-
-.video-details {
-  padding: 20px;
-  text-align: left;
 }
 
 .video-details h3 {
@@ -845,6 +924,24 @@ footer {
   max-width: 800px;
   max-height: 90vh;
   overflow: hidden;
+}
+
+.modal {
+  display: none; /* Hide by default */
+  position: fixed;
+  z-index: 1000;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.6); /* Dim background */
+}
+
+/* Show when active */
+.modal.active {
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
 .modal-header {

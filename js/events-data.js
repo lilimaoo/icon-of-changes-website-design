@@ -1,26 +1,5 @@
 const events = [
   {
-    title:
-      "The People’s Platform: Every Candidate, Every Voice” - MAGZ MAGLANA (Congressional Candidate 1st District Davao City)",
-    description: `Icons of Change invites you to an insightful discussion with Maria Victoria "Mags" Z. Maglana, veteran independent consultant in governance and sustainable development a long-time human rights and transitional justice advocate, today, March 19, 2025, from 8:30 PM to 9:30 PM.`,
-    link: "https://www.facebook.com/61564663490111/videos/683031690740763",
-    videoEmbed: `<iframe src="https://www.facebook.com/plugins/video.php?height=314&href=https%3A%2F%2Fwww.facebook.com%2FIconsOfChangePhilippines%2Fvideos%2F683031690740763%2F&show_text=false&width=560&t=0" width="560" height="314" style="border:none;overflow:hidden" scrolling="no" frameborder="0" allowfullscreen="true" allow="autoplay; clipboard-write; encrypted-media; picture-in-picture; web-share" allowFullScreen="true"></iframe>`,
-  },
-  {
-    title:
-      "The People’s Platform: Every Candidate, Every Voice” - DR. CHIE UMANDAP (AKO-OFW Partylist)",
-    description: `Icons of Change invites you to an insightful discussion with Dr. Celerino "Chie" Umandap, a dedicated advocate for Overseas Filipino Workers (OFWs) and nominee of the AKO-OFW Partylist. With years of experience in migrant welfare, social services, and governance, Dr. Umandap is committed to advancing policies that support OFWs, digital workers, and their families.`,
-    link: "https://www.facebook.com/61564663490111/videos/514416404719560",
-    videoEmbed: `<iframe src="https://www.facebook.com/plugins/video.php?height=314&href=https%3A%2F%2Fwww.facebook.com%2FIconsOfChangePhilippines%2Fvideos%2F514416404719560%2F&show_text=false&width=560&t=0" width="560" height="314" style="border:none;overflow:hidden" scrolling="no" frameborder="0" allowfullscreen="true" allow="autoplay; clipboard-write; encrypted-media; picture-in-picture; web-share" allowFullScreen="true"></iframe>`,
-  },
-  {
-    title:
-      "The People’s Platform: Every Candidate, Every Voice” - NORMAN MARQUEZ (Senatorial Candidate)",
-    description: `Icons of Change invites you to a compelling discussion with Norman Cordero Marquez, a dedicated animal welfare advocate, community leader, and former Barangay Kagawad of Otucan Sur, Bauko, Mountain Province. With a strong background in advocacy, governance, and legal reforms, Marquez has worked tirelessly for animal rights, social justice, and grassroots empowerment.`,
-    link: "https://www.facebook.com/61564663490111/videos/1386728899360760",
-    videoEmbed: `<iframe src="https://www.facebook.com/plugins/video.php?height=314&href=https%3A%2F%2Fwww.facebook.com%2FIconsOfChangePhilippines%2Fvideos%2F1386728899360760%2F&show_text=false&width=560&t=0" width="560" height="314" style="border:none;overflow:hidden" scrolling="no" frameborder="0" allowfullscreen="true" allow="autoplay; clipboard-write; encrypted-media; picture-in-picture; web-share" allowFullScreen="true"></iframe>`,
-  },
-  {
     title: `The People's Platform: Every Candidate, Every Voice" featuring Jocelyn "Alyn" Andamo`,
     description: `Icons of Change invites you to an engaging discussion with Jocelyn "Alyn" Andamo, a long-time community nurse, organizer, and advocate for public health and healthcare workers' rights, on February 15, 2025, at 7 PM. As the Secretary-General of Filipino Nurses United and a Senate candidate under the Makabayan coalition, Nars Alyn has dedicated her life to championing free, quality healthcare and fair labor conditions for nurses and health workers. Her extensive experience in grassroots healthcare, policy advocacy, and international health solidarity makes her a strong voice for systemic reforms in the Philippine health sector.`,
     link: "https://www.facebook.com/61564663490111/videos/888352459924295",
