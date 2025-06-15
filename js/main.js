@@ -6,7 +6,7 @@ document.addEventListener("DOMContentLoaded", function () {
     navToggle.innerHTML = '<i class="fas fa-bars"></i>';
 
     const navbar = document.querySelector(".navbar");
-    if (window.innerWidth <= 992) {
+    if (window.innerWidth <= 1200) {
       navbar.insertBefore(navToggle, document.querySelector(".nav-links"));
 
       navToggle.addEventListener("click", () => {
