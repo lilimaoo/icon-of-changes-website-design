@@ -710,7 +710,9 @@ footer {
 
 .footer-links {
   display: flex;
-  gap: 20px;
+  flex-wrap: wrap; /* <-- allows wrapping on small screens */
+  justify-content: center; /* center the wrapped items */
+  gap: 10px;
 }
 
 .footer-links a {
