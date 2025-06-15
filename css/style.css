@@ -745,38 +745,6 @@ footer {
     flex-wrap: wrap;
   }
 
-  .nav-toggle {
-    display: block;
-    margin-left: auto;
-    margin-right: 20px;
-  }
-
-  .nav-links {
-    position: absolute;
-    top: 100%;
-    left: 0;
-    width: 100%;
-    background-color: var(--dark-bg);
-    flex-direction: column;
-    align-items: center;
-    padding: 0;
-    max-height: 0;
-    overflow: hidden;
-    transition: max-height 0.5s ease;
-    z-index: 100;
-  }
-
-  .nav-links.nav-active {
-    max-height: 500px;
-    padding: 20px 0;
-  }
-
-  .nav-links a {
-    margin: 10px 0;
-    display: block;
-    text-align: center;
-  }
-
   .about-card,
   .contact-card,
   .join-us {
@@ -982,6 +950,57 @@ footer {
 @media (max-width: 768px) {
   .modal-body iframe {
     height: 300px;
+  }
+}
+/* Add this to your existing media queries */
+@media (min-width: 1201px) {
+  .nav-toggle {
+    display: none !important; /* Hide hamburger on desktop */
+  }
+  .nav-links {
+    display: flex !important; /* Always show nav links on desktop */
+  }
+}
+
+@media (max-width: 1200px) {
+  .nav-toggle {
+    display: block; /* Show hamburger on mobile */
+    margin-left: auto;
+    margin-right: 20px;
+    background: none;
+    border: none;
+    color: #fff;
+    font-size: 1.5rem;
+    cursor: pointer;
+  }
+  .nav-links {
+    display: none; /* Hide nav links by default on mobile */
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+    background-color: var(--dark-bg);
+    position: absolute;
+    top: 100%;
+    left: 0;
+    z-index: 100;
+  }
+  .nav-links.nav-active {
+    display: flex;
+    padding: 20px 0;
+  }
+  .nav-links a {
+    margin: 10px 0;
+    display: block;
+    text-align: center;
+  }
+
+  .social-icons {
+    margin-left: auto; /* Push social icons to the right */
+    margin-right: 15px;
+  }
+
+  .cta-button {
+    margin-left: 15px;
   }
 }
 
